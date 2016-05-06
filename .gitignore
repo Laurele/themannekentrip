@@ -16,3 +16,9 @@ wp-content/plugins/hello.php
 /readme.html
 /license.txt
 
+# Disable old themes
+wp-content/themes/twentyfifteen
+wp-content/themes/twentyfourteen
+
+# Disable PhpStorm files
+.idea
