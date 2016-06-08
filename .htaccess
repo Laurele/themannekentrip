@@ -50,3 +50,8 @@ ServerSignature Off
 Order Deny,Allow
 Deny from all
 Allow from 109.128.165.26
+
+ErrorDocument 500 "500 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
+ErrorDocument 401 "401 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
+ErrorDocument 403 "403 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
+ErrorDocument 404 "404 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
