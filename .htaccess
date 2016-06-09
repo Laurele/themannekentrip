@@ -9,49 +9,49 @@ RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
 
-###############
-#My Settings #
-###############
-#
-#http://trucs-wordpress.livrogne.com/2012/le-fichier-htaccess/
-#Tips from this site applied below
-#
-#BEGIN Expire headers
-#<IfModule mod_expires.c>
-#ExpiresActive On
-#ExpiresDefault "access plus 7200 seconds"
-#ExpiresByType image/jpg "access plus 7 days"
-#ExpiresByType image/jpeg "access plus 7 days"
-#ExpiresByType image/png "access plus 7 days"
-#ExpiresByType image/gif "access plus 7 days"
-#ExpiresByType image/ico "access plus 7 days"
-#ExpiresByType text/css "access plus 1 days"
-#ExpiresByType text/html "access plus 7200 seconds"
-#</IfModule>
-## END Expire headers
-#
-## interdire l'acces à wp-config (cas d'un site sous WordPress)
-#<files wp-config.php>
-#order allow,deny
-#deny from all
-#</files>
-#
-## interdire l'accès à .htaccess
-#<files .htaccess>
-#order allow,deny
-#deny from all
-#</files>
-#
-#Options All -Indexes
-#
-#ServerSignature Off
-#
-## Autoriser une seule ip :
-#Order Deny,Allow
-#Deny from all
-#Allow from 109.128.165.26
-#
-#ErrorDocument 500 "500 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
-#ErrorDocument 401 "401 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
-#ErrorDocument 403 "403 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
-#ErrorDocument 404 "404 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
+##############
+My Settings #
+##############
+
+http://trucs-wordpress.livrogne.com/2012/le-fichier-htaccess/
+Tips from this site applied below
+
+BEGIN Expire headers
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 7200 seconds"
+ExpiresByType image/jpg "access plus 7 days"
+ExpiresByType image/jpeg "access plus 7 days"
+ExpiresByType image/png "access plus 7 days"
+ExpiresByType image/gif "access plus 7 days"
+ExpiresByType image/ico "access plus 7 days"
+ExpiresByType text/css "access plus 1 days"
+ExpiresByType text/html "access plus 7200 seconds"
+</IfModule>
+# END Expire headers
+
+# interdire l'acces à wp-config (cas d'un site sous WordPress)
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+
+# interdire l'accès à .htaccess
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
+
+Options All -Indexes
+
+ServerSignature Off
+
+# Autoriser une seule ip :
+Order Deny,Allow
+Deny from all
+Allow from 109.128.165.26
+
+ErrorDocument 500 "500 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
+ErrorDocument 401 "401 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
+ErrorDocument 403 "403 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
+ErrorDocument 404 "404 Désolé, vous n'avez pas le droit d'accéder à ce fichier"
