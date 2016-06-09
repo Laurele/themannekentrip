@@ -22,3 +22,6 @@ wp-content/themes/twentyfourteen
 
 # Disable PhpStorm files
 .idea
+
+# Atlassian
+atlassian-ide-plugin.xml
