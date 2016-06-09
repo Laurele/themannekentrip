@@ -47,6 +47,6 @@ Options All -Indexes
 ServerSignature Off
 
 # Autoriser une seule ip :
-Order Deny,Allow
-Deny from all
-Allow from 109.128.165.26
+#Order Deny,Allow
+#Deny from all
+#Allow from 192.168.1.48
