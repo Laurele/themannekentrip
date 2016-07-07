@@ -11,7 +11,9 @@ wp-content/cache/
 wp-content/upgrade/
 wp-content/uploads/
 wp-content/wp-cache-config.php
-wp-content/plugins/hello.php
+
+# ignore plugins file
+wp-content/plugins/
 
 /readme.html
 /license.txt
@@ -22,6 +24,13 @@ wp-content/themes/twentyfourteen
 
 # Disable PhpStorm files
 .idea
+
+# ignore all files that start with ~
+~*
+
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
 
 # Atlassian
 atlassian-ide-plugin.xml
