@@ -34,3 +34,7 @@ Thumbs.db
 
 # Atlassian
 atlassian-ide-plugin.xml
+
+# Ignore node and gulp dependencies
+node_modules
+bower_components

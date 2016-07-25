@@ -1,0 +1,41 @@
+dest: "wp-content/themes/twentysixteen/build"
+productionSuffix: ".min"
+assets:
+  -
+    type: "styles"
+    output: "main.css"
+    src: "wp-content/themes/twentysixteen/assets/less"
+    files:
+      - "main.less"
+    watch:
+      - "**/*.less"
+  -
+    type: "scripts"
+    output: "main.js"
+    src: "wp-content/themes/twentysixteen/assets/scripts"
+    files:
+      - "**/*.js"
+    watch: true
+    lint: true
+  -
+    type: "scripts"
+    src: "bower_components"
+    output: "modernizr.js"
+    files:
+      - "modernizr/modernizr.js"
+    lint: false
+    watch: false
+  -
+    type: "scripts"
+    src: "bower_components"
+    output: "respond.js"
+    files:
+      - "respond/src/respond.js"
+    lint: false
+    watch: false
+
+server:
+  plugin: "livereload"
+  src: "./"
+  watch:
+    - "wp-content/themes/**/*.php"
