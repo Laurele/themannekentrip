@@ -288,12 +288,20 @@ function twentysixteen_scripts() {
 add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
 
 /**
+ * Detect which environment regarding site url
+ * @return int
+ */
+function is_dev_environment () {
+    return preg_match("/.local$/i", $_SERVER['HTTP_HOST']);
+}
+
+/**
  * Enqueue all scripts assets in header or footer
  */
 function my_theme_scripts()
 {
     // .min scripts
-    if (preg_match("/.local$/i", $_SERVER['HTTP_HOST'])) {
+    if (is_dev_environment()) {
         // Header
         wp_enqueue_script( 'modernizr-script', get_template_directory_uri() . '/build/scripts/modernizr.min.js', array( 'jquery' ), '20162505', false );
         wp_enqueue_script( 'respond-script', get_template_directory_uri() . '/build/scripts/respond.min.js', array( 'jquery' ), '20162505', false );
@@ -316,7 +324,7 @@ add_action('wp_enqueue_scripts', 'my_theme_scripts');
 function my_theme_styles()
 {
     // .min styles
-    if (preg_match("/.local$/i", $_SERVER['HTTP_HOST'])) {
+    if (is_dev_environment()) {
         wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.min.css', array(), '20162505');
     } else {
         wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.css', array(), '20162505');

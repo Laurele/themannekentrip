@@ -1,0 +1,46 @@
+// Breakpoints - Default sizes
+// - small:    500px    31.25em
+// - medium:   760px    47.5em
+// - large:    1024px   64em
+// - xlarge:   1140px   71.25em
+//
+@highdensity: ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+    ~"only screen and (min--moz-device-pixel-ratio: 1.5)",
+    ~"only screen and (-o-min-device-pixel-ratio: 3/2)",
+    ~"only screen and (min-device-pixel-ratio: 1.5)";
+@small: ~"only screen and (min-width: 31.25em)";
+@medium: ~"only screen and (min-width: 47.5em)";
+@large: ~"only screen and (min-width: 64em)";
+@xlarge: ~"only screen and (min-width: 71.25em)";
+
+html[data-env=dev] body {
+    &:after { /*This adds a label in the top-left corner that displays the current media query state.*/
+        display: block;
+        content: "undefined";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        opacity: .5;
+        padding: .2em 1em;
+        z-index: 9999;
+        background: red;
+        color: @white;
+        text-align: center;
+        @media @small {
+            background: orange;
+            content: "small";
+        }
+        @media @medium {
+            background: purple;
+            content: "medium";
+        }
+        @media @large {
+            background: green;
+            content: "large";
+        }
+        @media @xlarge {
+            background: blue;
+            content: "xlarge";
+        }
+    }
+}
