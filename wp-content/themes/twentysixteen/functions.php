@@ -122,7 +122,7 @@ function twentysixteen_setup() {
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'css/editor-style.css', twentysixteen_fonts_url() ) );
+	add_editor_style( array( 'assets/css/editor-style.css', twentysixteen_fonts_url() ) );
 
 	// Indicate widget sidebars can use selective refresh in the Customizer.
 	add_theme_support( 'customize-selective-refresh-widgets' );
@@ -253,15 +253,15 @@ function twentysixteen_scripts() {
 	wp_enqueue_style( 'twentysixteen-style', get_stylesheet_uri() );
 
 	// Load the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'twentysixteen-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentysixteen-style' ), '20160412' );
+	wp_enqueue_style( 'twentysixteen-ie', get_template_directory_uri() . '/assets/css/ie.css', array( 'twentysixteen-style' ), '20160412' );
 	wp_style_add_data( 'twentysixteen-ie', 'conditional', 'lt IE 10' );
 
 	// Load the Internet Explorer 8 specific stylesheet.
-	wp_enqueue_style( 'twentysixteen-ie8', get_template_directory_uri() . '/css/ie8.css', array( 'twentysixteen-style' ), '20160412' );
+	wp_enqueue_style( 'twentysixteen-ie8', get_template_directory_uri() . '/assets/css/ie8.css', array( 'twentysixteen-style' ), '20160412' );
 	wp_style_add_data( 'twentysixteen-ie8', 'conditional', 'lt IE 9' );
 
 	// Load the Internet Explorer 7 specific stylesheet.
-	wp_enqueue_style( 'twentysixteen-ie7', get_template_directory_uri() . '/css/ie7.css', array( 'twentysixteen-style' ), '20160412' );
+	wp_enqueue_style( 'twentysixteen-ie7', get_template_directory_uri() . '/assets/css/ie7.css', array( 'twentysixteen-style' ), '20160412' );
 	wp_style_add_data( 'twentysixteen-ie7', 'conditional', 'lt IE 8' );
 
 	// Load the html5 shiv.
