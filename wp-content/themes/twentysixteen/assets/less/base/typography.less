@@ -64,10 +64,23 @@
 // ------------------------------------------------
 
 html {
-    font: 300 100%/@baseLineHeight @baseFontSize;
+    font: 300 100%/@baseLineHeight @baseFontFamily;
 }
 
 body {
     background: @backgroundColor;
     color: @textColor;
+    font-size: 12px;
+
+    @media @medium {
+        font-size: 14px;
+    }
+
+    @media @large {
+        font-size: 16px;
+    }
+
+    @media @xlarge {
+        font-size: 18px;
+    }
 }

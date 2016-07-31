@@ -16,22 +16,24 @@
     <main id="main" class="site-main" role="main">
 
             <header>
-                <h1><?php the_title(); ?></h1>
+                <h1 class="construction-title"><?php the_title(); ?></h1>
             </header>
 
-            <section>
-                <?php the_content(); ?>
+            <section class="construction-content">
+                <div class="construction-content--wysiwyg">
+                    <?php the_content(); ?>
+                </div>
 
-                <div class="construction-socials">
-                    <ul class="construction-socials--list">
-                        <li class="construction-socials--list">
-                            <a target="_blank" class="construction-socials--list-item" href="http://facebook.com"><?php echo pll__('View us on Facebook'); ?></a>
+                <div class="construction-content--socials">
+                    <ul class="construction-content--socials--list">
+                        <li class="construction-content--socials--list">
+                            <a target="_blank" class="construction-content--socials--list-item" href="http://facebook.com"><?php echo pll__('View us on Facebook'); ?></a>
                         </li>
-                        <li class="construction-socials--list">
-                            <a target="_blank" class="construction-socials--list-item" href="http://twitter.com"><?php echo pll__('Follow us on Twitter'); ?></a>
+                        <li class="construction-content--socials--list">
+                            <a target="_blank" class="construction-content--socials--list-item" href="http://twitter.com"><?php echo pll__('Follow us on Twitter'); ?></a>
                         </li>
-                        <li class="construction-socials--list">
-                            <a target="_blank" class="construction-socials--list-item" href="http://youtube.com"><?php echo pll__('Visualize us on Youtube'); ?></a>
+                        <li class="construction-content--socials--list">
+                            <a target="_blank" class="construction-content--socials--list-item" href="http://youtube.com"><?php echo pll__('Visualize us on Youtube'); ?></a>
                         </li>
                     </ul>
                 </div>
