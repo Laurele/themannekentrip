@@ -40,6 +40,7 @@ Mail boxes :
 1. contact@themannekentrip.be | America18!
 2. arnaud.maldague@themannekentrip.be | 6szwcJ4hPg3Fc2rA
 3. admin@themannekentrip.be | Titaestcool87!
+4. mailchimp@themannekentrip.be | Titaestcool87!
 
 FTP Connection - Client :
 -------------------------
@@ -82,3 +83,13 @@ Work in progress
 ----------------
 git ftp push
 git ftp catchup
+
+
+Mailchimp
+=========
+
+Credential
+----------
+mail: mailchimp@themannekentrip.be
+username: themannekentrip
+pwd: Titaestcool87!
