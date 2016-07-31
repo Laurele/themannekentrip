@@ -21,6 +21,20 @@
 
             <section>
                 <?php the_content(); ?>
+
+                <div class="construction-socials">
+                    <ul class="construction-socials--list">
+                        <li class="construction-socials--list">
+                            <a target="_blank" class="construction-socials--list-item" href="http://facebook.com"><?php echo pll__('View us on Facebook'); ?></a>
+                        </li>
+                        <li class="construction-socials--list">
+                            <a target="_blank" class="construction-socials--list-item" href="http://twitter.com"><?php echo pll__('Follow us on Twitter'); ?></a>
+                        </li>
+                        <li class="construction-socials--list">
+                            <a target="_blank" class="construction-socials--list-item" href="http://youtube.com"><?php echo pll__('Visualize us on Youtube'); ?></a>
+                        </li>
+                    </ul>
+                </div>
             </section>
 
     </main><!-- .site-main -->
