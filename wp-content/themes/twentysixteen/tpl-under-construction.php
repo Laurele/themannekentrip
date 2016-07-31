@@ -16,7 +16,8 @@
     <main id="main" class="site-main" role="main">
 
             <header>
-                <h1 class="construction-title"><?php the_title(); ?></h1>
+                <h1 class="construction-title"><?php echo get_bloginfo('name'); ?></h1>
+                <h2 class="construction-subtitle"><?php the_title(); ?></h2>
             </header>
 
             <section class="construction-content">
