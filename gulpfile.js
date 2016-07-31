@@ -150,16 +150,16 @@ gulp.task("bower-main", ["bower-install"], function () {
 // Update assets version in Symfony config file
 gulp.task('assets-version', function () {
     try {
-        var SymfonyConfig = yaml.safeLoad(fs.readFileSync('app/config/assets.yml', 'utf8'));
+        var SymfonyConfig = yaml.safeLoad(fs.readFileSync('gulp/assets.yml', 'utf8'));
         if (SymfonyConfig.parameters === undefined) {
-            $.util.error('Parameters not found in "app/config/assets.yml"');
+            $.util.error('Parameters not found in "gulp/assets.yml"');
         }
         SymfonyConfig.parameters.assets_version = shortId.generate();
 
-        fs.writeFile('app/config/assets.yml', yaml.safeDump(SymfonyConfig, {indent: 4}), {encoding: 'utf8'});
+        fs.writeFile('gulp/assets.yml', yaml.safeDump(SymfonyConfig, {indent: 4}), {encoding: 'utf8'});
     } catch (error) {
         if (error.code === 'ENOENT') {
-            $.util.log($.util.colors.red('Please create a "app/config/assets.yml" file with a "assets_version" parameter and include it in the "app/config/config.yml"'));
+            $.util.log($.util.colors.red('Please create a "gulp/assets.yml" file with a "assets_version"'));
         } else {
             throw error;
         }
