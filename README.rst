@@ -37,8 +37,9 @@ https://ssl0.ovh.net/fr/
 
 Mail boxes :
 ------------
-1. contact@themannekentrip.be | x7elvn1ev
+1. contact@themannekentrip.be | America18!
 2. arnaud.maldague@themannekentrip.be | 6szwcJ4hPg3Fc2rA
+3. admin@themannekentrip.be | Titaestcool87!
 
 FTP Connection - Client :
 -------------------------
@@ -54,6 +55,7 @@ cd www
 Base de donnée
 --------------
 host : mysql55-55.perso
+db name : themannetdwp
 credentials : themannetdwp | 8JFmRFsPPAy6
 
 WP :
