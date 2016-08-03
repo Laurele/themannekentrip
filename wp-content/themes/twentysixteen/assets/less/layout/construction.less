@@ -10,13 +10,14 @@
     .align-items(flex-start);
 }
 
+@gutter: 10%;
 #main {
     width: 100%;
     .flex-content-size(1 1 auto);
 
     .page-template-tpl-under-construction & {
         text-align: center;
-        margin: 10% auto;
+        margin: ~"calc(20% - @{gutter})" auto;
     }
 }
 
@@ -29,6 +30,105 @@
     }
 }
 
-.construction-title {
+.construction-header {
+    position: relative;
+    padding-top: @gutter;
 
+    &:before {
+        @space: 20%;
+        content: '';
+        position: absolute;
+        top: @gutter / 2;
+        left: @space;
+        right: @space;
+        height: 1px;
+        background: @lightGrey;
+    }
+}
+
+.construction-header--title {
+    font-size: 2rem;
+    margin: 0 0 @gutter/2;
+}
+
+.construction-header--subtitle {
+    font-size: 1.2rem;
+    margin: 0 0 @gutter / 3;
+}
+
+.construction-content {
+    font-size: 1em;
+}
+
+.construction-content--wysiwyg {
+
+    > [class^="mc4wp-form"] {
+        margin: @gutter/3 auto;
+        width: 50%;
+        max-width: 1024px/2;
+    }
+}
+
+@buttonWidth: 50px;
+.mc4wp-form-fields {
+    position: relative;
+    margin: auto;
+    text-align: left;
+}
+
+.mc4wp-form-fields input[type="email"] {
+    width: ~"calc(100% - @{buttonWidth})";
+    padding: 5px 15px;
+    background: @white;
+    color: @mediumGrey;
+    .placeholder({color: @lightGrey});
+}
+
+.mc4wp-form-fields input[type="submit"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: @buttonWidth;
+    height: 100%;
+    background: none;
+    color: @mediumGrey;
+    .hide-text();
+
+    @size: 50px;
+    &:before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: @size 0 @size @size*4;
+        border-color: transparent transparent transparent @darkGrey;
+    }
+}
+
+.construction-content--socials {
+    margin: @gutter/2 auto;
+}
+
+.construction-content--socials--list {
+    font-size: 0;
+}
+
+.construction-content--socials--list-item {
+    display: inline-block;
+}
+
+.construction-content--socials--list-item-link {
+    text-decoration: none;
+    width: 1rem;
+    cursor: pointer;
+}
+
+[class*="icon-"]:before {
+    content: 'icon';
+    border: solid 1px @lightGrey;
+}
+
+.mc4wp-error * {
+    font-size: 0.8rem;
+    color: red
 }
