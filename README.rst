@@ -93,3 +93,12 @@ Credential
 mail: mailchimp@themannekentrip.be
 username: themannekentrip
 pwd: Titaestcool87!
+
+
+Fontastic
+=========
+
+Credential
+----------
+mail: admin@themannekentrip.be
+pwd: Titaestcool87!
