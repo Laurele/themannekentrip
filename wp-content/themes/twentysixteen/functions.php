@@ -325,10 +325,11 @@ function my_theme_styles()
 {
     // .min styles
     if (is_dev_environment()) {
-        wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.min.css', array(), '20162505');
+        wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.min.css', array(), '20160725');
     } else {
-        wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.css', array(), '20162505');
+        wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.css', array(), '20160725');
     }
+    wp_enqueue_style('fontastic', 'https://file.myfontastic.com/mg9JcKNLSXVKNmerfyxeEC/icons.css', array(), '20160806');
 
 }
 add_action('wp_enqueue_scripts', 'my_theme_styles');
