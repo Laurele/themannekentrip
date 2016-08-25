@@ -289,7 +289,7 @@ gulp.task('styles', function () {
                 .pipe($.replace(/([\/\w\._-]+\/)*([\w\._-]+\.(ttf|eot|woff|svg))/g, '../fonts/$2'))
                 .pipe($.sourcemaps.write())
                 // TODO : uncomment the line below if you want the images directory structure to be flatten
-                //.pipe($.replace(/([\/\w\._-]+\/)*([\w\._-]+\.(png|jpg|gif))/g, '../images/$2'))
+                .pipe($.replace(/([\/\w\._-]+\/)*([\w\._-]+\.(png|jpg|gif))/g, '../images/$2'))
                 // Save the concatenated styles in %config.dest%/styles
                 .pipe(gulp.dest(path.join(config.dest, 'styles')))
                 // Display the size of the concatenated styles

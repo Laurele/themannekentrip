@@ -1,5 +1,12 @@
 dest: "wp-content/themes/twentysixteen/build"
 productionSuffix: ".min"
+copies:
+  -
+    src: "wp-content/themes/twentysixteen/assets/images"
+    files:
+      - "**/*.jpg"
+      - "**/*.png"
+    dest: "wp-content/themes/twentysixteen/build/images"
 assets:
   -
     type: "styles"
