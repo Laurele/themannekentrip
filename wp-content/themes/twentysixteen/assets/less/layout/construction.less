@@ -1,4 +1,4 @@
-@gutter: 10%;
+@gutter: 40px;
 
 /* Layout styling */
 body.page-template-tpl-under-construction {
@@ -18,13 +18,19 @@ body.page-template-tpl-under-construction {
 	.align-items(flex-start);
 }
 
+#topbar {
+	width: 100%;
+	height: @gutter;
+	background: @black;
+	z-index: 100;
+}
+
 #main {
 	width: 100%;
 	.flex-content-size(1 1 auto);
 
 	.page-template-tpl-under-construction & {
 		text-align: center;
-		margin: ~"calc(20% - @{gutter})" auto;
 	}
 }
 
@@ -39,18 +45,11 @@ body.page-template-tpl-under-construction {
 
 .construction-header {
 	position: relative;
-	padding-top: @gutter;
-
-	&:before {
-		@space: 20%;
-		content: '';
-		position: absolute;
-		top: @gutter / 2;
-		left: @space;
-		right: @space;
-		height: 1px;
-		background: @lightGrey;
-	}
+	padding-top: @gutter / 2;
+	background: rgba(255, 255, 255, 0.8);
+	width: 90%;
+	max-width: 1024px/2;
+	margin: 0 auto;
 }
 
 .construction-header--title {
@@ -64,22 +63,22 @@ body.page-template-tpl-under-construction {
 }
 
 .construction-content {
-	margin: 10% auto 0;
+	margin: 0 auto;
 	font-size: 1em;
 }
 
 .construction-content--wysiwyg {
-
-	> [class^="mc4wp-form"] {
-		margin: @gutter/3 auto;
-		width: 50%;
-		max-width: 1024px/2;
-	}
+	width: 90%;
+	max-width: 1024px/2;
+	background: rgba(255, 255, 255, 0.8);
+	padding: 60px 20px 20px;
+	margin: 0 auto;
 }
 
 /* Footer styling */
 .construction-content--socials {
-	margin: @gutter/2 auto;
+	text-align: right;
+	margin: @gutter/2 0 @gutter/2 auto;
 }
 
 .construction-content--socials--list {
@@ -94,7 +93,6 @@ body.page-template-tpl-under-construction {
 	text-decoration: none;
 	width: 1rem;
 	cursor: pointer;
-	background: @lightGrey;
 	color: @white;
 	padding: 3px;
 
@@ -109,21 +107,19 @@ body.page-template-tpl-under-construction {
 
 	h1 {
 		margin: 0 auto 40px;
-		background: rgba(255, 255, 255, 0.8);
 		width: 343px;
 		height: 173px;
 	}
 
 	h2 {
 		margin: 0 auto;
+		font-size: 1.8rem;
 		font-family: "Montara";
 	}
 
 	h3 {
 		display: block;
 		margin: 0 auto 10px;
-		width: 50%;
-		max-width: 1024px/2;
 	}
 
 	@buttonWidth: 50px;
@@ -142,11 +138,20 @@ body.page-template-tpl-under-construction {
 		color: red
 	}
 
+	.mc4wp-success {
+		padding: 10px;
+		line-height: 1.7;
+
+		* {
+			margin: 0;
+		}
+	}
+
 	.mc4wp-form-fields input[type="email"] {
 		width: ~"calc(100% - @{buttonWidth})";
 		padding: 5px 15px;
 		background: @white;
-		color: @mediumGrey;
+		color: @darkGrey;
 		font-size: 0.9rem;
 
 		.placeholder({
@@ -165,7 +170,6 @@ body.page-template-tpl-under-construction {
 		height: 100%;
 		z-index: 2;
 		background: transparent;
-		color: @mediumGrey;
 		.hide-text();
 
 		&:hover + .construction-form-submit-placeholder:after {
@@ -175,7 +179,8 @@ body.page-template-tpl-under-construction {
 
 	[id^="mc4wp-form-"] {
 		position: relative;
-		margin: 0 auto;
+		margin: @gutter/3 auto;
+		width: 80%;
 	}
 
 	.construction-form-submit-placeholder {

@@ -12,7 +12,23 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="primary" class="content-area">
+<section id="primary" class="content-area">
+    <header id="topbar">
+        <div class="construction-content--socials">
+            <ul class="construction-content--socials--list">
+                <li class="construction-content--socials--list-item">
+                    <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('View us on Facebook'); ?>" href="http://facebook.com"><i class="icon-facebook"></i></a>
+                </li>
+                <li class="construction-content--socials--list-item">
+                    <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('Follow us on Twitter'); ?>" href="http://twitter.com"><i class="icon-twitter"></i></a>
+                </li>
+                <li class="construction-content--socials--list-item">
+                    <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('Visualize us on Youtube'); ?>" href="http://youtube.com"><i class="icon-youtube"></i></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
     <main id="main" class="site-main" role="main">
 
             <header class="construction-header">
@@ -26,24 +42,10 @@
                 <div class="construction-content--wysiwyg">
                     <?php the_content(); ?>
                 </div>
-
-                <div class="construction-content--socials">
-                    <ul class="construction-content--socials--list">
-                        <li class="construction-content--socials--list-item">
-                            <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('View us on Facebook'); ?>" href="http://facebook.com"><i class="icon-facebook"></i></a>
-                        </li>
-                        <li class="construction-content--socials--list-item">
-                            <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('Follow us on Twitter'); ?>" href="http://twitter.com"><i class="icon-twitter"></i></a>
-                        </li>
-                        <li class="construction-content--socials--list-item">
-                            <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('Visualize us on Youtube'); ?>" href="http://youtube.com"><i class="icon-youtube"></i></a>
-                        </li>
-                    </ul>
-                </div>
             </section>
 
     </main><!-- .site-main -->
 
     <?php get_footer(); ?>
-</div>
+</section>
 <!-- .content-area -->
