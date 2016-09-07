@@ -14,6 +14,14 @@
     transform: scale(@ratio);
 }
 
+.transition(@value) {
+	-webkit-transition: @value;
+	-moz-transition: @value;
+	-ms-transition: @value;
+	-o-transition: @value;
+	transition: @value;
+}
+
 .content-columns(@columnCount, @columnGap: 10px) {
     -webkit-column-count: @columnCount;
     -moz-column-count: @columnCount;
