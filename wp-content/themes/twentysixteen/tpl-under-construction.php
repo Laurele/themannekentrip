@@ -16,7 +16,9 @@
     <main id="main" class="site-main" role="main">
 
             <header class="construction-header">
-                <h1 class="construction-header--title"><?php echo get_bloginfo('name'); ?></h1>
+                <h1 class="construction-header--title">
+                    <img src="<?php echo sprintf('%s/logo_header.png', getImageDirectory()); ?>" alt="<?php echo get_bloginfo('name'); ?>"/>
+                </h1>
                 <h2 class="construction-header--subtitle"><?php the_title(); ?></h2>
             </header>
 

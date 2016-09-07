@@ -473,3 +473,7 @@ add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
 remove_filter('the_content', 'wpautop');
 
 include('translations.php');
+
+function getImageDirectory() {
+    return get_bloginfo('stylesheet_directory') . '/build/images';
+}
