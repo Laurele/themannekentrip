@@ -7,6 +7,11 @@ copies:
       - "**/*.jpg"
       - "**/*.png"
     dest: "wp-content/themes/twentysixteen/build/images"
+  -
+    src: "wp-content/themes/twentysixteen/assets/fonts"
+    files:
+      - "**/*"
+    dest: "wp-content/themes/twentysixteen/build/fonts"
 assets:
   -
     type: "styles"
