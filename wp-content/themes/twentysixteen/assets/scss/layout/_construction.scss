@@ -35,7 +35,7 @@ body.page-template-tpl-under-construction {
 #topbar {
 	width: 100%;
 	height: $gutter;
-	background: $black;
+	background: #022733;
 	z-index: 100;
 }
 
@@ -76,7 +76,7 @@ body.page-template-tpl-under-construction {
     overflow: hidden;
 
     @include mq(medium) {
-        margin: 0 auto 15%;
+        margin: 50px auto 15%;
     }
     img {
         width: auto;
@@ -117,7 +117,15 @@ body.page-template-tpl-under-construction {
 /* Footer styling */
 .construction-content--socials {
 	text-align: right;
-	margin: $gutter/2 0 $gutter/2 auto;
+    height: 100%;
+    margin: 0 $gutter/2;
+
+    @include flex-container();
+    @include flex-direction(row);
+    @include flex-justify-content(flex-end);
+    @include flex-wrap(nowrap);
+    @include align-content(stretch);
+    @include align-items(center);
 }
 
 .construction-content--socials--list {
@@ -134,9 +142,12 @@ body.page-template-tpl-under-construction {
 	cursor: pointer;
 	color: $white;
 	padding: 3px;
+    font-size: 1.1rem;
+    @include transition(color 0.15s ease-in);
 
-	[class*="icon-"] {
-	}
+    &:hover {
+        color: $mediumGrey;
+    }
 }
 
 /* Blocks and Typo styling */
@@ -145,6 +156,7 @@ body.page-template-tpl-under-construction {
 	font-weight: 500;
 
 	h3 {
+        font-size: 1.2rem;
 		display: block;
 		margin: 0 auto 10px;
 	}
@@ -163,7 +175,6 @@ body.page-template-tpl-under-construction {
 	.mc4wp-error * {
 		font-size: 0.8rem;
 		color: #7e0000;
-        text-align: left;
 	}
 
 	.mc4wp-success {
