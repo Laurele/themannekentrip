@@ -1,9 +1,23 @@
 $gutter: 40px;
 
+html {
+    font-size: 60%;
+
+    @include mq(medium) {
+        font-size: 80%;
+    }
+
+    @include mq(large) {
+        font-size: 100%;
+    }
+}
+
 /* Layout styling */
 body.page-template-tpl-under-construction {
-	background: url("../../images/mountains.jpg") 0 0 no-repeat;
-	background-size: cover;
+    position: relative;
+    background: url("../../images/mountains_blured.jpg") 0 0 no-repeat;
+    background-size: cover;
+    color: #FFFFFF;
 }
 
 #primary {
@@ -28,6 +42,14 @@ body.page-template-tpl-under-construction {
 #main {
 	width: 100%;
     @include flex-content-size(1 1 auto);
+    overflow: auto;
+
+    @include flex-container();
+    @include flex-direction(column);
+    @include flex-justify-content(flex-start);
+    @include flex-wrap(nowrap);
+    @include align-content(stretch);
+    @include align-items(center);
 
 	.page-template-tpl-under-construction & {
 		text-align: center;
@@ -45,34 +67,51 @@ body.page-template-tpl-under-construction {
 
 .construction-header {
 	position: relative;
-	padding-top: $gutter / 2;
-	background: rgba(255, 255, 255, 0.8);
-	width: 90%;
-	max-width: 1024px/2;
+	width: 100%;
 	margin: 0 auto;
 }
 
 .construction-header--title {
-	font-size: 2rem;
-	margin: 0 0 $gutter/2;
+    margin: 0 auto 10%;
+    overflow: hidden;
+
+    @include mq(medium) {
+        margin: 0 auto 15%;
+    }
+    img {
+        width: auto;
+        max-height: calc(50vh - #{$gutter});
+
+        @include mq(medium) {
+            width: 300px;
+            max-height: inherit;
+        }
+    }
 }
 
 .construction-header--subtitle {
-	font-size: 1.2rem;
-	margin: 0 0 $gutter / 3;
+	font-size: 2rem;
+    text-transform: uppercase;
+    margin: 0 auto;
 }
 
 .construction-content {
+    width: 100%;
+    max-width: 1024px;
 	margin: 0 auto;
 	font-size: 1em;
 }
 
 .construction-content--wysiwyg {
 	width: 90%;
-	max-width: 1024px/2;
-	background: rgba(255, 255, 255, 0.8);
-	padding: 60px 20px 20px;
+	max-width: calc(1024px/2);
+	padding: 20px;
 	margin: 0 auto;
+
+    @include mq(medium) {
+        font-size: 80%;
+        padding-top:60px
+    }
 }
 
 /* Footer styling */
@@ -102,20 +141,8 @@ body.page-template-tpl-under-construction {
 
 /* Blocks and Typo styling */
 .page-template-tpl-under-construction {
-	font-family: 'Roboto';
+	font-family: 'Roboto', sans-serif;
 	font-weight: 500;
-
-	h1 {
-		margin: 0 auto 40px;
-		width: 500px;
-		height: 393px;
-	}
-
-	h2 {
-		margin: 0 auto;
-		font-size: 1.8rem;
-		font-family: "Montara";
-	}
 
 	h3 {
 		display: block;
@@ -135,7 +162,8 @@ body.page-template-tpl-under-construction {
 
 	.mc4wp-error * {
 		font-size: 0.8rem;
-		color: red
+		color: #7e0000;
+        text-align: left;
 	}
 
 	.mc4wp-success {
@@ -148,15 +176,18 @@ body.page-template-tpl-under-construction {
 	}
 
 	.mc4wp-form-fields input[type="email"] {
-		width: calc(100% - #{$buttonWidth});
-		padding: 5px 15px;
-		background: $white;
-		color: $darkGrey;
-		font-size: 0.9rem;
+        display: block;
+		width: calc(100% - #{$buttonWidth} - 10px);
+		padding: 10px 15px;
+        font-size: 0.9rem;
+        border: solid 2px $white;
+        color: $white;
+        background: none;
+        @include border-radius(30px);
 
         @include placeholder {
-			color: $mediumGrey;
-			font-family: 'Roboto';
+			color: $lightGrey;
+			font-family: 'Roboto', sans-serif;
 			font-weight: 400;
 			font-size: 0.9rem;
 		};
@@ -172,8 +203,8 @@ body.page-template-tpl-under-construction {
 		background: transparent;
         @include hide-text();
 
-		&:hover + .construction-form-submit-placeholder:after {
-			border-left-color: $black;
+		&:hover + .construction-form-submit-placeholder {
+            background: rgba(255, 255, 255, 0.3);
 		}
 	}
 
@@ -190,32 +221,26 @@ body.page-template-tpl-under-construction {
 		height: 100%;
 		top: 0;
 		right: 0;
+        border: solid 2px $white;
+        @include border-radius(30px);
+        @include transition(all 0.15s ease-in);
 
 		$size: 9px;
-		&:before,
-		&:after {
+		&:before {
 			content: '';
 			position: absolute;
 			z-index: 1;
 		}
 
 		&:before {
-			top: 0;
-			right: 0;
-			width: $buttonWidth;
-			height: 100%;
-			background: $white;
-		}
-
-		&:after {
 			top:  calc(50% - #{$size});
 			right: calc(#{$buttonWidth} / 2 - #{$size});
 			width: 0;
 			height: 0;
 			border-style: solid;
-			border-width: $size 0 $size $size*2;
-			border-color: transparent transparent transparent $darkGrey;
-            @include transition(all 0.15s ease-in);
+			border-width: $size 0 $size $size*1.5;
+			border-color: transparent transparent transparent $white;
+            background: rgba(255, 255, 255, 0);
 		}
 	}
 }

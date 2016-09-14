@@ -63,6 +63,29 @@
 }
 
 // -------------------------------------
+// =Border Radius
+// -------------------------------------
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+// -------------------------------------
+// =Transitions
+// Note: argument followed by "..." means for a mixin to take an unknown number of arguments
+// -------------------------------------
+
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+// -------------------------------------
 // @see http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/ */
 // -------------------------------------
 @mixin hide-text() {
