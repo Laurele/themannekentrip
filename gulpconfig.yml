@@ -16,11 +16,11 @@ assets:
   -
     type: "styles"
     output: "main.css"
-    src: "wp-content/themes/twentysixteen/assets/less"
+    src: "wp-content/themes/twentysixteen/assets/scss"
     files:
-      - "main.less"
+      - "main.scss"
     watch:
-      - "**/*.less"
+      - "**/*.scss"
   -
     type: "scripts"
     output: "main.js"

@@ -64,23 +64,23 @@
 // ------------------------------------------------
 
 html {
-    font: 300 100%/@baseLineHeight @baseFontFamily;
+    font: 300 100%/$baseLineHeight $baseFontFamily;
 }
 
 body {
-    background: @backgroundColor;
-    color: @textColor;
+    background: $backgroundColor;
+    color: $textColor;
     font-size: 12px;
 
-    @media @medium {
+    @include mq(medium) {
         font-size: 14px;
     }
 
-    @media @large {
+    @include mq(large) {
         font-size: 16px;
     }
 
-    @media @xlarge {
+    @include mq(xlarge) {
         font-size: 18px;
     }
 

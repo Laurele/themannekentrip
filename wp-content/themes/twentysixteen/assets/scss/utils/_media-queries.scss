@@ -1,0 +1,71 @@
+// Breakpoints - Default sizes
+// - small:    500px    31.25em
+// - medium:   760px    47.5em
+// - large:    1024px   64em
+// - xlarge:   1140px   71.25em
+//
+$breakpoints-list: (
+        "small": (
+                query: "all and (min-width: 31.25em)",
+                generate-grid-classes: true
+        ),
+        "medium": (
+                query: "all and (min-width: 47.5em)",
+                generate-grid-classes: true
+        ),
+        "large": (
+                query: "all and (min-width: 64em)",
+                generate-grid-classes: true
+        ),
+        "xlarge": (
+                query: "all and (min-width: 71.25em)",
+                generate-grid-classes: true
+        )
+);
+
+@mixin mq($breakpoint) {
+    @if map-has-key($breakpoints-list, $breakpoint) {
+        // get query for breakpoint
+        $breakpoint-params: map-get($breakpoints-list, $breakpoint);
+        $breakpoint-query: map-get($breakpoint-params, query);
+
+        // generate media query
+        @media #{$breakpoint-query} {
+            @content;
+        }
+    } @else {
+        @warn "Could not find a breakpoint named #{$breakpoint} in $breakpoints-list";
+    }
+}
+
+html[data-env=dev] body {
+    &:after { // This adds a label in the top-left corner that displays the current media query state.
+        display: block;
+        content: "default";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        opacity: .5;
+        padding: .2em 1em;
+        z-index: 9999;
+        background: red;
+        color: $white;
+        text-align: center;
+        @include mq(small) {
+            background: orange;
+            content: "small";
+        }
+        @include mq(medium) {
+            background: purple;
+            content: "medium";
+        }
+        @include mq(large) {
+            background: green;
+            content: "large";
+        }
+        @include mq(xlarge) {
+            background: blue;
+            content: "xlarge";
+        }
+    }
+}

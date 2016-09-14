@@ -1,4 +1,4 @@
-@gutter: 40px;
+$gutter: 40px;
 
 /* Layout styling */
 body.page-template-tpl-under-construction {
@@ -10,24 +10,24 @@ body.page-template-tpl-under-construction {
 	width: 100%;
 	height: 100vh;
 
-	.flex-container();
-	.flex-direction(column);
-	.flex-justify-content(flex-start);
-	.flex-wrap(nowrap);
-	.align-content(stretch);
-	.align-items(flex-start);
+	@include flex-container();
+    @include flex-direction(column);
+    @include flex-justify-content(flex-start);
+    @include flex-wrap(nowrap);
+    @include align-content(stretch);
+    @include align-items(flex-start);
 }
 
 #topbar {
 	width: 100%;
-	height: @gutter;
-	background: @black;
+	height: $gutter;
+	background: $black;
 	z-index: 100;
 }
 
 #main {
 	width: 100%;
-	.flex-content-size(1 1 auto);
+    @include flex-content-size(1 1 auto);
 
 	.page-template-tpl-under-construction & {
 		text-align: center;
@@ -36,7 +36,7 @@ body.page-template-tpl-under-construction {
 
 #footer {
 	width: 100%;
-	.flex-content-size(0 1 auto);
+    @include flex-content-size(0 1 auto);
 
 	.page-template-tpl-under-construction & {
 		text-align: center;
@@ -45,7 +45,7 @@ body.page-template-tpl-under-construction {
 
 .construction-header {
 	position: relative;
-	padding-top: @gutter / 2;
+	padding-top: $gutter / 2;
 	background: rgba(255, 255, 255, 0.8);
 	width: 90%;
 	max-width: 1024px/2;
@@ -54,12 +54,12 @@ body.page-template-tpl-under-construction {
 
 .construction-header--title {
 	font-size: 2rem;
-	margin: 0 0 @gutter/2;
+	margin: 0 0 $gutter/2;
 }
 
 .construction-header--subtitle {
 	font-size: 1.2rem;
-	margin: 0 0 @gutter / 3;
+	margin: 0 0 $gutter / 3;
 }
 
 .construction-content {
@@ -78,7 +78,7 @@ body.page-template-tpl-under-construction {
 /* Footer styling */
 .construction-content--socials {
 	text-align: right;
-	margin: @gutter/2 0 @gutter/2 auto;
+	margin: $gutter/2 0 $gutter/2 auto;
 }
 
 .construction-content--socials--list {
@@ -93,7 +93,7 @@ body.page-template-tpl-under-construction {
 	text-decoration: none;
 	width: 1rem;
 	cursor: pointer;
-	color: @white;
+	color: $white;
 	padding: 3px;
 
 	[class*="icon-"] {
@@ -122,7 +122,7 @@ body.page-template-tpl-under-construction {
 		margin: 0 auto 10px;
 	}
 
-	@buttonWidth: 50px;
+	$buttonWidth: 50px;
 	.mc4wp-form-fields {
 		position: relative;
 		margin: auto;
@@ -148,50 +148,50 @@ body.page-template-tpl-under-construction {
 	}
 
 	.mc4wp-form-fields input[type="email"] {
-		width: ~"calc(100% - @{buttonWidth})";
+		width: calc(100% - #{$buttonWidth});
 		padding: 5px 15px;
-		background: @white;
-		color: @darkGrey;
+		background: $white;
+		color: $darkGrey;
 		font-size: 0.9rem;
 
-		.placeholder({
-			color: @mediumGrey;
+        @include placeholder {
+			color: $mediumGrey;
 			font-family: 'Roboto';
 			font-weight: 400;
 			font-size: 0.9rem;
-		});
+		};
 	}
 
 	.mc4wp-form-fields input[type="submit"] {
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: @buttonWidth;
+		width: $buttonWidth;
 		height: 100%;
 		z-index: 2;
 		background: transparent;
-		.hide-text();
+        @include hide-text();
 
 		&:hover + .construction-form-submit-placeholder:after {
-			border-left-color: @black;
+			border-left-color: $black;
 		}
 	}
 
 	[id^="mc4wp-form-"] {
 		position: relative;
-		margin: @gutter/3 auto;
+		margin: $gutter/3 auto;
 		width: 80%;
 	}
 
 	.construction-form-submit-placeholder {
 		position: absolute;
 		display: block;
-		width: @buttonWidth;
+		width: $buttonWidth;
 		height: 100%;
 		top: 0;
 		right: 0;
 
-		@size: 9px;
+		$size: 9px;
 		&:before,
 		&:after {
 			content: '';
@@ -202,20 +202,20 @@ body.page-template-tpl-under-construction {
 		&:before {
 			top: 0;
 			right: 0;
-			width: @buttonWidth;
+			width: $buttonWidth;
 			height: 100%;
-			background: @white;
+			background: $white;
 		}
 
 		&:after {
-			top:  ~"calc(50% - @{size})";
-			right: ~"calc(@{buttonWidth} / 2 - @{size})";
+			top:  calc(50% - #{$size});
+			right: calc(#{$buttonWidth} / 2 - #{$size});
 			width: 0;
 			height: 0;
 			border-style: solid;
-			border-width: @size 0 @size @size*2;
-			border-color: transparent transparent transparent @darkGrey;
-			.transition(all 0.15s ease-in);
+			border-width: $size 0 $size $size*2;
+			border-color: transparent transparent transparent $darkGrey;
+            @include transition(all 0.15s ease-in);
 		}
 	}
 }
