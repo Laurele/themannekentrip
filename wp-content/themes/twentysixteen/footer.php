@@ -37,7 +37,7 @@
 			<?php endif; ?>
 
 			<div class="site-info">
-				<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
+				<span class="site-title"><a class="site-title-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">© <?php bloginfo( 'name' ); ?> <?php echo date("Y"); ?></a></span>
 			</div><!-- .site-info -->
 		</footer><!-- .site-footer -->
 </div><!-- .site -->

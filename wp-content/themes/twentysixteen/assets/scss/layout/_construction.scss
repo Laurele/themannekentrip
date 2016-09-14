@@ -61,7 +61,14 @@ body.page-template-tpl-under-construction {
     @include flex-content-size(0 1 auto);
 
 	.page-template-tpl-under-construction & {
+        margin: 10px auto;
 		text-align: center;
+
+        .site-title-link {
+            font-size: 0.8rem;
+            color: $white;
+            text-decoration: none;
+        }
 	}
 }
 
