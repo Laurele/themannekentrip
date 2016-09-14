@@ -2,7 +2,7 @@
 var _ = require('underscore');
 var gulp = require('gulp');
 var path = require('path');
-var yaml = require('js-yaml')
+var yaml = require('js-yaml');
 var fs = require('fs');
 var merge = require('merge-stream');
 var mainBowerFiles = require('main-bower-files');
@@ -259,12 +259,11 @@ gulp.task('styles', function () {
         // If we have an array of files to watch, then use them as
         // the files to read and add a filter on the real asset files so
         // we can check if a file to watch has changed but only compile the real asset files
-//        if (_.isUndefined(asset.watch) || _.isBoolean(asset.watch)) {
-//            files = asset.files;
-//        } else {
-//            files = asset.watch;
-//        }
-        files = asset.files;
+        if (_.isUndefined(asset.watch) || _.isBoolean(asset.watch)) {
+            files = asset.files;
+        } else {
+            files = asset.watch;
+        }
 
         filter = $.filter(asset.filters);
         // Get all %asset.files% and append them the %asset.src% so
