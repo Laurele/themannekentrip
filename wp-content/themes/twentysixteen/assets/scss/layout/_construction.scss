@@ -83,8 +83,9 @@ body.page-template-tpl-under-construction {
     overflow: hidden;
 
     @include mq(medium) {
-        margin: 50px auto 15%;
+        margin-top: 50px;
     }
+
     img {
         width: auto;
         max-height: calc(50vh - #{$gutter});
