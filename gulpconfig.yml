@@ -6,6 +6,7 @@ copies:
     files:
       - "**/*.jpg"
       - "**/*.png"
+      - "**/*.svg"
     dest: "wp-content/themes/twentysixteen/build/images"
   -
     src: "wp-content/themes/twentysixteen/assets/fonts"
