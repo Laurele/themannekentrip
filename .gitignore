@@ -40,3 +40,6 @@ atlassian-ide-plugin.xml
 # Ignore node and gulp dependencies
 node_modules
 bower_components
+
+# Ignoring vagrant files
+.vagrant
