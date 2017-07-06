@@ -14,15 +14,15 @@
 <body <?php body_class(); ?>>
 <section id="primary" class="content-area">
     <header id="topbar">
-        <div class="construction-content--socials">
+        <div class="content--socials">
             <ul class="construction-content--socials--list">
-                <li class="construction-content--socials--list-item">
+                <li class="content--socials--list-item">
                     <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('View us on Facebook'); ?>" href="http://facebook.com/themannekentrip.be"><i class="icon-facebook"></i></a>
                 </li>
-                <li class="construction-content--socials--list-item">
+                <li class="content--socials--list-item">
                     <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('Follow us on Twitter'); ?>" href="https://twitter.com/TheMannekenTrip"><i class="icon-twitter"></i></a>
                 </li>
-                <li class="construction-content--socials--list-item">
+                <li class="content--socials--list-item">
                     <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('Visualize us on Youtube'); ?>" href="https://www.youtube.com/channel/UCdBuvxropmqlWFnNBmBcU9g?guided_help_flow=3"><i class="icon-youtube"></i></a>
                 </li>
             </ul>

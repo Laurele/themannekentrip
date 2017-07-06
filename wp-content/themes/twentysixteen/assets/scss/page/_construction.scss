@@ -10,17 +10,6 @@ body.page-template-tpl-under-construction {
     text-align: center;
 }
 
-.page-template-tpl-under-construction #footer {
-    margin: 10px auto;
-    text-align: center;
-
-    .site-title-link {
-        font-size: 0.8rem;
-        color: $white;
-        text-decoration: none;
-    }
-}
-
 .construction-header {
     position: relative;
     width: 100%;
@@ -72,7 +61,7 @@ body.page-template-tpl-under-construction {
 }
 
 /* Footer styling */
-.construction-content--socials {
+.content--socials {
     text-align: right;
     height: 100%;
     margin: 0 $gutter/2;
@@ -85,15 +74,15 @@ body.page-template-tpl-under-construction {
     @include align-items(center);
 }
 
-.construction-content--socials--list {
+.content--socials--list {
     font-size: 0;
 }
 
-.construction-content--socials--list-item {
+.content--socials--list-item {
     display: inline-block;
 }
 
-.construction-content--socials--list-item-link {
+.content--socials--list-item-link {
     text-decoration: none;
     width: 1rem;
     cursor: pointer;

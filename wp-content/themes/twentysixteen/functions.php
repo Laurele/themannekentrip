@@ -487,3 +487,12 @@ include('translations.php');
 function getImageDirectory() {
     return get_bloginfo('stylesheet_directory') . '/build/images';
 }
+
+/**
+ * @param string $ulclass
+ * @return mixed
+ */
+function add_menuclass($ulclass) {
+	return preg_replace('/<a /', '<a class="list-group-item"', $ulclass);
+}
+add_filter('wp_nav_menu','add_menuclass');
