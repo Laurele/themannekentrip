@@ -14,16 +14,16 @@
 <body <?php body_class(); ?>>
 <section id="primary" class="content-area">
     <header id="topbar">
-        <div class="content--socials">
+        <div class="construction-content--socials">
             <ul class="construction-content--socials--list">
-                <li class="content--socials--list-item">
+                <li class="construction-content--socials--list-item">
                     <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('View us on Facebook'); ?>" href="http://facebook.com/themannekentrip.be"><i class="icon-facebook"></i></a>
                 </li>
-                <li class="content--socials--list-item">
+                <li class="construction-content--socials--list-item">
                     <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('Follow us on Twitter'); ?>" href="https://twitter.com/TheMannekenTrip"><i class="icon-twitter"></i></a>
                 </li>
-                <li class="content--socials--list-item">
-                    <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('Visualize us on Youtube'); ?>" href="https://www.youtube.com/channel/UCdBuvxropmqlWFnNBmBcU9g?guided_help_flow=3"><i class="icon-youtube"></i></a>
+                <li class="construction-content--socials--list-item">
+                    <a target="_blank" class="construction-content--socials--list-item-link" title="<?php echo pll__('Watch us on Youtube'); ?>" href="https://www.youtube.com/channel/UCdBuvxropmqlWFnNBmBcU9g?guided_help_flow=3"><i class="icon-youtube"></i></a>
                 </li>
             </ul>
         </div>
@@ -31,18 +31,18 @@
 
     <main id="main" class="site-main" role="main">
 
-            <header class="construction-header">
-                <h1 class="construction-header--title">
-                    <img src="<?php echo sprintf('%s/logo.png', getImageDirectory()); ?>" alt="<?php echo get_bloginfo('name'); ?>"/>
-                </h1>
-                <h2 class="construction-header--subtitle"><?php the_title(); ?></h2>
-            </header>
+        <header class="construction-header">
+            <h1 class="construction-header--title">
+                <img src="<?php echo sprintf('%s/logo.png', getImageDirectory()); ?>" alt="<?php echo get_bloginfo('name'); ?>"/>
+            </h1>
+            <h2 class="construction-header--subtitle"><?php the_title(); ?></h2>
+        </header>
 
-            <section class="construction-content">
-                <div class="construction-content--wysiwyg">
-                    <?php the_content(); ?>
-                </div>
-            </section>
+        <section class="construction-content">
+            <div class="construction-content--wysiwyg">
+                <?php the_content(); ?>
+            </div>
+        </section>
 
     </main><!-- .site-main -->
 

@@ -6,8 +6,23 @@ body.page-template-tpl-under-construction {
     color: #FFFFFF;
 }
 
+.page-template-tpl-under-construction #topbar {
+    background: rgba(2,39,51,0.7);
+}
+
 .page-template-tpl-under-construction #main {
     text-align: center;
+}
+
+.page-template-tpl-under-construction #footer {
+    margin: 10px auto;
+    text-align: center;
+
+    .site-title-link {
+        font-size: 0.8rem;
+        color: $white;
+        text-decoration: none;
+    }
 }
 
 .construction-header {
@@ -61,7 +76,7 @@ body.page-template-tpl-under-construction {
 }
 
 /* Footer styling */
-.content--socials {
+.construction-content--socials {
     text-align: right;
     height: 100%;
     margin: 0 $gutter/2;
@@ -74,15 +89,15 @@ body.page-template-tpl-under-construction {
     @include align-items(center);
 }
 
-.content--socials--list {
+.construction-content--socials--list {
     font-size: 0;
 }
 
-.content--socials--list-item {
+.construction-content--socials--list-item {
     display: inline-block;
 }
 
-.content--socials--list-item-link {
+.construction-content--socials--list-item-link {
     text-decoration: none;
     width: 1rem;
     cursor: pointer;
