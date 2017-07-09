@@ -26,13 +26,53 @@ html {
 #topbar {
     width: 100%;
     height: $gutter;
-    background: rgba(2,39,51,0.7);
+    background: #FFF;
     z-index: 100;
+
+    body:not(.page-template-tpl-under-construction) & {
+        @include flex-container();
+    }
+
+    .site-title {
+        display: none;
+        margin: 0 20px;
+    }
+
+    .custom-logo-link {
+        @include flex-content-size(0, 1, auto);
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto !important;
+            height: auto !important;
+        }
+    }
+
+    .menu-toggle {
+        margin: 0 20px;
+
+        background: none;
+        text-align: right;
+        color: $black;
+
+        @include transition(color 0.15s ease-in);
+        @include flex-content-size(0, 0, auto);
+
+        &:hover {
+            color: $mediumGrey;
+        }
+    }
+
+
+    .content--socials {
+        @include flex-content-size(1, 0, auto);
+    }
 }
 
 #main {
     width: 100%;
-    @include flex-content-size(1 1 auto);
+    @include flex-content-size(1, 1, auto);
     overflow: auto;
 
     @include flex-container();
@@ -45,13 +85,53 @@ html {
 
 #footer {
     width: 100%;
-    @include flex-content-size(0 1 auto);
     margin: 10px auto;
+
     text-align: center;
+    @include flex-content-size(0, 1, auto);
 
     .site-title-link {
         font-size: 0.8rem;
         color: $white;
         text-decoration: none;
     }
+}
+
+/* Footer styling */
+.content--socials {
+    text-align: right;
+    height: 100%;
+    margin: 0 $gutter/2;
+
+    @include flex-container();
+    @include flex-direction(row);
+    @include flex-justify-content(flex-end);
+    @include flex-wrap(nowrap);
+    @include align-content(stretch);
+    @include align-items(center);
+
+    li {
+        display: inline-block;
+        color: $black;
+        font-size: 1.1rem;
+        padding: 3px;
+
+        @include transition(color 0.15s ease-in);
+
+        &:hover {
+            color: $mediumGrey;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+.content--socials--nav-list {
+    margin: 0;
+}
+
+.content--socials--nav-list-item-text {
+    display: none;
 }

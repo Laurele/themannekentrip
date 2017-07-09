@@ -32,41 +32,46 @@
 		<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 		<?php endif; ?>
 
-		<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
-			<button id="menu-toggle" class="menu-toggle"><?php _e( 'Menu', 'twentysixteen' ); ?></button>
-
-			<div id="site-header-menu" class="site-header-menu">
-				<?php if ( has_nav_menu( 'primary' ) ) : ?>
-					<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
-						<?php
-						wp_nav_menu( array(
-							'theme_location' => 'primary',
-							'menu_class'     => 'primary-menu',
-						) );
-						?>
-					</nav><!-- .main-navigation -->
-				<?php endif; ?>
-
-				<?php if ( has_nav_menu( 'social' ) ) : ?>
-				<div class="content--socials">
-					<nav id="content--socials--nav" class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'twentysixteen' ); ?>">
-						<?php
-						wp_nav_menu( array(
-							'theme_location' => 'social',
-							'menu_class'     => 'content--socials--nav-list',
-							'depth'          => 1,
-							'link_before'    => '<li class="content--socials--list-item">',
-							'link_after'     => '</li>',
-							'item_spacing'   => 'discard'
-						) );
-						?>
-					</nav><!-- .social-navigation -->
-				<?php endif; ?>
-			</div><!-- .site-header-menu -->
+		<?php if ( has_nav_menu( 'social' ) ) : ?>
+		<div class="content--socials">
+			<nav id="content--socials--nav" class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'twentysixteen' ); ?>">
+				<?php
+				wp_nav_menu( array(
+                    'container'      => false,
+					'theme_location' => 'social',
+					'menu_class'     => 'content--socials--nav-list',
+					'depth'          => 1,
+					'link_before'    => '<span class="content--socials--nav-list-item-text">',
+					'link_after'     => '</span>',
+					'item_spacing'   => 'discard'
+				) );
+				?>
+			</nav><!-- .social-navigation -->
 		<?php endif; ?>
-
-
 		</div>
-	</header>
+
+        <?php if ( has_nav_menu( 'primary' ) ) : ?>
+            <button id="menu-toggle" class="menu-toggle" title="<?php _e( 'Menu', 'twentysixteen' ); ?>"><i class="icon-align-justify"></i></button>
+        <?php endif; ?>
+
+    </header>
+
+	<nav>
+		<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
+
+		<div id="site-header-menu" class="site-header-menu">
+			<?php if ( has_nav_menu( 'primary' ) ) : ?>
+				<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'primary',
+						'menu_class'     => 'primary-menu',
+					) );
+					?>
+				</nav><!-- .main-navigation -->
+			<?php endif; ?>
+		</div>
+		<?php endif; ?>
+	</nav>
 
 	<main id="main" class="site-main" role="main">

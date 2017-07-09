@@ -119,26 +119,31 @@
     }
 }
 
-
 // -------------------------------------
 // =Flex property assigned to the wrapper
 // -------------------------------------
 
 @mixin flex-container() {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    display: -ms-flexbox;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
 // -------------------------------------
-// =Flex box size
+// =Flex box size - Options: flex-grow flex-shrink flex-basis | auto | initial | inherit
 // -------------------------------------
 
-@mixin flex-content-size($size) {
-    -webkit-flex: $size;
-    flex: $size;
-    -ms-flex: $size;
+@mixin flex-content-size($flex-grow, $flex-shrink, $flex-basis) {
+    -webkit-box-flex: $flex-grow $flex-shrink $flex-basis;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: $flex-grow $flex-shrink $flex-basis;         /* OLD - Firefox 19- */
+    -webkit-flex: $flex-grow $flex-shrink $flex-basis;          /* Chrome */
+    -ms-flex: $flex-grow;                                       /* IE 10-11 */
+    -ms-flex-positive: $flex-grow;
+    -ms-flex-negative: $flex-shrink;
+    -ms-flex-preferred-size: $flex-basis;
+    flex: $flex-grow $flex-shrink $flex-basis;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
 
 // -------------------------------------
@@ -169,6 +174,24 @@
 }
 
 // -------------------------------------
+// =Align text to bottom of its box
+// -------------------------------------
+@mixin flex-align-vertically($value) {
+    @include flex-container();
+    @include flex-direction(column);
+    @include flex-justify-content($value);
+}
+
+// -------------------------------------
+// =Align text to bottom of its box - Options: flex-start | flex-end | center | space-between | space-around
+// -------------------------------------
+@mixin flex-align-horizontally($value) {
+    @include flex-container();
+    @include flex-direction(row);
+    @include flex-justify-content($value);
+}
+
+// -------------------------------------
 // =Align items vertically - Options: flex-start | flex-end | center | baseline | stretch
 // -------------------------------------
 
@@ -189,11 +212,22 @@
 }
 
 // -------------------------------------
-// =Flex wrap - Options: nowrap|wrap|wrap-reverse|initial|inherit
+// =Specifies the alignment for the selected item inside the flexible container  - Options: auto | stretch | center | flex-start | flex-end | baseline | initial | inherit
 // -------------------------------------
 
-@mixin align-content($value) {
-    -webkit-flex-wrap: $value;
-    -ms-flex-wrap: $value;
-    flex-wrap: $value;
+@mixin align-self($value) {
+    -webkit-align-self: $value;
+    -ms-flex-item-align: $value;
+}
+
+// -------------------------------------
+// =Flex Order  - Options: number | initial | inherit
+// -------------------------------------
+
+@mixin flex-order($value) {
+    -webkit-box-ordinal-group: $value;   /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-ordinal-group: $value;      /* OLD - Firefox 19- */
+    -ms-flex-order: $value;              /* TWEENER - IE 10 */
+    -webkit-order: $value;               /* NEW - Chrome */
+    order: $value;
 }
