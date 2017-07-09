@@ -1,12 +1,15 @@
 {
   "name": "themannekentrip",
-  "version": "1.0.0",
-  "authors": [
-    "Snowcap"
-  ],
-  "description": "Javascripts packages",
+  "description": "Website assets builder",
   "main": "bower.json",
+  "authors": [
+    "laure <laure@homelog.be>"
+  ],
   "license": "MIT",
+  "keywords": [
+    "website"
+  ],
+  "homepage": "themannekentrip.be",
   "private": true,
   "ignore": [
     "**/.*",
@@ -16,17 +19,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.3",
-    "modernizr": "~2.8.3",
-    "respond": "~1.4.2",
-    "jquery-ui": "~1.11.4",
-    "gmaps-markerclusterer-plus": "~2.1.1",
-    "jquery-placeholder": "~2.1.1",
-    "blueimp-file-upload": "~9.9.3",
-    "backbone": "~1.1.2",
-    "tinycolorpicker": "~0.9.1",
-    "spectrum": "~1.7.1",
-    "autosize": "~3.0.14",
-    "medium-editor": "~5.12.0"
+    "backbone": "^1.3.3"
   }
 }

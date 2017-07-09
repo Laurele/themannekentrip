@@ -8,6 +8,12 @@ html {
     @include mq(large) {
         font-size: 100%;
     }
+
+    *,
+    *:before,
+    *:after {
+        @include box-sizing(border-box);
+    }
 }
 
 /* Layout styling */
@@ -25,9 +31,9 @@ html {
 
 #topbar {
     width: 100%;
-    height: $gutter;
+    height: $topbar-height;
     background: #FFF;
-    z-index: 100;
+    z-index: $zindex-topbar;
 
     body:not(.page-template-tpl-under-construction) & {
         @include flex-container();
@@ -50,23 +56,18 @@ html {
     }
 
     .menu-toggle {
-        margin: 0 20px;
+        margin: 0 $gutter/2;
 
         background: none;
         text-align: right;
         color: $black;
 
         @include transition(color 0.15s ease-in);
-        @include flex-content-size(0, 0, auto);
+        @include flex-content-size(1, 0, auto);
 
         &:hover {
             color: $mediumGrey;
         }
-    }
-
-
-    .content--socials {
-        @include flex-content-size(1, 0, auto);
     }
 }
 
@@ -97,11 +98,95 @@ html {
     }
 }
 
-/* Footer styling */
+/* Main Navigation */
+.site-aside-menu {
+    position: fixed;
+    top: $topbar-height;
+    right: 0;
+    height: calc(100vh - #{$topbar-height});
+    z-index: $zindex-navigation;
+
+    background: rgba(167, 174, 184, 0.95);
+
+    // Hide effect for aside content
+    &, * {
+        width: 0;
+        overflow: hidden;
+        @include transition(all 0.15s ease-in);
+    }
+
+    @include opacity(0);
+
+    &.is-visible {
+        min-width: 25vw;
+        overflow: auto;
+        padding: 2rem;
+        @include opacity(100);
+
+        // Show effect for aside content
+        &, * {
+            width: auto;
+            overflow: auto;
+        }
+    }
+
+    .site-aside-content {
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+
+    .site-aside-content-centered {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    #site-navigation {
+        width: 100%;
+        margin-bottom: 2rem;
+
+        ul {
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    #social-navigation {
+        width: 100%;
+
+        ul {
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
+
+.primary-menu {
+    margin: 0;
+}
+
+.primary-menu-item {
+    margin: 5px 0;
+}
+
+.primary-menu-item-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    line-height: 1rem;
+
+    color: $white;
+
+    @include transition(color 0.15s ease-in);
+
+    &:hover {
+        color: $black;
+    }
+}
+
+/* Socials styling */
 .content--socials {
-    text-align: right;
-    height: 100%;
-    margin: 0 $gutter/2;
+    text-align: center;
 
     @include flex-container();
     @include flex-direction(row);
@@ -109,29 +194,36 @@ html {
     @include flex-wrap(nowrap);
     @include align-content(stretch);
     @include align-items(center);
-
-    li {
-        display: inline-block;
-        color: $black;
-        font-size: 1.1rem;
-        padding: 3px;
-
-        @include transition(color 0.15s ease-in);
-
-        &:hover {
-            color: $mediumGrey;
-        }
-
-        a {
-            text-decoration: none;
-        }
-    }
 }
 
-.content--socials--nav-list {
+.content--socials--list {
     margin: 0;
 }
 
-.content--socials--nav-list-item-text {
-    display: none;
+.content--socials--list-item {
+    display: inline-block;
+
+    @include transition(color 0.15s ease-in);
+
+    &:hover {
+        color: $mediumGrey;
+    }
+}
+
+.content--socials--list-item-link {
+    display: inline-block;
+    padding: 3px;
+    text-decoration: none;
+
+    color: $white;
+
+    @include transition(color 0.15s ease-in);
+
+    &:hover {
+        color: $black;
+    }
+
+    i {
+        font-size: 1.5rem;
+    }
 }

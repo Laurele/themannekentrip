@@ -231,3 +231,14 @@
     -webkit-order: $value;               /* NEW - Chrome */
     order: $value;
 }
+
+// -------------------------------------
+// =Box sizing   - Options : content-box|border-box|initial|inherit;
+// -------------------------------------
+
+@mixin box-sizing($boxmodel) {
+    -webkit-box-sizing: $boxmodel;
+    -moz-box-sizing: $boxmodel;
+    -ms-box-sizing: $boxmodel;
+    box-sizing: $boxmodel;
+}

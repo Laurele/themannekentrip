@@ -237,6 +237,15 @@ function twentysixteen_javascript_detection() {
 }
 add_action( 'wp_head', 'twentysixteen_javascript_detection', 0 );
 
+// include custom jQuery
+function twentysixteen_include_custom_jquery() {
+
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+
+}
+add_action('wp_enqueue_scripts', 'twentysixteen_include_custom_jquery');
+
 /**
  * Enqueues scripts and styles.
  *
@@ -308,20 +317,23 @@ function get_asset_version () {
 function my_theme_scripts()
 {
     $assetVersion = get_asset_version();
-    // .min scripts
-    if (!is_dev_environment()) {
-        // Header
-        wp_enqueue_script( 'modernizr-script', get_template_directory_uri() . '/build/scripts/modernizr.min.js', array( 'jquery' ), $assetVersion, false );
-        wp_enqueue_script( 'respond-script', get_template_directory_uri() . '/build/scripts/respond.min.js', array( 'jquery' ), $assetVersion, false );
-        // Footer
-        wp_enqueue_script( 'main-script', get_template_directory_uri() . '/build/scripts/main.min.js', array( 'jquery' ), $assetVersion, true );
-    } else {
-        // Header
-        wp_enqueue_script( 'modernizr-script', get_template_directory_uri() . '/build/scripts/modernizr.js', array( 'jquery' ), $assetVersion, false );
-        wp_enqueue_script( 'respond-script', get_template_directory_uri() . '/build/scripts/respond.js', array( 'jquery' ), $assetVersion, false );
-        // Footer
-        wp_enqueue_script( 'main-script', get_template_directory_uri() . '/build/scripts/main.js', array( 'jquery' ), $assetVersion, true );
-    }
+	$suffix = !is_dev_environment() ? '.min' : '';
+
+	// Footer
+	wp_enqueue_script(
+		'bacbkbone-script',
+		get_template_directory_uri() . '/build/scripts/backbone' . $suffix . '.js',
+		array(),
+		$assetVersion,
+		true
+	);
+	wp_enqueue_script(
+		'main-script',
+		get_template_directory_uri() . '/build/scripts/main' . $suffix . '.js',
+		array('jquery'),
+		$assetVersion,
+		true
+	);
 }
 
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
@@ -487,12 +499,3 @@ include('translations.php');
 function getImageDirectory() {
     return get_bloginfo('stylesheet_directory') . '/build/images';
 }
-
-/**
- * @param string $ulclass
- * @return mixed
- */
-function add_menuclass($ulclass) {
-	return preg_replace('/<a /', '<a class="list-group-item"', $ulclass);
-}
-add_filter('wp_nav_menu','add_menuclass');

@@ -33,17 +33,10 @@ assets:
   -
     type: "scripts"
     src: "bower_components"
-    output: "modernizr.js"
+    output: "backbone.js"
     files:
-      - "modernizr/modernizr.js"
-    lint: false
-    watch: false
-  -
-    type: "scripts"
-    src: "bower_components"
-    output: "respond.js"
-    files:
-      - "respond/src/respond.js"
+      - "underscore/underscore-min.js"
+      - "backbone/backbone-min.js"
     lint: false
     watch: false
 
