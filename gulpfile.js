@@ -5,7 +5,6 @@ var path = require('path');
 var yaml = require('js-yaml');
 var fs = require('fs');
 var merge = require('merge-stream');
-var mainBowerFiles = require('main-bower-files');
 var runSequence = require('run-sequence');
 var del = require('del');
 var sprity = require('sprity');
@@ -53,10 +52,6 @@ var loadConfig = function () {
         }
 
     });
-    // Cache bower files and directory
-    config.bower = {};
-    config.bower.src = getBowerDirectory();
-    config.bower.files = mainBowerFiles();
 
     // Cache server and server reload methods
     if (!_.isUndefined(config.server)) {
@@ -79,28 +74,6 @@ var loadConfig = function () {
     return config;
 };
 
-var getBowerDirectory = function () {
-    var bowerrc = path.join(process.cwd(), '.bowerrc'),
-        directory = './bower_components',
-        bower_config
-        ;
-
-    try {
-        bower_config = JSON.parse(fs.readFileSync(bowerrc));
-        directory = bower_config.directory;
-    } catch (ignore) {
-        // do nothing, just use default directory instead
-    }
-
-    fs.mkdir(path.join(process.cwd(), directory), function () {
-        // do nothing, the directory is already there
-    });
-
-    $.util.log('Getting bower directory', $.util.colors.magenta(directory));
-
-    return directory;
-};
-
 try {
     config = loadConfig();
 } catch (error) {
@@ -118,34 +91,6 @@ var onError = function (error) {
     $.util.log($.util.colors.red('Error (' + error.plugin + '): ' + error.message));
     this.emit('end');
 };
-
-// Install bower package if any
-gulp.task("bower-install", function () {
-    return $.bower().pipe($.size({title: 'bower-install'}));
-});
-
-// Copy all bower files to the vendor directory
-gulp.task("bower-main", ["bower-install"], function () {
-    // Loop on all bower.json main files with the %config.bower% (should match your .bowerrc file) to
-    // avoid flatten directory structure in the destination
-    return gulp.src(config.bower.files, {base: config.bower.src})
-        .pipe($.if(onlyNewer, $.newer(path.join(config.dest, 'vendor'))))
-        // Copy all files declared in the "main" settings of each bower.json dependency
-        .pipe(gulp.dest(path.join(config.dest, 'vendor')))
-        // Minify all css for production files
-        .pipe($.if('*.css', $.csso()))
-        // Uglify all js for production files
-        .pipe($.if('*.js', $.uglify()))
-        // Trigger a server reload
-        .pipe(config.server.plugin === 'browser-sync' ? reload({stream: true}) : reload())
-        // Append the production suffix on the filename
-        .pipe($.rename({suffix: config.productionSuffix}))
-        // Save the optimized files in %config.dest%/vendor
-        .pipe(gulp.dest(path.join(config.dest, 'vendor')))
-        // Display the size of the generated bower packages
-        .pipe($.size({title: 'bower-main'}))
-        ;
-});
 
 // Update assets version in Symfony config file
 gulp.task('assets-version', function () {
@@ -272,13 +217,8 @@ gulp.task('styles', function () {
             gulp.src(files)
                 // Prevent a pipe to break the task when an error is triggered
                 .pipe($.plumber({errorHandler: onError}))
-                .pipe($.sourcemaps.init())
                 // Only build if a file has changed
                 .pipe($.if(onlyNewer, $.newer(path.join(config.dest, 'styles', asset.output))))
-                // Filter on the files that really need to be processed
-                .pipe(filter)
-                // Compile all less files
-                .pipe($.if('*.less', $.less()))
                 // Compile all sass files
                 .pipe($.if('*.scss', $.sass()))
                 // Concatenate all files in one
@@ -287,7 +227,6 @@ gulp.task('styles', function () {
                 .pipe($.postcss([autoprefixer(!_.isUndefined(config.autoprefixer) ? config.autoprefixer.options || {} : {})]))
                 // Rewrite the url of all fonts in the css file to point to the new fonts directory
                 .pipe($.replace(/([\/\w\._-]+\/)*(fonts\/)([\w\._-]+\.(ttf|eot|woff|svg))/g, '../fonts/$2'))
-                .pipe($.sourcemaps.write())
                 // TODO : uncomment the line below if you want the images directory structure to be flatten
                 .pipe($.replace(/([\/\w\._-]+\/)*([\w\._-]+\.(png|jpg|gif|svg))/g, '../images/$2'))
                 // Save the concatenated styles in %config.dest%/styles
@@ -298,14 +237,6 @@ gulp.task('styles', function () {
                 .pipe($.notify({message: 'Styles file built : <%= file.relative %>'}))
                 // Trigger a server reload
                 .pipe(config.server.plugin === 'browser-sync' ? reload({stream: true}) : reload())
-                // Append the production suffix on the filename
-                .pipe($.rename({suffix: config.productionSuffix}))
-                // Minify all css for production files
-                .pipe($.csso())
-                // Save the optimized styles in %config.dest%/css
-                .pipe(gulp.dest(path.join(config.dest, 'styles')))
-                // Display the size of the optimized styles
-                .pipe($.size({title: 'styles[optimized]'}))
         );
     });
 
@@ -333,12 +264,10 @@ gulp.task('scripts', function () {
             gulp.src(files)
                 // Prevent a pipe to break the task when an error is triggered
                 .pipe($.plumber({errorHandler: onError}))
-                .pipe($.sourcemaps.init())
                 // Only build if a file has changed
                 .pipe($.if(onlyNewer, $.newer(path.join(config.dest, 'scripts', asset.output))))
                 // Concatenate all javascripts in one file
                 .pipe($.concat(asset.output))
-                .pipe($.sourcemaps.write())
                 // Save the concatenated javascripts in %config.dest%/scripts
                 .pipe(gulp.dest(path.join(config.dest, 'scripts')))
                 // Display the size of the concatenated javascripts
@@ -347,14 +276,6 @@ gulp.task('scripts', function () {
                 .pipe($.notify({message: 'Javascript file built <%= file.relative %>'}))
                 // Trigger a server reload
                 .pipe(config.server.plugin === 'browser-sync' ? reload({stream: true}) : reload())
-                // Append the production suffix on the filename
-                .pipe($.rename({suffix: config.productionSuffix}))
-                // Minify all javascripts for production files
-                .pipe($.uglify())
-                // Save the optimized javascripts in %config.dest%/scripts
-                .pipe(gulp.dest(path.join(config.dest, 'scripts')))
-                // Display the size of the optimized javascripts
-                .pipe($.size({title: 'scripts[optimized]'}))
         );
     });
 
@@ -418,7 +339,7 @@ gulp.task('copies', function () {
 
 // Build every assets sequentially
 gulp.task('build', function () {
-    runSequence('clean', 'bower-install', ['assets-version', 'copies', 'sprites'], ['fonts', 'images', 'scripts', 'styles'], function () {
+    runSequence('clean', ['assets-version', 'copies', 'sprites'], ['fonts', 'images', 'scripts', 'styles'], function () {
         onlyNewer = true;
         $.util.log($.util.colors.green('Build completed'));
     });
@@ -443,6 +364,8 @@ gulp.task('clean', function () {
 
 // Watch files for changes and trigger the right task
 gulp.task('watch', ['build'], function () {
+    server.listen();
+
     // Check if we have assets that need to be watched
     if (!_.isUndefined(config.assets) && _.isArray(config.assets)) {
         // Loop on each assets where %asset.watch% is true or is an array of files to watch
@@ -460,16 +383,30 @@ gulp.task('watch', ['build'], function () {
             gulp.watch(files, [asset.type]);
         });
     }
+});
 
-    // Check if we have sprites that need to be watched
-    if (!_.isUndefined(config.sprites) && _.isArray(config.sprites)) {
-        // Loop on each sprites where %sprite.watch% is true
-        _.each(config.sprites, function (sprite) {
-            if (!_.isUndefined(sprite.watch) && sprite.watch) {
-                gulp.watch(sprite.files, ['sprites']);
-            }
-        });
-    }
+gulp.task('styles-minimization', ['styles'], function () {
+    return gulp.src([path.join(config.dest, 'styles', 'css', '*.css')])
+        // Append the production suffix on the filename
+        .pipe($.rename({suffix: config.productionSuffix}))
+        // Minify all css for production files
+        .pipe($.csso())
+        // Save the optimized styles in %config.dest%/css
+        .pipe(gulp.dest(path.join(config.dest, 'styles')))
+        // Display the size of the optimized styles
+        .pipe($.size({title: 'styles[optimized]'}))
+});
+
+gulp.task('scripts-minimization', ['scripts'], function () {
+    return gulp.src([path.join(config.dest, 'styles', 'css', '*.css')])
+        // Append the production suffix on the filename
+        .pipe($.rename({suffix: config.productionSuffix}))
+        // Minify all javascripts for production files
+        .pipe($.uglify())
+        // Save the optimized javascripts in %config.dest%/scripts
+        .pipe(gulp.dest(path.join(config.dest, 'scripts')))
+        // Display the size of the optimized javascripts
+        .pipe($.size({title: 'scripts[optimized]'}))
 });
 
 // Start a server to refresh the browser on changes
@@ -505,3 +442,4 @@ gulp.task("serve", ["watch"], function (cb) {
 
 // Actually create the default task
 gulp.task('default', ['serve']);
+gulp.task('production', ['lint', 'styles-minimization', 'scripts-minimization']);
