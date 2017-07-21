@@ -6,17 +6,43 @@ body.page-template-tpl-under-construction {
     color: #FFFFFF;
 }
 
+.page-template-tpl-under-construction #primary {
+    height: 100vh;
+
+    @include flex-container();
+    @include flex-direction(column);
+    @include flex-justify-content(flex-start);
+    @include flex-wrap(nowrap);
+    @include align-content(stretch);
+    @include align-items(flex-start);
+}
+
 .page-template-tpl-under-construction #topbar {
+    @include flex-content-size(0, 1, $topbar-height);
+
     background: rgba(2,39,51,0.7);
 }
 
 .page-template-tpl-under-construction #main {
+    overflow: auto;
+
+    @include flex-content-size(1, 1, auto);
+
+    @include flex-container();
+    @include flex-direction(column);
+    @include flex-justify-content(flex-start);
+    @include flex-wrap(nowrap);
+    @include align-content(stretch);
+    @include align-items(center);
+
     text-align: center;
 }
 
 .page-template-tpl-under-construction #footer {
     margin: 10px auto;
     text-align: center;
+
+    @include flex-content-size(0, 1, auto);
 
     .site-title-link {
         font-size: 0.8rem;

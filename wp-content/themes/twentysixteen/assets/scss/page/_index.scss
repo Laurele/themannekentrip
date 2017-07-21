@@ -1,7 +1,84 @@
 /* Layout styling */
-body.page-template-tpl-index {
+body.page-template-tpl-index #primary {
     position: relative;
-    background: url("../../images/home/carte.svg") 0 40px no-repeat;
+    background: url("../../images/aquarel.svg") 0 $topbar-height no-repeat;
     background-size: cover;
     color: #FFFFFF;
+    z-index: 1;
+
+    &:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.7);
+    }
+    
+    #main {
+        @include flex-container();
+
+        header {
+            position: relative;
+            z-index: 3;
+
+            display: table;
+            width: 100%;
+            min-height: calc(100vh - #{$topbar-height});
+
+            color: $black;
+            text-align: center;
+
+            @include flex-content-size(1, 0, 100vh);
+
+            .header-container {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .header-content {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+
+                border-top: solid 1px $black;
+                border-bottom: solid 1px $black;
+                background: rgba(255, 255, 255, 0.5);
+            }
+
+            h1 {
+                display: inline;
+                margin: 0 0 1rem;
+                padding-bottom: 1rem;
+
+                @include horizontal-dotted-border(4px, 1.5px, $darkGrey, transparent, 40%, 0%);
+            }
+
+            h2 {
+                margin: 2rem 0 0;
+            }
+        }
+
+        section {
+            margin-top: 2rem;
+        }
+    }
+
+    .home-map {
+        position: fixed;
+        height: calc(100vh - #{$topbar-height});
+        width: 100vw;
+        top: 40px;
+        left: 0;
+        background: url("../../images/carte.svg") top center no-repeat;
+        background-size: contain;
+        z-index: 2;
+    }
+
+    #footer {
+        color: $black;
+        margin: 0;
+        padding: 10px 0;
+    }
 }
+
