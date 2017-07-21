@@ -38,7 +38,7 @@ $(function () {
     });
 
     if ($navigation.length > 0) {
-        var view = new app.Views.Navigation.Main;
+        var view = new app.Views.Navigation.Main();
         view.render();
     }
 }());
