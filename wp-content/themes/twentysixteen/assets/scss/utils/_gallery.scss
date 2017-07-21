@@ -1,0 +1,15 @@
+.gallery {
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    @include flex-container();
+    @include flex-wrap(wrap);
+
+}
+
+.gallery-item {
+    width: calc(100% / 3);
+    height: auto;
+    max-width: calc(100% / 3);
+}

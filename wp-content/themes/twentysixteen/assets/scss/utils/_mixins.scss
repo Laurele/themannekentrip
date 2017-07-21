@@ -252,3 +252,14 @@
     background-size: $width $height;
     background-repeat: repeat-x;
 }
+
+// -------------------------------------
+// =Transform
+// -------------------------------------
+@mixin transform($value) {
+    -moz-transform: $value;
+    -webkit-transform: $value;
+    -o-transform: $value;
+    -ms-transform: $value;
+    transform: $value;
+}
