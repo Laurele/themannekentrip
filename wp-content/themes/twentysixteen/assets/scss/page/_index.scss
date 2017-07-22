@@ -1,4 +1,8 @@
 /* Layout styling */
+body.page-template-tpl-index {
+    overflow: hidden;
+}
+
 body.page-template-tpl-index #topbar {
     position: fixed;
     top: 0;
@@ -6,12 +10,10 @@ body.page-template-tpl-index #topbar {
 
 body.page-template-tpl-index #main {
     position: relative;
-    margin-top: $topbar-height;
     color: $black;
 
-    .box {
+    .box, .title {
         position: absolute;
-        width: 100%;
 
         text-align: center;
         left: 50%;
@@ -19,7 +21,7 @@ body.page-template-tpl-index #main {
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
 
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.96);
         padding: 1rem;
 
         @include mq(medium) {
@@ -73,6 +75,7 @@ body.page-template-tpl-index #main {
     .header {
         width: 100%;
         padding: 0;
+        background: none;
 
         .header-content {
             padding-top: 2rem;
