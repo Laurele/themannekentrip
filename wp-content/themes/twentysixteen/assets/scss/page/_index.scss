@@ -12,35 +12,32 @@ body.page-template-tpl-index #main {
     position: relative;
     color: $black;
 
-    .box, .title {
+    .box {
         position: absolute;
 
         text-align: center;
         top: 50%;
-        left: 20%;
+        left: 50%;
         width: 80%;
-        @include transform(translate(-10%, -50%));
+        @include transform(translate(-50%, -50%));
 
         background: rgba(255, 255, 255, 0.90);
         padding: 1rem;
 
-        @include mq(xlarge) {
+        @include mq(medium) {
             padding: 2rem;
-            left: 50%;
             width: 50%;
-            @include transform(translate(-50%, -50%));
         }
 
         &.gallery {
             padding: 0;
             background: none;
             width: 100%;
-            left: 50%;
-            @include transform(translate(-50%, -50%));
         }
 
         &.header {
             left: 0;
+            width: 100%;
             @include transform(translate(0%, -50%));
         }
 
@@ -55,6 +52,61 @@ body.page-template-tpl-index #main {
 
         p {
             line-height: 1.5rem;
+        }
+
+        &.stats {
+            width: 50%;
+
+            @include mq(small) {
+                width: 30%;
+            }
+
+            ul {
+                text-align: left;
+                margin: 0;
+            }
+
+            li {
+                display: block;
+            }
+
+            i {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 15px;
+
+                font-size: 3rem;
+                line-height: 3.4rem;
+            }
+        }
+
+        &.video {
+            width: auto;
+            background: $black;
+
+            iframe {
+                border: none;
+                width: 80vw;
+                height: calc(100vh - #{$topbar-height}*3);
+            }
+        }
+
+        &.facebook {
+            width: auto;
+
+            .iframe-desktop {
+                display: none;
+            }
+
+            @include mq(medium) {
+                .iframe-desktop {
+                    display: block;
+                }
+
+                .iframe-mobile {
+                    display: none;
+                }
+            }
         }
     }
 

@@ -38,9 +38,8 @@
                     <h3>
                         <a href="#"><?php the_title(); ?></a>
                     </h3>
-                    <p>
-                        <?php the_content(); ?>
-                    </p>
+
+                    <?php the_content(); ?>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -77,8 +76,8 @@
         </div>
     </section>
     <section id="group3" class="parallax__group">
-        <div class="parallax__layer parallax__layer--base">
-            <div class="box">
+        <div class="parallax__layer parallax__layer--fore">
+            <div class="box stats">
                 <?php $myPosts = get_posts(
                     [
                         'tax_query' => [
@@ -95,43 +94,39 @@
                     <h3>
                         <a href="#"><?php the_title(); ?></a>
                     </h3>
-                    <p>
-                        <?php the_content(); ?>
-                    </p>
+
+                    <?php the_content(); ?>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
     <section id="group4" class="parallax__group">
         <div class="parallax__layer parallax__layer--base">
-            <div class="title">Base Layer</div>
-        </div>
-        <div class="parallax__layer parallax__layer--back">
-            <div class="title">Background Layer</div>
-        </div>
-        <div class="parallax__layer parallax__layer--deep">
-            <div class="title">Deep Background Layer</div>
+            <div class="box video">
+                <iframe src="https://www.youtube.com/embed/jPJ1avYUcIc?autoplay=0&modestbranding=1"></iframe>
+            </div>
         </div>
     </section>
     <section id="group5" class="parallax__group">
         <div class="parallax__layer parallax__layer--fore">
-            <div class="title">Foreground Layer</div>
+            <div class="box">Presentation environmental project</div>
         </div>
         <div class="parallax__layer parallax__layer--base">
-            <div class="title">Base Layer</div>
         </div>
     </section>
     <section id="group6" class="parallax__group">
-        <div class="parallax__layer parallax__layer--back">
-            <div class="title">Background Layer</div>
-        </div>
         <div class="parallax__layer parallax__layer--base">
-            <div class="title">Base Layer</div>
+            <div class="box">The expedition in details</div>
+        </div>
+        <div class="parallax__layer parallax__layer--back">
         </div>
     </section>
     <section id="group7" class="parallax__group">
         <div class="parallax__layer parallax__layer--base">
-            <div class="title">Base Layer</div>
+            <div class="box facebook">
+                <iframe class="iframe-mobile" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fthemannekentrip.be&width=300&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=471768236515584" width="300" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                <iframe class="iframe-desktop" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthemannekentrip.be%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=471768236515584" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            </div>
         </div>
     </section>
 </div>
