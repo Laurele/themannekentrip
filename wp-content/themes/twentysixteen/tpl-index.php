@@ -43,7 +43,7 @@
                 <?php endforeach; ?>
             </div>
         </div>
-        <div class="parallax__layer parallax__layer--back">
+        <div class="parallax__layer parallax__layer--deep has-gallery">
             <div class="box gallery">
                 <span class="gallery-item">
                     <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/kayak.jpg">
@@ -71,6 +71,15 @@
                 </span>
                 <span class="gallery-item">
                     <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/mountain_top.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/boat.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/canyon_view.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/cascade.jpg">
                 </span>
             </div>
         </div>
@@ -106,6 +115,9 @@
                 <iframe src="https://www.youtube.com/embed/jPJ1avYUcIc?autoplay=0&modestbranding=1"></iframe>
             </div>
         </div>
+        <div class="parallax__layer parallax__layer--deep">
+            <div class="box gallery">
+            </div>
     </section>
     <section id="group5" class="parallax__group">
         <div class="parallax__layer parallax__layer--fore">

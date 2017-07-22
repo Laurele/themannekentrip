@@ -32,12 +32,23 @@ html {
     }
 
     .site-title {
-        display: none;
-        margin: 0 20px;
+        margin: 0;
+
+        font-size: .9rem;
+        line-height: $topbar-height;
+        font-weight: 500;
+
+        a {
+            text-decoration: none;
+            color: $darkGreen;
+        }
+
+        @include flex-content-size(0, 0, auto);
     }
 
     .custom-logo-link {
-        @include flex-content-size(0, 1, auto);
+        margin: 5px;
+        @include flex-content-size(0, 0, 55px);
 
         img {
             max-height: 100%;
@@ -59,6 +70,10 @@ html {
 
         &:hover {
             color: $mediumGrey;
+        }
+
+        i {
+            font-size: 1.5rem;
         }
     }
 }
@@ -88,7 +103,7 @@ html {
     height: calc(100vh - #{$topbar-height});
     z-index: $zindex-navigation;
 
-    background: rgba(167, 174, 184, 0.95);
+    background: rgba(10, 10, 10, .8);
 
     // Hide effect for aside content
     &, * {
@@ -100,17 +115,20 @@ html {
     @include opacity(0);
 
     &.is-visible {
-        min-width: 25vw;
+        min-width: 100vw;
         overflow: auto;
         padding: 2rem;
 
         @include opacity(100);
         @include transition(all 0.15s ease-in);
 
+        @include mq(large) {
+            min-width: 25vw;
+        }
+
         // Show effect for aside content
         &, * {
             width: auto;
-            overflow: auto;
         }
     }
 
@@ -150,18 +168,24 @@ html {
 }
 
 .primary-menu-item {
+    display: block;
     margin: 5px 0;
 }
 
 .primary-menu-item-link {
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 1.2rem;
-    line-height: 1rem;
+    font-size: 3rem;
+    line-height: 3.6rem;
 
     color: $white;
 
     @include transition(color 0.15s ease-in);
+
+    @include mq(large) {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+    }
 
     &:hover {
         color: $black;
@@ -204,10 +228,14 @@ html {
     @include transition(color 0.15s ease-in);
 
     &:hover {
-        color: $black;
+        color: $lightGrey;
     }
 
     i {
-        font-size: 1.5rem;
+        font-size: 3rem;
+
+        @include mq(large) {
+            font-size: 1.5rem;
+        }
     }
 }

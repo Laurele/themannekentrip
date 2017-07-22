@@ -41,9 +41,26 @@ body.page-template-tpl-index #main {
             @include transform(translate(0%, -50%));
         }
 
+        &.stats {
+            width: 50%;
+
+            @include mq(small) {
+                width: 30%;
+            }
+        }
+
+        &.video {
+            width: auto;
+            background: $black;
+        }
+
+        &.facebook {
+            width: auto;
+        }
+
         h3 {
             a {
-                color: $darkGrey;
+                color: $mediumGrey;
                 text-transform: uppercase;
                 font-weight: 500;
                 text-decoration: none;
@@ -52,61 +69,6 @@ body.page-template-tpl-index #main {
 
         p {
             line-height: 1.5rem;
-        }
-
-        &.stats {
-            width: 50%;
-
-            @include mq(small) {
-                width: 30%;
-            }
-
-            ul {
-                text-align: left;
-                margin: 0;
-            }
-
-            li {
-                display: block;
-            }
-
-            i {
-                display: inline-block;
-                vertical-align: middle;
-                margin-right: 15px;
-
-                font-size: 3rem;
-                line-height: 3.4rem;
-            }
-        }
-
-        &.video {
-            width: auto;
-            background: $black;
-
-            iframe {
-                border: none;
-                width: 80vw;
-                height: calc(100vh - #{$topbar-height}*3);
-            }
-        }
-
-        &.facebook {
-            width: auto;
-
-            .iframe-desktop {
-                display: none;
-            }
-
-            @include mq(medium) {
-                .iframe-desktop {
-                    display: block;
-                }
-
-                .iframe-mobile {
-                    display: none;
-                }
-            }
         }
     }
 
@@ -148,7 +110,7 @@ body.page-template-tpl-index #main {
         background-size: auto 80%;
 
         @include mq(large) {
-            background: url("../../images/carte.svg") center $topbar-height no-repeat;
+            background: url("../../images/carte.svg") center 40px no-repeat;
             background-size: contain;
         }
     }
@@ -164,19 +126,66 @@ body.page-template-tpl-index #main {
 
             border-top: solid 1px $lightGrey;
             border-bottom: solid 1px $lightGrey;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.65);
         }
 
         h1 {
             display: inline;
-            margin: 0 0 1rem;
-            padding-bottom: 1rem;
+            margin: 0;
 
-            @include horizontal-dotted-border(4px, 1.5px, $lightGrey, transparent, 40%, 0%);
+            color: $darkGreen;
         }
 
         h2 {
-            margin: 2rem 0 0;
+            margin: 1rem 0 0 0;
+            color: $darkGrey;
+            font-weight: 300;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+    }
+
+    .stats {
+        ul {
+            text-align: left;
+            margin: 0;
+        }
+
+        li {
+            display: block;
+        }
+
+        i {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 15px;
+
+            font-size: 3rem;
+            line-height: 3.4rem;
+        }
+    }
+
+    .video {
+        iframe {
+            border: none;
+            width: 80vw;
+            height: calc(100vh - #{$topbar-height}*3);
+        }
+    }
+
+    .facebook {
+        .iframe-desktop {
+            display: none;
+        }
+
+        @include mq(medium) {
+            .iframe-desktop {
+                display: block;
+            }
+
+            .iframe-mobile {
+                display: none;
+            }
         }
     }
 }
