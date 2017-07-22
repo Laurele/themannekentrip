@@ -8,6 +8,7 @@
 @import "utils/parallax";
 @import "utils/gallery";
 //Base
+@import "base/theme";
 @import "base/main";
 @import "base/typography";
 // Layout
@@ -15,3 +16,4 @@
 // Page
 @import "page/construction";
 @import "page/index";
+@import "page/default";
