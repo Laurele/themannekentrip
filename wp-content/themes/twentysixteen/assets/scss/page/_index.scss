@@ -16,27 +16,51 @@ body.page-template-tpl-index #main {
         position: absolute;
 
         text-align: center;
-        left: 50%;
         top: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        left: 20%;
+        width: 80%;
+        @include transform(translate(-10%, -50%));
 
-        background: rgba(255, 255, 255, 0.96);
+        background: rgba(255, 255, 255, 0.90);
         padding: 1rem;
 
-        @include mq(medium) {
+        @include mq(xlarge) {
             padding: 2rem;
+            left: 50%;
+            width: 50%;
+            @include transform(translate(-50%, -50%));
         }
 
         &.gallery {
             padding: 0;
             background: none;
+            width: 100%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+        }
+
+        &.header {
+            left: 0;
+            @include transform(translate(0%, -50%));
+        }
+
+        h3 {
+            a {
+                color: $darkGrey;
+                text-transform: uppercase;
+                font-weight: 500;
+                text-decoration: none;
+            }
+        }
+
+        p {
+            line-height: 1.5rem;
         }
     }
 
     .background-paper, .background-paper-parallax {
         position: absolute;
-        background: url("../../images/aquarel.svg") no-repeat fixed;
+        background: url("../../images/aquarel.svg") transparent no-repeat fixed;
         background-size: cover;
 
         &:before {
@@ -68,8 +92,13 @@ body.page-template-tpl-index #main {
     .background-map {
         width: 100%;
         height: 100%;
-        background: url("../../images/carte.svg") center $topbar-height no-repeat;
-        background-size: contain;
+        background: url("../../images/carte.svg") 50% 50% no-repeat;
+        background-size: auto 80%;
+
+        @include mq(large) {
+            background: url("../../images/carte.svg") center $topbar-height no-repeat;
+            background-size: contain;
+        }
     }
 
     .header {

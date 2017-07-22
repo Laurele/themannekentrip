@@ -46,20 +46,37 @@
         </div>
         <div class="parallax__layer parallax__layer--back">
             <div class="box gallery">
-                <?php $i = 0; ?>
-                <?php while ($i < 6) : ?>
-                    <span class="gallery-item">
-                    <img src="http://lorempixel.com/400/400">
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/kayak.jpg">
                 </span>
-                    <?php $i++; ?>
-                <?php endwhile; ?>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/beach_camp.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/bike_road.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/savane_bike.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/laponia_finland.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/laponia_sunset.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/meet_people.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/finland_angeli.jpg">
+                </span>
+                <span class="gallery-item">
+                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/mountain_top.jpg">
+                </span>
             </div>
         </div>
     </section>
     <section id="group3" class="parallax__group">
-        <div class="parallax__layer parallax__layer--fore">
-            <div class="title">Foreground Layer</div>
-        </div>
         <div class="parallax__layer parallax__layer--base">
             <div class="box">
                 <?php $myPosts = get_posts(
