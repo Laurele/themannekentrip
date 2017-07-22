@@ -2,15 +2,11 @@
 var _ = require('underscore');
 var gulp = require('gulp');
 var path = require('path');
-var yaml = require('js-yaml');
 var fs = require('fs');
-var merge = require('merge-stream');
-var runSequence = require('run-sequence');
-var del = require('del');
-var sprity = require('sprity');
-var shortId = require('shortid');
-var $ = require('gulp-load-plugins')();
-var autoprefixer = require('autoprefixer');
+var $ = require("gulp-load-plugins")({
+    pattern: ['gulp-*', 'gulp.*', 'js-yaml', 'merge-stream', 'run-sequence', 'sprity', 'autoprefixer', 'shortid'], // the glob(s) to search for
+    replaceString: /\bgulp[\-.]/ // what to remove from the name of the module when adding it to the context
+});
 
 // Initialize the config
 var config = {};
@@ -19,7 +15,7 @@ var reload = $.util.noop;
 var onlyNewer = false;
 
 var loadConfig = function () {
-    var config = yaml.safeLoad(fs.readFileSync('gulpconfig.yml', 'utf8'));
+    var config = $.jsYaml.safeLoad(fs.readFileSync('gulpconfig.yml', 'utf8'));
     var configTypes = ['assets', 'copies', 'sprites'];
     var pathTypes = ['files', 'watch', 'lint'];
 
@@ -95,13 +91,13 @@ var onError = function (error) {
 // Update assets version in Symfony config file
 gulp.task('assets-version', function () {
     try {
-        var SymfonyConfig = yaml.safeLoad(fs.readFileSync('gulp/assets.yml', 'utf8'));
+        var SymfonyConfig = $.jsYaml.safeLoad(fs.readFileSync('gulp/assets.yml', 'utf8'));
         if (SymfonyConfig.parameters === undefined) {
             $.util.error('Parameters not found in "gulp/assets.yml"');
         }
-        SymfonyConfig.parameters.assets_version = shortId.generate();
+        SymfonyConfig.parameters.assets_version = $.shortid.generate();
 
-        fs.writeFile('gulp/assets.yml', yaml.safeDump(SymfonyConfig, {indent: 4}), {encoding: 'utf8'});
+        fs.writeFile('gulp/assets.yml', $.jsYaml.safeDump(SymfonyConfig, {indent: 4}), {encoding: 'utf8'});
     } catch (error) {
         if (error.code === 'ENOENT') {
             $.util.log($.util.colors.red('Please create a "gulp/assets.yml" file with a "assets_version"'));
@@ -135,7 +131,7 @@ gulp.task('images', function () {
     });
 
     if (streams.length > 0) {
-        return merge(streams);
+        return $.mergeStream(streams);
     }
 });
 
@@ -145,7 +141,7 @@ gulp.task('sprites', function () {
     if (!_.isUndefined(config.sprites) && _.isArray(config.sprites)) {
         _.each(config.sprites, function (sprite) {
             streams.push(
-                sprity.src(
+                $.sprity.src(
                     {
                         src: sprite.files,
                         style: sprite.style
@@ -162,7 +158,7 @@ gulp.task('sprites', function () {
     }
 
     if (streams.length > 0) {
-        return merge(streams);
+        return $.mergeStream(streams);
     }
 });
 
@@ -189,7 +185,7 @@ gulp.task('fonts', function () {
     });
 
     if (streams.length > 0) {
-        return merge(streams);
+        return $.mergeStream(streams);
     }
 });
 
@@ -224,7 +220,7 @@ gulp.task('styles', function () {
                 // Concatenate all files in one
                 .pipe($.concat(asset.output))
                 // Add browser prefixes to all styles that matches the list of supported browsers
-                .pipe($.postcss([autoprefixer(!_.isUndefined(config.autoprefixer) ? config.autoprefixer.options || {} : {})]))
+                .pipe($.postcss([$.autoprefixer(!_.isUndefined(config.autoprefixer) ? config.autoprefixer.options || {} : {})]))
                 // Rewrite the url of all fonts in the css file to point to the new fonts directory
                 .pipe($.replace(/([\/\w\._-]+\/)*(fonts\/)([\w\._-]+\.(ttf|eot|woff|svg))/g, '../fonts/$2'))
                 // TODO : uncomment the line below if you want the images directory structure to be flatten
@@ -241,7 +237,7 @@ gulp.task('styles', function () {
     });
 
     if (streams.length > 0) {
-        return merge(streams);
+        return $.mergeStream(streams);
     }
 });
 
@@ -280,7 +276,7 @@ gulp.task('scripts', function () {
     });
 
     if (streams.length > 0) {
-        return merge(streams);
+        return $.mergeStream(streams);
     }
 });
 
@@ -311,7 +307,7 @@ gulp.task('lint', function () {
     });
 
     if (streams.length > 0) {
-        return merge(streams);
+        return $.mergeStream(streams);
     }
 });
 
@@ -333,34 +329,17 @@ gulp.task('copies', function () {
     }
 
     if (streams.length > 0) {
-        return merge(streams);
+        return $.mergeStream(streams);
     }
 });
 
 // Build every assets sequentially
 gulp.task('build', function () {
-    runSequence('clean', ['assets-version', 'copies', 'sprites'], ['fonts', 'images', 'scripts', 'styles'], function () {
+    $.runSequence(['assets-version', 'copies', 'sprites'], ['fonts', 'images', 'scripts', 'styles'], function () {
         onlyNewer = true;
         $.util.log($.util.colors.green('Build completed'));
     });
 });
-
-// Clean destination directories
-gulp.task('clean', function () {
-    // Get all assets directories
-    var assetDirectories = [
-        path.join(config.dest, 'images'),
-        path.join(config.dest, 'fonts'),
-        path.join(config.dest, 'scripts'),
-        path.join(config.dest, 'styles'),
-        path.join(config.dest, 'vendor')
-    ];
-    // Delete all assets directories
-    del(assetDirectories, function (err, deletedFiles) {
-        $.util.log('Cleaning', $.util.colors.magenta(deletedFiles));
-    });
-});
-
 
 // Watch files for changes and trigger the right task
 gulp.task('watch', ['build'], function () {
@@ -386,7 +365,7 @@ gulp.task('watch', ['build'], function () {
 });
 
 gulp.task('styles-minimization', ['styles'], function () {
-    return gulp.src([path.join(config.dest, 'styles', 'css', '*.css')])
+    return gulp.src([path.join(config.dest, 'styles', '*.css')])
         // Append the production suffix on the filename
         .pipe($.rename({suffix: config.productionSuffix}))
         // Minify all css for production files
@@ -398,7 +377,7 @@ gulp.task('styles-minimization', ['styles'], function () {
 });
 
 gulp.task('scripts-minimization', ['scripts'], function () {
-    return gulp.src([path.join(config.dest, 'styles', 'css', '*.css')])
+    return gulp.src([path.join(config.dest, 'scripts', '*.js')])
         // Append the production suffix on the filename
         .pipe($.rename({suffix: config.productionSuffix}))
         // Minify all javascripts for production files
