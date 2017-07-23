@@ -42,7 +42,7 @@ html[data-env=dev] body {
     &:after { // This adds a label in the top-left corner that displays the current media query state.
         display: block;
         content: "default";
-        position: absolute;
+        position: fixed;
         bottom: 0;
         right: 0;
         opacity: .5;

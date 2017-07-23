@@ -4,15 +4,6 @@ body.page-template-tpl-index {
     background: none;
 }
 
-body.page-template-tpl-index #primary {
-    background: none;
-}
-
-body.page-template-tpl-index #topbar {
-    position: fixed;
-    top: 0;
-}
-
 body.page-template-tpl-index #main {
     position: relative;
     color: $black;
@@ -182,7 +173,7 @@ body.page-template-tpl-index #main {
 
     #group7 #footer {
         position: absolute;
-        bottom: 30px;
+        bottom: 0;
         background: none;
         text-shadow: none;
     }

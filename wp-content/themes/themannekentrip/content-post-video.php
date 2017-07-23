@@ -10,7 +10,7 @@
         }
     ?>
     
-    <?php if( !is_singular() ) { ?>
+    <?php if( !is_single() ) { ?>
         <h2 class="entry-title"><?php the_title(); ?></h2>
     <?php } else { ?>
         <h1 class="entry-title"><?php the_title(); ?></h1>
@@ -20,7 +20,7 @@
 
 <?php get_template_part( 'content-post', 'meta' ); ?>
 
-<?php if( is_singular() ) { ?>
+<?php if( is_single() ) { ?>
     
     <!--BEGIN .entry-content -->
     <div class="entry-content">

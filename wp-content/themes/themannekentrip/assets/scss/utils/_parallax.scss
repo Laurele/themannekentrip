@@ -1,7 +1,8 @@
-$height: 100vh;
+$parallax-height: 100vh;
 .parallax {
+    width: 100%;
     height: 500px;
-    height: $height;
+    height: $parallax-height;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-perspective: 300px;
@@ -13,7 +14,7 @@ $height: 100vh;
     @include transform(transform 0.5s);
     position: relative;
     height: 500px;
-    height: $height;
+    height: $parallax-height;
     transform-style: preserve-3d;
     z-index: 1;
     -webkit-transition: -webkit-transform 0.5s;
@@ -27,7 +28,7 @@ $height: 100vh;
     right: 0;
     bottom: 0;
     height: 500px;
-    height: 100vh;
+    height: $parallax-height;
 }
 
 .parallax__layer--fore {
@@ -53,7 +54,7 @@ $height: 100vh;
     z-index: 2;
 
     &.has-gallery {
-        height: $height*3;
+        height: $parallax-height*3;
         overflow: hidden;
     }
 }

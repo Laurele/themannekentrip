@@ -1,7 +1,7 @@
 <?php
     $quote = get_post_meta($post->ID, '_zilla_quote_quote', true);
 
-    if( !is_singular() ) { ?>
+    if( !is_single() ) { ?>
         
         <h2 class="entry-title"><?php echo $quote; ?></h2>
         
@@ -15,7 +15,7 @@
     
     <div class="clear"></div>
     
-    <?php if( is_singular() ) { ?>
+    <?php if( is_single() ) { ?>
 
         <!--BEGIN .entry-content -->
         <div class="entry-content">

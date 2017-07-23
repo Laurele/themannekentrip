@@ -17,11 +17,13 @@ html {
 }
 
 /* Layout styling */
-#primary {
+#wrapper {
     width: 100%;
 }
 
 #topbar {
+    position: fixed;
+    top: 0;
     width: 100%;
     height: $topbar-height;
 
@@ -94,7 +96,7 @@ html {
 
 #footer {
     width: 100%;
-    margin: 10px auto;
+    padding: 10px auto;
 
     text-align: center;
 
@@ -108,10 +110,11 @@ html {
 /* Main Navigation */
 .site-aside-menu {
     position: fixed;
-    top: $topbar-height;
+    top: 0;
     right: 0;
-    height: calc(100vh - #{$topbar-height});
+    height: 100vh;
     z-index: $zindex-navigation;
+    padding-top: $topbar-height;
 
     background: rgba(1, 22, 29, 0.7);
 

@@ -1,4 +1,4 @@
-<?php if( !is_singular() ) { ?>
+<?php if( !is_single() ) { ?>
     
     <h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s', 'zilla'), get_the_title()); ?>"> <?php the_title(); ?></a></h2>
     

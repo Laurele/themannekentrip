@@ -2,7 +2,7 @@
 <div class="post-media">
     <?php zilla_gallery($post->ID, 'thumbnail-large'); ?>
     
-    <?php if( !is_singular() ) { ?>
+    <?php if( !is_single() ) { ?>
         
         <h2 class="entry-title"><?php the_title(); ?></h2>
         
@@ -16,7 +16,7 @@
 
 <?php get_template_part( 'content-post', 'meta' ); ?>
 
-<?php if( is_singular() ) { ?>
+<?php if( is_single() ) { ?>
     
     <!--BEGIN .entry-content -->
     <div class="entry-content">

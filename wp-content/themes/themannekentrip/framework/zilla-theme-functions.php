@@ -152,7 +152,7 @@ if ( ! function_exists( 'zilla_get_query_context' ) ) {
 			$query_context->context[] = 'blog';
 			
         /* Singular views. */
-		} elseif ( is_singular() ) { 
+		} elseif ( is_single() ) {
 
 			$query_context->context[] = 'singular';
 			$query_context->context[] = "singular-{$wp_query->post->post_type}";
@@ -271,7 +271,7 @@ if ( !function_exists( 'zilla_browser_body_class' ) ) {
 		if($is_iphone) $classes[] = 'iphone';
 		
 		// Add the post title
-		if( is_singular() ) {
+		if( is_single() ) {
     		global $post;
     		array_push( $classes, "{$post->post_type}-{$post->post_name}" );
     	}

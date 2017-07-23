@@ -1,10 +1,27 @@
-body.page-template-default {
-    #primary {
-        background: $lightGrey;
+body.page,
+body.single,
+body.category {
+    #wrapper {
         min-height: 100vh;
     }
 
+    #topbar {
+        height: 40px;
+
+        .custom-logo-link {
+            display: none;
+        }
+
+        .site-title {
+            display: none;
+        }
+    }
+
+    .site-aside-menu {
+        padding-top: 40px;
+    }
+
     #main {
-        padding: 2rem;
+        padding-top: 40px;
     }
 }

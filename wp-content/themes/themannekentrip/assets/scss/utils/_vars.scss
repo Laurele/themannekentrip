@@ -5,6 +5,8 @@ $mediumGrey: #CDCDCD;
 $darkGrey: #5d5d5d;
 $green: #179ba9;
 $darkGreen: #0e5e66;
+$extraDarkGreen: #2c3439;
+$darkBlue: #202429;
 
 $tabletLandscapeBreakPoint: 1024px;
 $tabletPortraitBreakPoint: 768px;
@@ -42,9 +44,12 @@ $linkColor: $black;
    ========================================================================== */
 $gutter: 40px;
 $topbar-height: 60px;
+$sidebar-gutter: 140px;
+$sidebar-width: 30vw;
+
 
 /* =============================================================================
    Z-index
    ========================================================================== */
 $zindex-topbar: 100;
-$zindex-navigation: $zindex-topbar + 1;
+$zindex-navigation: $zindex-topbar - 1;

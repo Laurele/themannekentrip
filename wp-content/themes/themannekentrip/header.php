@@ -29,10 +29,10 @@
 <body <?php body_class(); ?>>
     <?php zilla_body_start(); ?>
 
-	<section id="primary" class="content-area" data-view="navigation.main">
+	<section id="wrapper" class="content-area" data-view="navigation.main">
 		<header id="topbar">
 			<?php the_custom_logo() ?>
-			<?php if ( is_front_page() && is_home() ) : ?>
+			<?php if (is_front_page()) : ?>
 				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 			<?php else : ?>
 				<p class="site-title"><?php bloginfo( 'name' ); ?></p>

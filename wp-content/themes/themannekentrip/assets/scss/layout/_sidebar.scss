@@ -1,0 +1,90 @@
+#sidebar {
+    $buttonWidth: 30px;
+    .mc4wp-form-fields {
+        position: relative;
+        margin: auto;
+        text-align: left;
+    }
+
+    .mc4wp-response {
+        margin: 10px auto;
+    }
+
+    .mc4wp-error * {
+        font-size: 0.8rem;
+        color: #7e0000;
+    }
+
+    .mc4wp-success {
+        padding: 10px;
+        line-height: 1.7;
+
+        * {
+            margin: 0;
+        }
+    }
+
+    .mc4wp-form-fields input[type="email"] {
+        display: block;
+        width: calc(100% - #{$buttonWidth} - 10px);
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        color: $white;
+        background: $darkBlue;
+        @include border-radius(0);
+
+        @include placeholder {
+            color: $darkGrey;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+    }
+
+    .mc4wp-form-fields input[type="submit"] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $buttonWidth;
+        height: 100%;
+        z-index: 2;
+        background: transparent;
+        @include hide-text();
+    }
+
+    [id^="mc4wp-form-"] {
+        position: relative;
+        margin: 0;
+        width: 100%;
+    }
+
+    .construction-form-submit-placeholder {
+        position: absolute;
+        display: block;
+        width: $buttonWidth;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: $darkBlue;
+        @include border-radius(0);
+        @include transition(all 0.15s ease-in);
+
+        $size: 6px;
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: 1;
+        }
+
+        &:before {
+            top: calc(50% - #{$size});
+            right: calc(#{$buttonWidth} / 2 - #{$size});
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: $size 0 $size $size*1.5;
+            border-color: transparent transparent transparent $white;
+            background: rgba(255, 255, 255, 0);
+        }
+    }
+}
