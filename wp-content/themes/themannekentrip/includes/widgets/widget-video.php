@@ -30,7 +30,7 @@ class zilla_video_widget extends WP_Widget {
 /*-----------------------------------------------------------------------------------*/
 /*	Widget Setup
 /*-----------------------------------------------------------------------------------*/
-function zilla_Video_Widget() {
+function __construct() {
 
 	/* Widget settings --------------------------------------------------------------*/
 	$widget_ops = array(
@@ -46,8 +46,15 @@ function zilla_Video_Widget() {
 	);
 
     /* Create the widget ------------------------------------------------------------*/
-	$this->WP_Widget( 'zilla_video_widget', __('Custom Video Widget', 'zilla'), $widget_ops, $control_ops );
-	
+	parent::__construct(
+	// Base ID of your widget
+		'zilla_video_widget',
+		// Widget name will appear in UI
+		__('Custom Video Widget', 'zilla'),
+		// Widget description
+		$widget_ops,
+		$control_ops
+	);
 }
 
 

@@ -74,7 +74,7 @@ function zilla_menu(){
 	$icon = ZILLA_URL .'/images/favicon.png';
 
 	// Theme Options page
-    add_object_page( $zilla_options['theme_name'], $zilla_options['theme_name'], 'update_core', 'zillaframework', 'zilla_options_page', $icon );
+    add_menu_page( $zilla_options['theme_name'], $zilla_options['theme_name'], 'update_core', 'zillaframework', 'zilla_options_page', $icon );
 	add_submenu_page( 'zillaframework', __( 'Theme Options', 'zilla' ), __( 'Theme Options', 'zilla' ), 'update_core', 'zillaframework', 'zilla_options_page' );
 	
 	// Update Theme page
@@ -94,7 +94,7 @@ function zilla_menu(){
             $theme_version = $theme_obj->get('Version');
         } else {
             $template_path = get_template_directory();
-            $theme_data = get_theme_data( $template_path . '/style.css' );
+            $theme_data = wp_get_theme( $template_path . '/style.css' );
             $theme_version = $theme_data['Version'];
         }
         

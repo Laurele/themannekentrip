@@ -36,8 +36,7 @@ class zilla_tweet_widget extends WP_Widget {
     /*-------------------------------------------------------------------------------*/
     /*	Widget Setup
     /*-------------------------------------------------------------------------------*/
-	function ZILLA_Tweet_Widget() {
-	
+	function __construct() {
 		/* Widget settings. */
 		$widget_ops = array( 'classname' => 'zilla_tweet_widget', 'description' => __('A widget that displays your latest tweets.', 'zilla') );
 
@@ -45,7 +44,15 @@ class zilla_tweet_widget extends WP_Widget {
 		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'zilla_tweet_widget' );
 
 		/* Create the widget. */
-		$this->WP_Widget( 'zilla_tweet_widget', __('Custom Latest Tweets', 'zilla'), $widget_ops, $control_ops );
+		parent::__construct(
+			// Base ID of your widget
+			'zilla_tweet_widget',
+			// Widget name will appear in UI
+			__('Custom Latest Tweets', 'zilla'),
+			// Widget description
+			$widget_ops,
+			$control_ops
+		);
 	}
 
     /*-----------------------------------------------------------------------------------*/

@@ -30,8 +30,8 @@ class zilla_flickr_widget extends WP_Widget {
 /*-----------------------------------------------------------------------------------*/
 /*	Widget Setup
 /*-----------------------------------------------------------------------------------*/
-	
-function zilla_FLICKR_Widget() {
+
+function __construct() {
 
 	/* Widget settings --------------------------------------------------------------*/
 	$widget_ops = array(
@@ -47,8 +47,15 @@ function zilla_FLICKR_Widget() {
 	);
 
 	/* Create the widget ------------------------------------------------------------*/
-	$this->WP_Widget( 'zilla_flickr_widget', __('Custom Flickr Photos', 'zilla'), $widget_ops, $control_ops );
-	
+	parent::__construct(
+	// Base ID of your widget
+		'zilla_flickr_widget',
+		// Widget name will appear in UI
+		__('Custom Flickr Photos', 'zilla'),
+		// Widget description
+		$widget_ops,
+		$control_ops
+	);
 }
 
 
