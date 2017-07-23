@@ -150,13 +150,13 @@ add_filter('wp_title', 'zilla_wp_title');
 /*	Register and load JS
 /*-----------------------------------------------------------------------------------*/
 // include custom jQuery
-function mannekentrip_include_custom_jquery() {
+function themannekentrip_include_custom_jquery() {
 
 	wp_deregister_script('jquery');
 	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
 
 }
-add_action('wp_enqueue_scripts', 'mannekentrip_include_custom_jquery');
+add_action('wp_enqueue_scripts', 'themannekentrip_include_custom_jquery');
 
 if ( !function_exists( 'zilla_enqueue_scripts' ) ) {
 	function zilla_enqueue_scripts() {
@@ -550,15 +550,6 @@ function get_asset_version () {
 	return substr(trim(array_filter(explode("\n", file_get_contents('gulp/assets.yml', 0)))[1]), 16);
 }
 
-/**
- * include custom jQuery
- */
-function themannekentrip_include_custom_jquery() {
-
-	wp_deregister_script('jquery');
-	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
-
-}
 add_action('wp_enqueue_scripts', 'themannekentrip_include_custom_jquery');
 
 /**
