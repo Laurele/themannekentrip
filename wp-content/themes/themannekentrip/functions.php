@@ -139,6 +139,14 @@ add_filter('wp_title', 'zilla_wp_title');
 /*-----------------------------------------------------------------------------------*/
 /*	Register and load JS
 /*-----------------------------------------------------------------------------------*/
+// include custom jQuery
+function mannekentrip_include_custom_jquery() {
+
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+
+}
+add_action('wp_enqueue_scripts', 'mannekentrip_include_custom_jquery');
 
 if ( !function_exists( 'zilla_enqueue_scripts' ) ) {
 	function zilla_enqueue_scripts() {
@@ -516,5 +524,74 @@ if ( !function_exists( 'zilla_video' ) ) {
 $tempdir = get_template_directory();
 require_once($tempdir .'/framework/init.php');
 require_once($tempdir .'/includes/init.php');
+
+/**
+ * Detect which environment regarding site url
+ * @return int
+ */
+function is_dev_environment () {
+	return preg_match("/.local$/i", $_SERVER['HTTP_HOST']);
+}
+
+/**
+ * @return string
+ */
+function get_asset_version () {
+	return substr(trim(array_filter(explode("\n", file_get_contents('gulp/assets.yml', 0)))[1]), 16);
+}
+
+/**
+ * Enqueue all scripts assets in header or footer
+ */
+function my_theme_scripts()
+{
+	$assetVersion = get_asset_version();
+	$suffix = !is_dev_environment() ? '.min' : '';
+
+	// Footer
+	wp_enqueue_script(
+		'bacbkbone-script',
+		get_template_directory_uri() . '/build/scripts/backbone' . $suffix . '.js',
+		array(),
+		$assetVersion,
+		true
+	);
+	wp_enqueue_script(
+		'main-script',
+		get_template_directory_uri() . '/build/scripts/main' . $suffix . '.js',
+		array('jquery'),
+		$assetVersion,
+		true
+	);
+}
+
+add_action('wp_enqueue_scripts', 'my_theme_scripts');
+
+/**
+ * Enqueue all styles assets in header
+ */
+function my_theme_styles()
+{
+	$assetVersion = get_asset_version();
+	// .min styles
+	if (!is_dev_environment()) {
+		wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.min.css', array(), $assetVersion);
+	} else {
+		wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.css', array(), $assetVersion);
+	}
+	wp_enqueue_style('fontastic', 'https://file.myfontastic.com/mg9JcKNLSXVKNmerfyxeEC/icons.css', array(), $assetVersion);
+}
+add_action('wp_enqueue_scripts', 'my_theme_styles');
+
+/**
+ * Completely disable the wpautop filter
+ */
+remove_filter('the_content', 'wpautop');
+
+include('translations.php');
+
+function getImageDirectory() {
+	return get_bloginfo('stylesheet_directory') . '/build/images';
+}
 
 ?>
