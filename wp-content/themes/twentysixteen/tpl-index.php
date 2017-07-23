@@ -46,40 +46,40 @@
         <div class="parallax__layer parallax__layer--deep has-gallery">
             <div class="box gallery">
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/kayak.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/kayak.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/beach_camp.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/beach_camp.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/bike_road.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/bike_road.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/savane_bike.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/savane_bike.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/laponia_finland.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/laponia_finland.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/laponia_sunset.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/laponia_sunset.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/meet_people.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/meet_people.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/finland_angeli.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/finland_angeli.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/mountain_top.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/mountain_top.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/boat.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/boat.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/canyon_view.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/canyon_view.jpg">
                 </span>
                 <span class="gallery-item">
-                    <img src="/wp-content/themes/twentysixteen/build/images/home/gallery/cascade.jpg">
+                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/cascade.jpg">
                 </span>
             </div>
         </div>
