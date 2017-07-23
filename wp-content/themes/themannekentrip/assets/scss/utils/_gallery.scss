@@ -14,13 +14,6 @@
     height: auto;
     max-width: calc(100% / 2);
 
-    &:nth-child(9),
-    &:nth-child(10),
-    &:nth-child(11),
-    &:nth-child(12) {
-        display: none;
-    }
-
     @include mq(large) {
         max-width: calc(100% / 3);
     }
