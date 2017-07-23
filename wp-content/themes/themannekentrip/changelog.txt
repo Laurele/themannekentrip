@@ -1,0 +1,10 @@
+*** Launch Changelog ***
+
+09 May 2012 - Version 1.0.1
+
+	* styling-options.php - removed code causing an error related to additional stylesheets
+	* style.css - updated version number
+
+08 May 2012 - Version 1.0
+
+	First Release

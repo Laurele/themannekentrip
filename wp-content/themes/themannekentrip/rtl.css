@@ -1,0 +1,206 @@
+/*
+Theme Name: Launch
+
+For more information about RTL stylesheets, please visit:
+http://codex.wordpress.org/Right_to_Left_Language_Support
+*/
+
+body {
+    direction: rtl;
+    unicode-bidi: embed;
+}
+
+.sub-title {
+    background: transparent url(images/sub-title.gif) 100% 10px no-repeat;
+    float: left;
+    padding-right: 45px;
+}
+
+/*	Header Styles -------------------------------------------------------------------*/
+
+#header { background: transparent url(images/sep-dark.png) 0 100% repeat-x; }
+
+/*	Main Content Styles -------------------------------------------------------------*/
+
+blockquote {
+    border-left: none;
+	border-right: 2px solid #a5a5a5;
+	margin-right: 60px;
+	padding-right: 15px;
+}
+
+ul,
+ol,
+dl { margin-right: 30px; }
+
+caption { text-align: right; }
+
+
+/* Media Elements --------------------------------------------------------*/
+
+.gallery-image { margin-right: 0; }
+
+.gallery-caption { margin-right: 0; }
+
+.gallery { float: right; }
+
+.gallery-item { float: right; }
+
+.gallery-item .gallery-caption { padding-left: 12%; }
+
+.gallery-item a { float: right; }
+
+
+/* Slides --------------------------------------------------------------*/
+
+.slides_control { left: 498px !important; }
+
+.slides_next { 
+    left: 5px;
+    right: auto; 
+}
+
+.slides_prev { 
+    right: 5px;
+    left: auto; 
+}
+
+/* Common Form Elements --------------------------------------------------*/
+
+#s {
+    background: #202429 url(images/search.png) 196px 8px no-repeat;
+    padding-right: 25px;
+}
+
+#primary #s { 
+    background: #fff url(images/search.png) 98% 8px no-repeat; 
+    padding-right: 29px;
+}
+
+/* Gravityforms Elements ------------------------------------------------------*/
+
+.zilla .gform_wrapper .right_label .gfield_description, 
+.zilla .gform_wrapper .left_label .gfield_description, 
+.zilla .gform_wrapper .left_label .instruction, 
+.zilla .gform_wrapper .right_label .instruction { margin-right: 32%; }
+
+
+/* Gravity Forms complex forms -------------------------------------------------------*/
+
+.zilla .gform_wrapper .ginput_complex label, 
+.zilla .gform_wrapper .gfield_time_hour label, 
+.zilla .gform_wrapper .gfield_time_minute label, 
+.zilla .gform_wrapper .gfield_date_month label, 
+.zilla .gform_wrapper .gfield_date_day label, 
+.zilla .gform_wrapper .gfield_date_year label, 
+.zilla .gform_wrapper .instruction { padding-right: 6px; }
+
+.gform_wrapper .gf_progressbar_percentage span { padding-left: 5px; }
+
+
+/* Post Content Styles --------------------------------------------------------------*/
+
+.layout-2cr .entry-icon { left: 579px; }
+
+.more-link {
+    background: transparent url(images/arrow-left.gif) 0 50% no-repeat;
+    padding-left: 15px;
+}
+
+.format-link .entry-title a { background: transparent url(images/arrow-left.gif) 0 50% no-repeat; }
+
+.entry-footer .comment-count { float: left; }
+
+.entry-footer .published {
+    float: left;
+    margin-left: 4px;
+}
+
+
+/*  Comments -------------------------------------------------------------------------*/
+
+.pinglist { margin: 20px 30px 40px; }
+
+.comment > div { margin-right: 66px; }
+
+.children { margin-right: 66px; }
+
+.comment span.avatar {
+    float: right;
+    margin: 0 0 0 10px;
+    right: -66px;
+    left: auto;
+}
+
+#commentform input { 
+    float: right;
+    margin-left: 10px; 
+}
+
+.layout-2cr #comments .respond .entry-icon { background-position: 0 -307px; }
+
+
+/*	Pagination -----------------------------------------------------------------------*/
+
+.page-navigation .nav-next,
+.single-page-navigation .nav-previous { float: right; }
+
+.page-navigation .nav-next a,
+.single-page-navigation .nav-previous a {
+    background: transparent url(images/arrow-right.gif) 100% 50% no-repeat;
+    padding-right: 15px;
+}
+
+.page-navigation .nav-previous,
+.single-page-navigation .nav-next { float: left; }
+
+.page-navigation .nav-previous a,
+.single-page-navigation .nav-next a {
+    background: transparent url(images/arrow-left.gif) 0 50% no-repeat;
+    padding-left: 15px;
+}
+
+.comment-navigation .nav-next { float: left; }
+
+.comment-navigation .nav-previous { float: right; }
+
+/*	Footer Styles -------------------------------------------------------------------*/
+
+.layout-2cl #footer {
+	background: transparent url(images/sep-light.gif) 0 0 repeat-x;
+	margin-left: 400px;
+}
+
+.layout-2cr #footer { margin-right: 400px; }
+
+
+/*	Page & Page Templates ----------------------------------------------------------*/
+
+.contactform { margin-right: 0; }
+
+.contactform li label { padding-right: 3px; }
+
+.contactform li button { float: left; }
+
+
+/*	Widgets ------------------------------------------------------------------------*/
+
+.widget-title span { padding-left: 7px; }
+
+.widget ul { margin-right: 0; }
+
+.widget ol { margin-right: 0; }
+
+
+/* IE -----------------------------------------------------------------------------*/
+
+.ie input,
+.ie textarea,
+.ie #s,
+.ie .zilla .gform_wrapper input[type="text"], 
+.ie .zilla .gform_wrapper input[type="url"], 
+.ie .zilla .gform_wrapper input[type="email"], 
+.ie .zilla .gform_wrapper input[type="tel"], 
+.ie .zilla .gform_wrapper input[type="number"], 
+.ie .zilla .gform_wrapper input[type="password"],
+.ie .zilla .gform_wrapper textarea { padding-left: 5px; }
