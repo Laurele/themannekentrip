@@ -1,5 +1,30 @@
 *** Launch Changelog ***
 
+13 December 2012 - Version 1.1
+
+	* style.css 
+		- update version number
+		- update menu styles
+	* functions.php - update zilla_gallery function
+	* /framework 
+
+13 August 2012 - Version 1.0.3
+
+	* style.css - updated version number
+	* functions.php
+		- Remove Google CDN of jQuery
+
+15 June 2012 - Version 1.0.2
+
+	* style.css	- updated version number
+	* /framework - ported to updated framework
+		- zilla-admin-functions.php
+		- zilla-admin-init.php
+		- zilla-admin-page-options.php
+		- zilla-admin-page-update.php
+		- zilla-theme-functions.php
+		- upload-button.js
+
 09 May 2012 - Version 1.0.1
 
 	* styling-options.php - removed code causing an error related to additional stylesheets

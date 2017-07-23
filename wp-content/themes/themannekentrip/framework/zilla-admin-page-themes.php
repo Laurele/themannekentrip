@@ -16,9 +16,9 @@ function zilla_themes_page(){
     					?>
     					<li>
         					<div class="theme">
-        						<h3><a href="<?php echo $item->get_link(); ?>" target="_blank"><?php echo $item->get_title(); ?></a></h3>
+        						<h3><a href="<?php echo $item->get_link(); ?>?ref=framework" target="_blank"><?php echo $item->get_title(); ?></a></h3>
         						<p><?php echo html_entity_decode($item->get_content()); ?></p>
-        						<p><a href="<?php echo $item->get_link(); ?>" class="button-primary" target="_blank">More Info</a></p>
+        						<p><a href="<?php echo $item->get_link(); ?>?ref=framework" class="button-primary" target="_blank">More Info</a></p>
         					</div>
     					</li>
     					<?php

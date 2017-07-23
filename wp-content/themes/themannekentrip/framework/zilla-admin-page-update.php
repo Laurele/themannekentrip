@@ -9,18 +9,22 @@ function zilla_update_page(){
 		<div id="icon-themes" class="icon32"></div>
 		<h2><?php _e( 'Theme Updates', 'zilla' ); ?></h2>
 		<?php 
-		if($xml = zilla_get_theme_changelog()){
-			$theme_data = get_theme_data(get_template_directory() .'/style.css');
-			if( version_compare( $theme_data['Version'], $xml->latest ) == -1 ){
+		if( $xml = zilla_get_theme_changelog() ) {
+		    
+		    $theme_data = get_option('zilla_framework_options' );
+		    $theme_name = $theme_data['theme_name'];
+		    $theme_version = $theme_data['theme_version'];
+            		    
+			if( version_compare( $theme_version, $xml->latest ) == -1 ){
 				?>
 				<div id="message" class="updated below-h2">
-					<p><?php _e( '<strong>There is a new version of the '. $theme_data['Name'] .' theme available.</strong> You have version '. $theme_data['Version'] .' installed. Update to version '. $xml->latest .'.', 'zilla' ); ?></p>
+					<p><?php echo sprintf( __('<strong>There is a new version of the %s theme available.</strong> You have version %s installed. Update to version %s', 'zilla' ), $theme_name, $theme_version, $xml->latest ); ?></p>
 				</div>
 		 		<img style="width:200px;float:left;margin:0 20px 20px 0;border:1px solid #ddd;" src="<?php echo get_template_directory_uri() .'/screenshot.png'; ?>" alt="" />
 		 		<h3>Update Download and Instructions</h3>
-				<p><strong>Important:</strong> make a backup of the <?php echo $theme_data['Name']; ?> theme inside your WordPress installation folder <code><?php echo str_replace( site_url(), '', get_template_directory_uri() ); ?></code> before attempting to update.</p>
+				<p><strong>Important:</strong> make a backup of the <?php echo $theme_name; ?> theme inside your WordPress installation folder <code><?php echo str_replace( site_url(), '', get_template_directory_uri() ); ?></code> before attempting to update.</p>
 				
-				<p>To update the <?php echo $theme_data['Name']; ?> theme, login to your ThemeForest account, head over to your downloads section and re-download the theme as you did when you purchased it.</p>
+				<p>To update the <?php echo $theme_name; ?> theme, login to your ThemeForest account, head over to your downloads section and re-download the theme as you did when you purchased it.</p>
 				
 				<p>Extract the zip's contents, find the extracted theme folder, and upload the new files using FTP to the <code><?php echo str_replace( site_url(), '', get_template_directory_uri() ); ?></code> folder. This will overwrite the old files and is why it's important to backup any changes you've made to the theme files beforehand.</p>
 								
@@ -30,7 +34,7 @@ function zilla_update_page(){
 				<?php
 			} else {
 				?>
-				<p>The <?php echo $theme_data['Name']; ?> theme is currently up to date at version <?php echo $theme_data['Version']; ?></p>
+				<p>The <?php echo $theme_name; ?> theme is currently up to date at version <?php echo $theme_version; ?></p>
 				<?php
 			}
 			?>

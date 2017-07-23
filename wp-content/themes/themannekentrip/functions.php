@@ -143,9 +143,6 @@ add_filter('wp_title', 'zilla_wp_title');
 if ( !function_exists( 'zilla_enqueue_scripts' ) ) {
 	function zilla_enqueue_scripts() {
 	    /* Register our scripts -----------------------------------------------------*/
-		// comment out the next two lines to load the local copy of jQuery
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
 		wp_register_script('validation', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', 'jquery', '1.9', true);
 		wp_register_script('jplayer', get_template_directory_uri() . '/js/jquery.jplayer.min.js', 'jquery', '2.1');
 		wp_register_script('slides', get_template_directory_uri() . '/js/slides.min.jquery.js', 'jquery', '1.1.9');
@@ -271,10 +268,24 @@ if ( !function_exists( 'zilla_gallery' ) ) {
         
         $posttitle = the_title_attribute( array( 'echo' => 0 ) );
         
-        // get all of the attachments for the post
+        $image_ids_raw = get_post_meta($postid, '_zilla_image_ids', true);
+
+        if( $image_ids_raw ) {
+            // Using WP3.5; use post__in orderby option
+            $image_ids = explode(',', $image_ids_raw);
+            $postid = null;
+            $orderby = 'post__in';
+            $include = $image_ids;
+        } else {
+            $orderby = 'menu_order';
+            $include = '';
+        }
+    
+        // get attachments for the post
         $args = array(
-            'orderby' => 'menu_order',
+            'include' => $include,
             'order' => 'ASC',
+            'orderby' => $orderby,
             'post_type' => 'attachment',
             'post_parent' => $postid,
             'post_mime_type' => 'image',
@@ -282,6 +293,7 @@ if ( !function_exists( 'zilla_gallery' ) ) {
             'numberposts' => -1
         );
         $attachments = get_posts($args);
+
         if( !empty($attachments) ) {
             echo '<div class="slides_container">';
             $i = 0;

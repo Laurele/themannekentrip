@@ -57,7 +57,7 @@ function zilla_create_input($item)
             } else {
                 if(array_key_exists('val', $item) && $item['val'] == $key) $val = ' selected="selected"';
             }
-            echo '<option value="'. $key .'"'. $val .'>'. __( $value, 'zilla' ) .'</option>';
+            echo '<option value="'. $key .'"'. $val .'>'. $value .'</option>';
         }
         echo '</select>';
     }
@@ -73,7 +73,7 @@ function zilla_create_input($item)
             } else {
                 if(array_key_exists('val', $item) && $item['val'] == $zilla_page->ID) $val = ' selected="selected"';
             }
-            echo '<option value="'. $zilla_page->ID .'"'. $val .'>'. __( $zilla_page->post_title, 'zilla' ) .'</option>';
+            echo '<option value="'. $zilla_page->ID .'"'. $val .'>'. $zilla_page->post_title .'</option>';
         }
         echo '</select>';
     }
@@ -89,7 +89,7 @@ function zilla_create_input($item)
             } else {
                 if(array_key_exists('val', $item) && $item['val'] == $zilla_category->cat_ID) $val = ' selected="selected"';
             }
-            echo '<option value="'. $zilla_category->cat_ID .'"'. $val .'>'. __( $zilla_category->cat_name, 'zilla' ) .'</option>';
+            echo '<option value="'. $zilla_category->cat_ID .'"'. $val .'>'. $zilla_category->cat_name .'</option>';
         }
         echo '</select>';
     }
@@ -103,7 +103,7 @@ function zilla_create_input($item)
             } else {
                 if(array_key_exists('val', $item) && $item['val'] == $key) $val = ' checked="checked"';
             }
-            echo '<label for="'. $item['id'] .'_'. $i .'"><input type="radio" id="'. $item['id'] .'_'. $i .'" name="'. $prefix .'['. $item['id'] .']" value="'. $key .'"'. $val . $class .'> '. __( $value, 'zilla' ) .'</label><br />';
+            echo '<label for="'. $item['id'] .'_'. $i .'"><input type="radio" id="'. $item['id'] .'_'. $i .'" name="'. $prefix .'['. $item['id'] .']" value="'. $key .'"'. $val . $class .'> '. $value .'</label><br />';
             $i++;
         }
     }
@@ -115,7 +115,7 @@ function zilla_create_input($item)
         if(array_key_exists($item['id'], $zilla_values) && $zilla_values[$item['id']] != 'on') $val = '';
         echo '<input type="hidden" name="'. $prefix .'['. $item['id'] .']" value="off" />
         <input type="checkbox" id="'. $item['id'] .'" name="'. $prefix .'['. $item['id'] .']" value="on"'. $class . $val .' /> ';
-        if(array_key_exists('text', $item)) _e( $item['text'], 'zilla' );
+        if(array_key_exists('text', $item)) echo $item['text'];
     }
     // multi checkbox
     if($item['type'] == 'multi_checkbox' && array_key_exists('options', $item)){
@@ -127,7 +127,7 @@ function zilla_create_input($item)
             if(array_key_exists($id, $zilla_values) && $zilla_values[$id] != 'on') $val = '';
             echo '<input type="hidden" name="'. $prefix .'['. $id .']" value="off" />
             <input type="checkbox" id="'. $id .'" name="'. $prefix .'['. $id .']" value="on"'. $class . $val .' /> ';
-            echo '<label for="'. $id .'">'. __( $key, 'zilla' ) .'</label><br />';
+            echo '<label for="'. $id .'">'. $key .'</label><br />';
         }
     }
     // file
@@ -147,7 +147,7 @@ function zilla_create_input($item)
             }
             ?>
         </div>
-        <a href="#" id="ajax_upload_<?php echo $item['id']; ?>" class="button-secondary"><?php _e( $val, 'zilla' ); ?></a>
+        <a href="#" id="ajax_upload_<?php echo $item['id']; ?>" class="button-secondary"><?php echo $val; ?></a>
         <a href="#" id="ajax_remove_<?php echo $item['id']; ?>" class="button-secondary"<?php if(!array_key_exists($item['id'], $zilla_values)){ echo ' style="display:none"'; } ?>><?php _e( 'Remove', 'zilla' ); ?></a>
         <script type="text/javascript">
         jQuery(document).ready(function($){ 
@@ -176,16 +176,18 @@ function zilla_create_input($item)
                     button.text(buttonVal);
                     this.enable();
                     window.clearInterval(interval);
-                    
-                    // Show image
-                    $('#uploaded_<?php echo $item['id']; ?>').html('');
-                    var ext = file.substr(file.lastIndexOf(".")+1,file.length);
-                    if(ext && /^(jpg|png|jpeg|gif)$/.test(ext)){
-                        $('#uploaded_<?php echo $item['id']; ?>').html('<img src="<?php echo $wp_uploads['url']; ?>/' + file + '" alt="" />');
-                    } else {
-                        $('#uploaded_<?php echo $item['id']; ?>').text('<?php echo $wp_uploads['url']; ?>/' + file);
+                    response = jQuery.parseJSON(response);
+                    if(response.file_url){
+                        // Show image
+                        $('#uploaded_<?php echo $item['id']; ?>').html('');
+                        var ext = response.file_url.substr(response.file_url.lastIndexOf(".")+1,response.file_url.length);
+                        if(ext && /^(jpg|png|jpeg|gif)$/.test(ext)){
+                            $('#uploaded_<?php echo $item['id']; ?>').html('<img src="' + response.file_url + '" alt="" />');
+                        } else {
+                            $('#uploaded_<?php echo $item['id']; ?>').text(response.file_url);
+                        }
+                        $('#ajax_remove_<?php echo $item['id']; ?>').show();
                     }
-                    $('#ajax_remove_<?php echo $item['id']; ?>').show();
                 }
             });
             
@@ -219,7 +221,7 @@ function zilla_create_input($item)
     }
     // html
     if($item['type'] == 'html'){
-        _e( $item['val'], 'zilla' );
+        echo $item['val'];
     }
 	// custom
     if($item['type'] == 'custom'){
@@ -323,13 +325,13 @@ function zilla_post_type_labels( $singular, $plural = '' )
         'name' => _x( $plural, 'post type general name', 'zilla' ),
         'singular_name' => _x( $singular, 'post type singular name', 'zilla' ),
         'add_new' => __( 'Add New', 'zilla' ),
-        'add_new_item' => __( 'Add New '. $singular, 'zilla' ),
-        'edit_item' => __( 'Edit '. $singular, 'zilla' ),
-        'new_item' => __( 'New '. $singular, 'zilla' ),
-        'view_item' => __( 'View '. $singular, 'zilla' ),
-        'search_items' => __( 'Search '. $plural, 'zilla' ),
-        'not_found' =>  __( 'No '. $plural .' found', 'zilla' ),
-        'not_found_in_trash' => __( 'No '. $plural .' found in Trash', 'zilla' ), 
+        'add_new_item' => sprintf( __( 'Add New %s', 'zilla' ), $singular),
+        'edit_item' => sprintf( __( 'Edit %s', 'zilla' ), $singular),
+        'new_item' => sprintf( __( 'New %s', 'zilla' ), $singular),
+        'view_item' => sprintf( __( 'View %s', 'zilla' ), $singular),
+        'search_items' => sprintf( __( 'Search %s', 'zilla' ), $plural),
+        'not_found' =>  sprintf( __( 'No %s found', 'zilla' ), $plural),
+        'not_found_in_trash' => sprintf( __( 'No %s found in Trash', 'zilla' ), $plural),
         'parent_item_colon' => ''
     );
 }
@@ -348,18 +350,18 @@ function zilla_taxonomy_labels( $singular, $plural = '' )
     return array(
         'name' => _x( $plural, 'taxonomy general name', 'zilla' ),
         'singular_name' => _x( $singular, 'taxonomy singular name', 'zilla' ),
-        'search_items' =>  __( 'Search '. $plural, 'zilla' ),
-        'popular_items' => __( 'Popular '. $plural, 'zilla' ),
-        'all_items' => __( 'All '. $plural, 'zilla' ),
+        'search_items' => sprintf( __( 'Search %s', 'zilla' ), $plural),
+        'popular_items' => sprintf( __( 'Popular %s', 'zilla' ), $plural),
+        'all_items' => sprintf( __( 'All %s', 'zilla' ), $plural),
         'parent_item' => null,
         'parent_item_colon' => null,
-        'edit_item' => __( 'Edit '. $singular, 'zilla' ), 
-        'update_item' => __( 'Update '. $singular, 'zilla' ),
-        'add_new_item' => __( 'Add New '. $singular, 'zilla' ),
-        'new_item_name' => __( 'New '. $singular .' Name', 'zilla' ),
-        'separate_items_with_commas' => __( 'Separate '. $plural .' with commas', 'zilla' ),
-        'add_or_remove_items' => __( 'Add or remove '. $plural, 'zilla' ),
-        'choose_from_most_used' => __( 'Choose from the most used '. $plural, 'zilla' )
+        'edit_item' => sprintf( __( 'Edit %s', 'zilla' ), $singular),
+        'update_item' => sprintf( __( 'Update %s', 'zilla' ), $singular),
+        'add_new_item' => sprintf( __( 'Add New %s', 'zilla' ), $singular),
+        'new_item_name' => sprintf( __( 'New %s Name', 'zilla' ), $singular),
+        'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'zilla' ), $plural),
+        'add_or_remove_items' => sprintf( __( 'Add or remove %s', 'zilla' ), $plural),
+        'choose_from_most_used' => sprintf( __( 'Choose from the most used %s', 'zilla' ), $plural)
     ); 
 }
 
@@ -406,12 +408,16 @@ function zilla_get_theme_changelog()
 function zilla_admin_notice() {  
     global $pagenow;
 
-    if( $pagenow == 'index.php' && $xml = zilla_get_theme_changelog() ){
-		$theme_data = get_theme_data(get_template_directory() .'/style.css');
-		if( version_compare( $theme_data['Version'], $xml->latest ) == -1 ){
+    if( $pagenow == 'index.php' && $xml = zilla_get_theme_changelog() ) {
+        
+        $theme_data = get_option('zilla_framework_options');
+        $theme_name = $theme_data['theme_name'];
+        $theme_version = $theme_data['theme_version'];
+
+		if( version_compare( $theme_version, $xml->latest ) == -1 ) {
 			?>
 			<div id="message" class="updated">
-				<p><?php _e( '<strong>There is a new version of the '. $theme_data['Name'] .' theme available.</strong> You have version '. $theme_data['Version'] .' installed. <a href="'. admin_url( 'admin.php?page=zillaframework-update' ) .'">Update to version '. $xml->latest .'</a>.', 'zilla' ); ?></p>
+				<p><?php printf( __( '<strong>There is a new version of the %s theme available.</strong> You have version %s installed. <a href="%s">Update to version %s</a>.', 'zilla' ), $theme_name, $theme_version, admin_url( 'admin.php?page=zillaframework-update' ), $xml->latest); ?></p>
 			</div>
 			<?php 
 		}
@@ -429,8 +435,6 @@ add_action('admin_notices', 'zilla_admin_notice');
 function zilla_get_more_themes_rss()
 {
 	include_once(ABSPATH . WPINC . '/feed.php');
-	$zilla_options = get_option('zilla_framework_options');
-	$trans_key = 'zilla_more_themes_'. zilla_to_slug( $zilla_options['theme_name'] );
 
 	$rss = fetch_feed('http://www.themezilla.com/feed/?post_type=theme');
 	if ( !is_wp_error( $rss ) ){

@@ -10,14 +10,17 @@ function zilla_options_page(){
     ?>
     <div id="zilla-framework-messages">
         <?php if(isset($_GET['activated'])){ ?>
-        <div class="updated" id="message"><p><?php _e( $zilla_options['theme_name'] .' activated', 'zilla' ); ?></p></div>
+        <div class="updated" id="message"><p><?php echo sprintf( __('%s activated', 'zilla'), $zilla_options['theme_name'] ); ?></p></div>
         <?php } ?>
         <?php if($xml = zilla_get_theme_changelog()){
-			$theme_data = get_theme_data(get_template_directory() .'/style.css');
-			if( version_compare( $theme_data['Version'], $xml->latest ) == -1 ){
-				?>
+
+            $theme_name = $zilla_options['theme_name'];
+            $theme_version = $zilla_options['theme_version'];
+
+    		if( version_compare( $theme_version, $xml->latest ) == -1 ) {
+			?>
 				<div id="message" class="updated">
-					<p><?php _e( '<strong>There is a new version of the '. $theme_data['Name'] .' theme available.</strong> You have version '. $theme_data['Version'] .' installed. <a href="'. admin_url( 'admin.php?page=zillaframework-update' ) .'">Update to version '. $xml->latest .'</a>.', 'zilla' ); ?></p>
+					<p><?php echo sprintf( __('<strong>There is a new version of the %s theme available.</strong> You have version %s installed. Update to version %s', 'zilla' ), $theme_name, $theme_version, $xml->latest ); ?></p>
 				</div>
 				<?php 
 			}
@@ -28,9 +31,9 @@ function zilla_options_page(){
 		<form action="<?php echo site_url() .'/wp-admin/admin-ajax.php'; ?>" method="post">
 			<div class="header clearfix">
 			    <a href="http://themezilla.com" target="_blank" class="zilla-logo">
-			        <img src="<?php echo get_bloginfo('template_directory'); ?>/framework/images/logo.png" alt="ThemeZilla" />
+			        <img src="<?php echo get_template_directory_uri(); ?>/framework/images/logo.png" alt="ThemeZilla" />
 		        </a>
-				<h1 class="theme-name"><?php _e( $zilla_options['theme_name'], 'zilla' ); ?></h1>
+				<h1 class="theme-name"><?php echo $zilla_options['theme_name']; ?></h1>
 				<span class="theme-version">v.<?php echo $zilla_options['theme_version']; ?></span>
 				<ul class="theme-links">
 					<li><a href="http://www.themezilla.com/support/" target="_blank" class="forums"><?php _e( 'Support Forums', 'zilla' ); ?></a></li>
@@ -43,7 +46,7 @@ function zilla_options_page(){
                     
 						<?php foreach( $zilla_options['zilla_framework'] as $page ){ ?>
                         
-                        <li><a href="#<?php echo zilla_to_slug( key($page) ); ?>"><?php _e( key($page), 'zilla' ); ?></a></li>
+                        <li><a href="#<?php echo zilla_to_slug( key($page) ); ?>"><?php echo key($page); ?></a></li>
                         
                         <?php } ?>
                         
@@ -54,17 +57,17 @@ function zilla_options_page(){
 					<?php foreach( $zilla_options['zilla_framework'] as $page ){ ?>
                     
                     <div id="page-<?php echo zilla_to_slug( key($page) ); ?>" class="page">
-                        <h2><?php _e( key($page), 'zilla' ); ?></h2>
+                        <h2><?php echo key($page); ?></h2>
                         <p class="page-desc"><?php 
-                        if( isset($page[key($page)]['description']) && $page[key($page)]['description'] != '') _e( $page[key($page)]['description'], 'zilla' ); 
+                        if( isset($page[key($page)]['description']) && $page[key($page)]['description'] != '') echo $page[key($page)]['description']; 
                         ?></p>
                         <?php foreach( $page[key($page)] as $item ){ ?>
                         	<?php if(key((array)$item) == 'description') continue; ?>
                             <div class="section <?php echo zilla_to_slug( $item['title'] ); ?>">
-                                <h3><?php _e( $item['title'], 'zilla' ); ?></h3>
+                                <h3><?php echo $item['title']; ?></h3>
                                 <?php if(isset($item['desc']) && $item['desc'] != ''){ ?>
                                 <div class="desc">
-                                    <?php _e( $item['desc'], 'zilla' ); ?>
+                                    <?php echo $item['desc']; ?>
                                 </div>
                                 <?php } ?>
                                 <?php zilla_create_input( $item ); ?>
@@ -96,7 +99,7 @@ function zilla_options_page(){
         echo '//zilla_framework_options'."\n";
         print_r($zilla_options);
         echo '//misc'."\n";
-        echo 'TEMPLATEPATH: '. TEMPLATEPATH;
+        echo 'TEMPLATEPATH: '. get_template_directory();
         ?></textarea>
     </div>
     <?php }
@@ -163,13 +166,17 @@ function zilla_ajax_upload(){
     $response['message'] = '';
     
     $wp_uploads = wp_upload_dir();
-    $uploadfile = $wp_uploads['path'] .'/'. basename($_FILES['userfile']['name']);
+    $ext = pathinfo($_FILES['userfile']['name'], PATHINFO_EXTENSION);
+    $filename = zilla_to_slug(basename($_FILES['userfile']['name'], $ext));
+    $filename = rtrim($filename, '-') .'.'. $ext;    
+    $uploadfile = $wp_uploads['path'] .'/'. $filename;
 
     if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
         $zilla_values = get_option('zilla_framework_values');
-        $zilla_values[$_POST['data']] = $wp_uploads['url'] .'/'. basename($_FILES['userfile']['name']);
+        $zilla_values[$_POST['data']] = $wp_uploads['url'] .'/'. $filename;
         update_option('zilla_framework_values', $zilla_values);
         $response['message'] =  'success';
+        $response['file_url'] = $wp_uploads['url'] .'/'. $filename;
     } else {
         $response['error'] = true;
         $response['message'] =  'error'; 

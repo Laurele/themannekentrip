@@ -16,7 +16,7 @@ jQuery(document).ready(function($){
     			tb_remove();
     		}
     		
-    		tb_show('', 'media-upload.php?post_id=1&amp;type=image&amp;TB_iframe=true');
+    		tb_show('', 'media-upload.php?post_id=0&amp;type=image&amp;TB_iframe=true');
     		
 	    } else {
 	        tb_show('', tbURL);

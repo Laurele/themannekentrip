@@ -135,7 +135,9 @@ if ( ! function_exists( 'zilla_get_query_context' ) ) {
 		/* Return query_context if set -------------------------------------------*/
 		if ( isset( $query_context->context ) && is_array( $query_context->context ) ) {
 			return $query_context->context;
-		} 
+		} else {
+        	$query_context = new stdClass;
+        }
 		
 		/* Figure out the context ------------------------------------------------*/
 		$query_context->context = array();
@@ -232,31 +234,15 @@ if ( ! function_exists( 'zilla_get_query_context' ) ) {
  * @since 0.1
  */
 function zilla_add_version_meta() {
-    $theme_data = get_theme_data(get_template_directory() .'/style.css');
+    $theme_data = get_option('zilla_framework_options');
+    $theme_name = $theme_data['theme_name'];
+    $theme_version = $theme_data['theme_version'];
 
-    echo '<meta name="generator" content="' . $theme_data['Name'] . ' ' . $theme_data['Version'] .'" />' . "\n";
+    echo '<meta name="generator" content="' . $theme_name . ' ' . $theme_version .'" />' . "\n";
 	echo '<meta name="generator" content="ZillaFramework ' . ZILLA_FRAMEWORK_VERSION . '" />' . "\n";
 }
 add_action('zilla_meta_head', 'zilla_add_version_meta');
 
-
-/**
- * Add featured image to RSS feed
- * 
- * @param string $content
- * @return string $content
- */
-function zilla_add_featured_image_to_RSS($content) {
-    global $post;
-    if( has_post_thumbnail($post->ID) ) {
-        $content = '<div style="float:left;">' . get_the_post_thumbnail($post->ID, 'archive-thumb') . '</div>' . $content;
-    }
-
-    return $content;
-}
-add_filter('the_excerpt_rss', 'zilla_add_featured_image_to_RSS');
-add_filter('the_content_feed', 'zilla_add_featured_image_to_RSS');
- 
 
 /**
  * Add browser detection and post name to body class
@@ -308,7 +294,7 @@ add_filter('body_class','zilla_body_classes');
 if ( !function_exists( 'zilla_custom_login_logo' ) ) {
 	function zilla_custom_login_logo() {
 	    echo '<style type="text/css">
-	        h1 a { background-image:url('.get_template_directory_uri().'/images/admin-login-logo.png) !important; }
+	        h1 a { background-image:url('.get_template_directory_uri().'/images/admin-login-logo.png) !important; background-size: auto auto !important; }
 	    </style>';
 	}
 }
@@ -316,14 +302,14 @@ add_action('login_head', 'zilla_custom_login_logo');
 
 if ( !function_exists( 'zilla_wp_login_url' ) ) {
 	function zilla_wp_login_url() {
-		echo home_url();
+		return home_url();
 	}
 }
 add_filter('login_headerurl', 'zilla_wp_login_url');
 
 if ( !function_exists( 'zilla_wp_login_title' ) ) {
 	function zilla_wp_login_title() {
-		echo get_option('blogname');
+		return get_option('blogname');
 	}
 }
 add_filter('login_headertitle', 'zilla_wp_login_title');
