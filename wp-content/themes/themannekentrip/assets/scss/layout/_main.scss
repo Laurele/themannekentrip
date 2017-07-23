@@ -24,7 +24,8 @@ html {
 #topbar {
     width: 100%;
     height: $topbar-height;
-    background: #FFF;
+
+    background: #2E5360;
     z-index: $zindex-topbar;
 
     body:not(.page-template-tpl-under-construction) & {
@@ -34,8 +35,7 @@ html {
     .custom-logo-link {
         $margin: 5px;
         text-decoration: none;
-        color: $darkGreen;
-        margin: 5px;
+        margin: $margin;
         border: none;
 
         @include flex-content-size(0, 0, auto);
@@ -48,16 +48,20 @@ html {
             width: auto;
             height: auto;
         }
+    }
 
-        .site-title {
-            display: inline-block;
-            vertical-align: middle;
-            margin: 0;
+    .site-title {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
 
-            font-size: .9rem;
-            line-height: calc(#{$topbar-height} - #{$margin} * 2);
-            font-weight: 500;
-        }
+        font-size: .9rem;
+        line-height: $topbar-height;
+        font-weight: 500;
+
+        color: $white;
+        text-shadow: none;
+        @include flex-content-size(0, 0, auto);
     }
 
     .menu-toggle {
@@ -67,7 +71,7 @@ html {
         border: none;
         outline: none;
         text-align: right;
-        color: $black;
+        color: $white;
         box-shadow: none;
 
         @include transition(color 0.15s ease-in);
@@ -75,7 +79,7 @@ html {
         @include appearance(none);
 
         &:hover {
-            color: $mediumGrey;
+            color: $green;
         }
 
         i {
@@ -109,7 +113,7 @@ html {
     height: calc(100vh - #{$topbar-height});
     z-index: $zindex-navigation;
 
-    background: rgba(10, 10, 10, .8);
+    background: rgba(1, 22, 29, 0.7);
 
     // Hide effect for aside content
     &, * {
@@ -186,6 +190,7 @@ html {
 
     color: $white;
     border: none;
+    text-shadow: none;
 
     @include transition(color 0.15s ease-in);
 
@@ -227,6 +232,7 @@ html {
     text-decoration: none;
 
     border: none;
+    text-shadow: none;
     color: $white;
 
     @include transition(color 0.15s ease-in);

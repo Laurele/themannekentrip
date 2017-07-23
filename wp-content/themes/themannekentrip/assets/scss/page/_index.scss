@@ -4,6 +4,10 @@ body.page-template-tpl-index {
     background: none;
 }
 
+body.page-template-tpl-index #primary {
+    background: none;
+}
+
 body.page-template-tpl-index #topbar {
     position: fixed;
     top: 0;
@@ -22,7 +26,7 @@ body.page-template-tpl-index #main {
             width: 50%;
         }
 
-        &.gallery {
+        &.box-gallery {
             padding: 0;
             background: none;
             width: 100%;

@@ -1,4 +1,4 @@
-.gallery {
+.box-gallery {
     position: relative;
     text-align: center;
     width: 100%;
@@ -9,7 +9,7 @@
     font-size: 0;
 }
 
-.gallery-item {
+.box-gallery-item {
     width: 100%;
     height: auto;
     max-width: calc(100% / 2);
@@ -18,7 +18,7 @@
     &:nth-child(10),
     &:nth-child(11),
     &:nth-child(12) {
-        //display: none;
+        display: none;
     }
 
     @include mq(large) {
@@ -26,7 +26,9 @@
     }
 
     img {
+        display: block;
         width: 100%;
         height: auto;
+        margin: 0;
     }
 }

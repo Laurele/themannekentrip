@@ -56,8 +56,6 @@ if ( !function_exists( 'zilla_theme_setup' ) ) {
         );
 
 		add_theme_support( 'custom-logo', array(
-			'height'      => 240,
-			'width'       => 240,
 			'flex-height' => true,
 		) );
 
