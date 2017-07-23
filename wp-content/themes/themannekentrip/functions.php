@@ -153,7 +153,7 @@ add_filter('wp_title', 'zilla_wp_title');
 function themannekentrip_include_custom_jquery() {
 
 	wp_deregister_script('jquery');
-	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, false);
 
 }
 add_action('wp_enqueue_scripts', 'themannekentrip_include_custom_jquery');
