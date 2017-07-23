@@ -12,7 +12,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<section id="primary" class="content-area">
+<section id="wrapper" class="content-area">
     <header id="topbar">
         <div class="construction-content--socials">
             <ul class="construction-content--socials--list">
