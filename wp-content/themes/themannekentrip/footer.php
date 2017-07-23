@@ -1,35 +1,27 @@
-        
-        <?php zilla_content_end(); ?>
-		<!-- END #content -->
+
+	<?php zilla_content_end(); ?>
+	<!-- END #content -->
+	</div>
+
+	<?php zilla_footer_before(); ?>
+
+	</main>
+
+	<footer id="footer" role="contentinfo">
+		<?php zilla_footer_start(); ?>
+
+		<div class="site-info">
+			<span class="site-title"><a class="site-title-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">© <?php bloginfo( 'name' ); ?> <?php echo date("Y"); ?></a></span>
 		</div>
-		
-		<?php zilla_footer_before(); ?>
-			
-		<!-- BEGIN #footer -->
-		<div id="footer" class="clearfix">
-		    
-		    <?php zilla_footer_start(); ?>
-		    
-			<p class="copyright">&copy; <?php echo date( 'Y' ); ?> <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a> / <?php _e('Powered by', 'zilla') ?> <a href="http://wordpress.org/">WordPress</a></p>
-			
-			<p class="credit"><a href="http://www.themezilla.com/themes/launch/">Launch Theme</a> by <a href="http://www.themezilla.com/">ThemeZilla</a></p>
-		
-		    <?php zilla_footer_end(); ?>
-		    
-		<!-- END #footer -->
-		</div>
-		
-		<?php zilla_footer_after(); ?>
-		
-	<!-- END #container -->
-	</div> 
-		
-	<!-- Theme Hook -->
-	<?php wp_footer(); ?>
-	<?php zilla_body_end(); ?>
-			
-	<!-- <?php echo 'Ran '. $wpdb->num_queries .' queries '. timer_stop(0, 2) .' seconds'; ?> -->
-<!--END body-->
+
+		<?php zilla_footer_end(); ?>
+	</footer>
+
+	<?php zilla_footer_after(); ?>
+
+</section>
+
+<?php wp_footer(); ?>
+<?php zilla_body_end(); ?>
 </body>
-<!--END html-->
 </html>
