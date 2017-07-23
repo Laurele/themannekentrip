@@ -243,8 +243,6 @@ html[data-env=dev] body:after {
   width: 100%;
   height: auto;
   max-width: calc(100% / 2); }
-  .box-gallery-item:nth-child(9), .box-gallery-item:nth-child(10), .box-gallery-item:nth-child(11), .box-gallery-item:nth-child(12) {
-    display: none; }
   @media all and (min-width: 64em) {
     .box-gallery-item {
       max-width: calc(100% / 3); } }

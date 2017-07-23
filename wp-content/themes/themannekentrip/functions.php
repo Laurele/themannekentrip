@@ -551,6 +551,17 @@ function get_asset_version () {
 }
 
 /**
+ * include custom jQuery
+ */
+function themannekentrip_include_custom_jquery() {
+
+	wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+
+}
+add_action('wp_enqueue_scripts', 'themannekentrip_include_custom_jquery');
+
+/**
  * Enqueue all scripts assets in header or footer
  */
 function my_theme_scripts()
