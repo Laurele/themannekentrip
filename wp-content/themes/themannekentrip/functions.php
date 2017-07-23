@@ -54,6 +54,18 @@ if ( !function_exists( 'zilla_theme_setup' ) ) {
                 'audio'
             ) 
         );
+
+		add_theme_support( 'custom-logo', array(
+			'height'      => 240,
+			'width'       => 240,
+			'flex-height' => true,
+		) );
+
+		// This theme uses wp_nav_menu() in two locations.
+		register_nav_menus( array(
+			'primary' => __( 'Primary Menu', 'twentysixteen' ),
+			'social'  => __( 'Social Links Menu', 'twentysixteen' ),
+		) );
     }
 }
 add_action( 'after_setup_theme', 'zilla_theme_setup' );

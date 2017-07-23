@@ -247,7 +247,7 @@
 // =Headings Sass mixin
 // -------------------------------------
 @mixin horizontal-dotted-border($width, $height, $startColor, $endColor, $start, $stop){
-    background-image: linear-gradient(to right, $startColor $start, $endColor $stop);
+    background-image: linear-gradient(to left, $startColor $start, $endColor $stop);
     background-position: bottom;
     background-size: $width $height;
     background-repeat: repeat-x;
@@ -262,4 +262,14 @@
     -o-transform: $value;
     -ms-transform: $value;
     transform: $value;
+}
+
+// -------------------------------------
+// =Appearance
+// -------------------------------------
+
+@mixin appearance($value) {
+    -webkit-appearance: $value;
+    -moz-appearance: $value;
+    appearance: $value;
 }

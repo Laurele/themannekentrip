@@ -1,6 +1,7 @@
+$height: 100vh;
 .parallax {
     height: 500px;
-    height: 100vh;
+    height: $height;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-perspective: 300px;
@@ -12,7 +13,7 @@
     @include transform(transform 0.5s);
     position: relative;
     height: 500px;
-    height: 100vh;
+    height: $height;
     transform-style: preserve-3d;
     z-index: 1;
     -webkit-transition: -webkit-transform 0.5s;
@@ -52,17 +53,19 @@
     z-index: 2;
 
     &.has-gallery {
-        height: 290vh;
+        height: $height*3;
+        overflow: hidden;
     }
 }
 
 .box {
-    text-align: center;
     position: absolute;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+
+    text-align: center;
 }
 
 #group1 {
@@ -92,9 +95,13 @@
     z-index: 2;
 }
 #group6 .parallax__layer--back {
-    background: rgb(245,235,100);
+    background: rgb(229, 220, 12);
 }
 
 #group7 {
     z-index: 3;
+}
+#group7 .parallax__layer--base {
+    background: url("../../images/mountains_blured.jpg") 0 0 no-repeat;
+    background-size: cover;
 }

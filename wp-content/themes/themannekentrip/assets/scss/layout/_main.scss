@@ -31,30 +31,32 @@ html {
         @include flex-container();
     }
 
-    .site-title {
-        margin: 0;
-
-        font-size: .9rem;
-        line-height: $topbar-height;
-        font-weight: 500;
-
-        a {
-            text-decoration: none;
-            color: $darkGreen;
-        }
+    .custom-logo-link {
+        $margin: 5px;
+        text-decoration: none;
+        color: $darkGreen;
+        margin: 5px;
+        border: none;
 
         @include flex-content-size(0, 0, auto);
-    }
-
-    .custom-logo-link {
-        margin: 5px;
-        @include flex-content-size(0, 0, 55px);
 
         img {
-            max-height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+            max-height: calc(#{$topbar-height} - #{$margin} * 2);
             max-width: 100%;
-            width: auto !important;
-            height: auto !important;
+            width: auto;
+            height: auto;
+        }
+
+        .site-title {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+
+            font-size: .9rem;
+            line-height: calc(#{$topbar-height} - #{$margin} * 2);
+            font-weight: 500;
         }
     }
 
@@ -66,9 +68,11 @@ html {
         outline: none;
         text-align: right;
         color: $black;
+        box-shadow: none;
 
         @include transition(color 0.15s ease-in);
         @include flex-content-size(1, 0, auto);
+        @include appearance(none);
 
         &:hover {
             color: $mediumGrey;
@@ -181,6 +185,7 @@ html {
     line-height: 3.6rem;
 
     color: $white;
+    border: none;
 
     @include transition(color 0.15s ease-in);
 
@@ -221,6 +226,7 @@ html {
     padding: 3px;
     text-decoration: none;
 
+    border: none;
     color: $white;
 
     @include transition(color 0.15s ease-in);

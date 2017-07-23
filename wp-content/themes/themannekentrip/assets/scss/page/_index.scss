@@ -1,6 +1,7 @@
 /* Layout styling */
 body.page-template-tpl-index {
     overflow: hidden;
+    background: none;
 }
 
 body.page-template-tpl-index #topbar {
@@ -13,14 +14,6 @@ body.page-template-tpl-index #main {
     color: $black;
 
     .box {
-        position: absolute;
-
-        text-align: center;
-        top: 50%;
-        left: 50%;
-        width: 80%;
-        @include transform(translate(-50%, -50%));
-
         background: rgba(255, 255, 255, 0.90);
         padding: 1rem;
 
@@ -50,7 +43,7 @@ body.page-template-tpl-index #main {
         }
 
         &.video {
-            width: auto;
+            width: 80%;
             background: $black;
         }
 
@@ -64,6 +57,7 @@ body.page-template-tpl-index #main {
                 text-transform: uppercase;
                 font-weight: 500;
                 text-decoration: none;
+                border: none;
             }
         }
 
@@ -72,9 +66,9 @@ body.page-template-tpl-index #main {
         }
     }
 
-    .background-paper, .background-paper-parallax {
+    .background-paper-parallax {
         position: absolute;
-        background: url("../../images/aquarel.svg") transparent no-repeat fixed;
+        background: url("../../images/aquarel.svg") transparent center top no-repeat fixed;
         background-size: cover;
 
         &:before {
@@ -89,20 +83,6 @@ body.page-template-tpl-index #main {
         }
     }
 
-    .background-paper-parallax {
-        background-position: center top;
-    }
-
-    .background-paper {
-        background-position: center $topbar-height;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-    }
-
     .background-map {
         width: 100%;
         height: 100%;
@@ -110,7 +90,7 @@ body.page-template-tpl-index #main {
         background-size: auto 80%;
 
         @include mq(large) {
-            background: url("../../images/carte.svg") center 40px no-repeat;
+            background: url("../../images/carte.svg") center 10px no-repeat;
             background-size: contain;
         }
     }
@@ -168,12 +148,19 @@ body.page-template-tpl-index #main {
     .video {
         iframe {
             border: none;
-            width: 80vw;
+            width: 100%;
             height: calc(100vh - #{$topbar-height}*3);
         }
     }
 
     .facebook {
+        max-height: calc(100vh - #{$topbar-height} - 40px - 2rem);
+        overflow: auto;
+
+        iframe {
+            margin: 0;
+        }
+
         .iframe-desktop {
             display: none;
         }
@@ -187,6 +174,13 @@ body.page-template-tpl-index #main {
                 display: none;
             }
         }
+    }
+
+    #group7 #footer {
+        position: absolute;
+        bottom: 30px;
+        background: none;
+        text-shadow: none;
     }
 }
 

@@ -31,13 +31,14 @@
 
 	<section id="primary" class="content-area" data-view="navigation.main">
 		<header id="topbar">
-			<?php the_custom_logo() ?>
-
-			<?php if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php endif; ?>
+			<a class="custom-logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<img src="/wp-content/themes/themannekentrip/build/images/logo_only.png">
+				<?php if ( is_front_page() && is_home() ) : ?>
+					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
+				<?php else : ?>
+					<p class="site-title"><?php bloginfo( 'name' ); ?></p>
+				<?php endif; ?>
+			</a>
 
 			<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
 				<button id="menu-toggle" class="menu-toggle" title="<?php _e( 'Menu', 'twentysixteen' ); ?>" data-el="topbar-menu-toggle"><i class="icon-align-justify"></i></button>
