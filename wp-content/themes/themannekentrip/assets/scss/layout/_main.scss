@@ -116,7 +116,7 @@ html {
     z-index: $zindex-navigation;
     padding-top: $topbar-height;
 
-    background: rgba(1, 22, 29, 0.7);
+    background: rgba(1, 22, 29, 0.9);
 
     // Hide effect for aside content
     &, * {
@@ -136,7 +136,7 @@ html {
         @include transition(all 0.15s ease-in);
 
         @include mq(large) {
-            min-width: 25vw;
+            min-width: 30vw;
         }
 
         // Show effect for aside content

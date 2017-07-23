@@ -116,14 +116,54 @@
     </section>
     <section id="group5" class="parallax__group">
         <div class="parallax__layer parallax__layer--fore">
-            <div class="box">Presentation environmental project</div>
+            <div class="box">
+                <?php $myPosts = get_posts(
+                    [
+                        'tax_query' => [
+                            [
+                                'taxonomy' => 'post_tag',
+                                'field' => 'slug',
+                                'terms' => 'home-environmental-project'
+                            ]
+                        ]
+                    ]
+                ); ?>
+                <?php foreach ($myPosts as $post) : setup_postdata($post); ?>
+                    <!-- TODO : implement the stats page link -->
+                    <h3>
+                        <a href="#"><?php the_title(); ?></a>
+                    </h3>
+
+                    <?php the_content(); ?>
+                <?php endforeach; ?>
+            </div>
         </div>
         <div class="parallax__layer parallax__layer--base">
         </div>
     </section>
     <section id="group6" class="parallax__group">
         <div class="parallax__layer parallax__layer--base">
-            <div class="box">The expedition in details</div>
+            <div class="box">
+                <?php $myPosts = get_posts(
+                    [
+                        'tax_query' => [
+                            [
+                                'taxonomy' => 'post_tag',
+                                'field' => 'slug',
+                                'terms' => 'home-expedition'
+                            ]
+                        ]
+                    ]
+                ); ?>
+                <?php foreach ($myPosts as $post) : setup_postdata($post); ?>
+                    <!-- TODO : implement the stats page link -->
+                    <h3>
+                        <a href="#"><?php the_title(); ?></a>
+                    </h3>
+
+                    <?php the_content(); ?>
+                <?php endforeach; ?>
+            </div>
         </div>
         <div class="parallax__layer parallax__layer--back"></div>
     </section>

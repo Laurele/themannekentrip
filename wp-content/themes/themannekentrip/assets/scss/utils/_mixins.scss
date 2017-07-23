@@ -273,3 +273,14 @@
     -moz-appearance: $value;
     appearance: $value;
 }
+
+// -------------------------------------
+// =Box Shadow
+// Note: argument followed by "..." means for a mixin to take an unknown number of arguments
+// -------------------------------------
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}

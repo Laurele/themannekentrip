@@ -118,3 +118,34 @@
     font-size: 1rem;
     line-height: 1.5;
 }
+
+#sidebar #searchform {
+    position: relative;
+    background: $darkBlue;
+    height: 34px;
+    @include box-shadow(0 1px 0 rgba(255, 255, 255, .08), 0 1px 4px rgba(0, 0, 0, .3) inset);
+
+    .icon-search:before {
+        padding: 0 0 0 10px;
+        font-size: 1.4rem;
+        line-height: 34px;
+    }
+}
+
+#sidebar #s {
+    position: absolute;
+    right: 0;
+    padding: 10px 15px;
+    background: none;
+    width: calc(100% - 40px);
+    @include box-shadow(none);
+    @include border-radius(0);
+}
+
+#primary #s {
+    background: none;
+}
+
+#sidebar a {
+    text-shadow: none;
+}
