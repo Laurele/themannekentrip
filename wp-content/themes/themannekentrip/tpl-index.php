@@ -22,11 +22,12 @@
             <div class="box">
                 <?php $myPosts = get_posts(
                     [
+                        'post_type' => 'home_post',
                         'tax_query' => [
                             [
                                 'taxonomy' => 'post_tag',
                                 'field' => 'slug',
-                                'terms' => 'home-project'
+                                'terms' => 'home-project',
                             ]
                         ]
                     ]
@@ -87,6 +88,7 @@
             <div class="box stats">
                 <?php $myPosts = get_posts(
                     [
+                        'post_type' => 'home_post',
                         'tax_query' => [
                             [
                                 'taxonomy' => 'post_tag',
@@ -119,6 +121,7 @@
             <div class="box">
                 <?php $myPosts = get_posts(
                     [
+                        'post_type' => 'home_post',
                         'tax_query' => [
                             [
                                 'taxonomy' => 'post_tag',
@@ -146,6 +149,7 @@
             <div class="box">
                 <?php $myPosts = get_posts(
                     [
+                        'post_type' => 'home_post',
                         'tax_query' => [
                             [
                                 'taxonomy' => 'post_tag',
