@@ -358,9 +358,9 @@ html[data-env=dev] body:after {
     background-position: 0 -56px; }
 
 #footer {
-  padding: 10px 0;
   margin: 0;
-  background: #06091a; }
+  background: #0e5e66;
+  padding: 10px 0; }
 
 .entry-header {
   background: none;
@@ -646,7 +646,7 @@ html {
 
 #footer {
   width: 100%;
-  padding: 10px auto;
+  padding: 10px 0;
   text-align: center; }
   #footer .site-title-link {
     font-size: 0.8rem;
