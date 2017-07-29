@@ -6,8 +6,8 @@
         
         <div class="entry-meta entry-header">
             <span class="published"><?php _e('Posted ', 'zilla') ?><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . __(' ago ', 'zilla'); ?>&middot;</span>
-            <span class="entry-tags"><?php the_tags('&nbsp;'.__('Tagged:', 'zilla').' ', ', ', ' &middot; '); ?></span>
-            <span class="comment-count"><?php comments_popup_link(__('0 Comments', 'zilla'), __('1 Comment', 'zilla'), __('% Comments', 'zilla')); ?></span>     
+            <span class="entry-tags"><?php the_tags('&nbsp;'.__('Tagged:', 'zilla').' &middot; ', ', ', ' &middot; '); ?></span>
+<!--            <span class="comment-count">--><?php //comments_popup_link(__('0 Comments', 'zilla'), __('1 Comment', 'zilla'), __('% Comments', 'zilla')); ?><!--</span>     -->
         </div>
         
     <?php } elseif ( in_array( $format, array('image', 'gallery', 'audio', 'video', 'link') ) ) { ?>

@@ -271,7 +271,7 @@ html[data-env=dev] body:after {
   background: none;
   float: none;
   width: auto;
-  max-width: calc(100vw - 30vw);
+  max-width: calc(100vw - 25vw);
   margin: 0;
   -webkit-box-flex: 1 0 auto;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -309,20 +309,20 @@ html[data-env=dev] body:after {
   padding: 2rem;
   margin: 0;
   background: #2b2f38;
-  -webkit-box-flex: 0 0 30vw;
+  -webkit-box-flex: 0 0 25vw;
   /* OLD - iOS 6-, Safari 3.1-6 */
-  -moz-box-flex: 0 0 30vw;
+  -moz-box-flex: 0 0 25vw;
   /* OLD - Firefox 19- */
-  -webkit-flex: 0 0 30vw;
+  -webkit-flex: 0 0 25vw;
   /* Chrome */
   -ms-flex: 0;
   /* IE 10-11 */
   -ms-flex-positive: 0;
   -ms-flex-negative: 0;
-  -ms-flex-preferred-size: 30vw;
+  -ms-flex-preferred-size: 25vw;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 30vw;
-          flex: 0 0 30vw;
+      -ms-flex: 0 0 25vw;
+          flex: 0 0 25vw;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
   .layout-2cr #sidebar {
     padding: 2rem;
@@ -333,6 +333,29 @@ html[data-env=dev] body:after {
   .layout-2cr .entry-icon {
     left: inherit;
     right: calc(-140px + 32px); }
+  .layout-2cr .entry-icon.format-aside {
+    background-position: 0 -127px;
+    top: 5px !important; }
+  .layout-2cr .entry-icon.format-audio {
+    background-position: 0 -90px;
+    height: 36px; }
+  .layout-2cr .entry-icon.format-gallery {
+    background-position: 0 -159px;
+    height: 38px; }
+  .layout-2cr .entry-icon.format-image {
+    background-position: 0 0; }
+  .layout-2cr .entry-icon.format-link {
+    background-position: 0 -235px;
+    height: 36px;
+    top: 15px; }
+  .layout-2cr .entry-icon.format-quote {
+    background-position: 0 -32px;
+    height: 26px; }
+  .layout-2cr .entry-icon.format-standard {
+    background-position: 0 -198px;
+    height: 36px; }
+  .layout-2cr .entry-icon.format-video {
+    background-position: 0 -56px; }
 
 #footer {
   padding: 10px 0;
@@ -401,6 +424,9 @@ html[data-env=dev] body:after {
 
 #sidebar a {
   text-shadow: none; }
+
+#huge_it_portfolio_content_2 #huge_it_portfolio_container_2 {
+  width: 100% !important; }
 
 h1, h2, h3, h4, h5, h6,
 p, blockquote, figure,

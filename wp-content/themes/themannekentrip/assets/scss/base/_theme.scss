@@ -61,6 +61,22 @@
         left: inherit;
         right: calc(-#{$sidebar-gutter} + 32px);
     }
+
+    .layout-2cr &.format-aside { background-position: 0 -127px; top: 5px!important; }
+
+    .layout-2cr &.format-audio { background-position: 0 -90px; height: 36px; }
+
+    .layout-2cr &.format-gallery { background-position: 0 -159px; height: 38px; }
+
+    .layout-2cr &.format-image { background-position: 0 0; }
+
+    .layout-2cr &.format-link { background-position: 0 -235px; height: 36px; top: 15px; }
+
+    .layout-2cr &.format-quote { background-position: 0 -32px; height: 26px; }
+
+    .layout-2cr &.format-standard { background-position: 0 -198px; height: 36px; }
+
+    .layout-2cr &.format-video { background-position: 0 -56px; }
 }
 
 #footer {
@@ -148,4 +164,8 @@
 
 #sidebar a {
     text-shadow: none;
+}
+
+#huge_it_portfolio_content_2 #huge_it_portfolio_container_2 {
+    width: 100% !important;
 }
