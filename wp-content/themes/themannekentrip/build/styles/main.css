@@ -428,6 +428,13 @@ html[data-env=dev] body:after {
 #huge_it_portfolio_content_2 #huge_it_portfolio_container_2 {
   width: 100% !important; }
 
+.post-media iframe {
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 650px;
+  min-height: 320px; }
+
 h1, h2, h3, h4, h5, h6,
 p, blockquote, figure,
 ul, ol, dl,
