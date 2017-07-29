@@ -24,7 +24,7 @@
                 ?>
 
                 <!--BEGIN .entry-meta .entry-icon-->
-                <div class="format-quote entry-meta entry-icon">
+                <div class="<?php echo $format === 'standard' ? 'format-quote' : $format; ?> entry-meta entry-icon">
                     <!--END .entry-meta entry-icon -->
                 </div>
                 <?php get_template_part('content-post', $format); ?>

@@ -24,7 +24,7 @@
                 ?>
 
                 <!--BEGIN .entry-meta .entry-icon-->
-                <div class="format-aside entry-meta entry-icon">
+                <div class="<?php echo $format === 'standard' ? 'format-aside' : $format; ?> entry-meta entry-icon">
                     <!--END .entry-meta entry-icon -->
                 </div>
                 <?php get_template_part('content-post', $format); ?>
