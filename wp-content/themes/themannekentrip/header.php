@@ -71,7 +71,7 @@
 									<?php if ( is_array($nav) ) : ?>
 										<?php foreach ( $nav as $nav_item ) : ?>
 											<li class="content--socials--list-item">
-												<a href="<?php echo $nav_item->url; ?>" class="content--socials--list-item-link" title="<?php echo $nav_item->title; ?>">
+												<a href="<?php echo $nav_item->url; ?>" class="content--socials--list-item-link" title="<?php echo $nav_item->title; ?>" target="_blank">
 													<i class="<?php echo implode(' ', $nav_item->classes); ?>"></i>
 												</a>
 											</li>
