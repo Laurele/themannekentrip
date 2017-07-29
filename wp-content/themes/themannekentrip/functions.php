@@ -153,7 +153,7 @@ add_filter('wp_title', 'zilla_wp_title');
 function themannekentrip_include_custom_jquery() {
 
 	wp_deregister_script('jquery');
-	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, false);
+	wp_enqueue_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', array(), null, false);
 
 }
 add_action('wp_enqueue_scripts', 'themannekentrip_include_custom_jquery');
@@ -163,7 +163,7 @@ if ( !function_exists( 'zilla_enqueue_scripts' ) ) {
 	    /* Register our scripts -----------------------------------------------------*/
 		wp_register_script('validation', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', 'jquery', '1.9', true);
 		wp_register_script('jplayer', get_template_directory_uri() . '/js/jquery.jplayer.min.js', 'jquery', '2.1');
-		wp_register_script('slides', get_template_directory_uri() . '/js/slides.min.jquery.js', 'jquery', '1.1.9');
+		wp_register_script('slides', get_template_directory_uri() . '/js/slides.min.jquery.js', 'jquery', '3.0.4');
 		wp_register_script('respond', get_template_directory_uri() . '/js/respond.min.js', '', '1.1', TRUE);
 		
 		/* Enqueue our scripts ------------------------------------------------------*/
@@ -250,23 +250,24 @@ if ( !function_exists( 'zilla_gallery' ) ) {
         <script type="text/javascript">
     		jQuery(document).ready(function($){
     		    // fire slides
-    			$("#slider-<?php echo $postid; ?>").slides({
-    				preload: true,
-    				preloadImage: $("#slider-<?php echo $postid; ?>").attr('data-loader'), 
-    				generatePagination: false,
-    				generateNextPrev: true,
-    				next: 'slides_next',
-    				prev: 'slides_prev',
-    				effect: 'fade',
-    				crossfade: true,
-    				autoHeight: true,
-    				bigTarget: true,
-    				animationComplete: function(current) {
-                        var myImgs = $("#slider-<?php echo $postid; ?>").find('img'),
-                            myTitle = myImgs[current-1].title;
+    			$("#slider-<?php echo $postid; ?>").slidesjs({
+					navigation: false,
+//    				preload: true,
+//    				preloadImage: $("#slider-<?php //echo $postid; ?>//").attr('data-loader'),
+//    				generatePagination: false,
+//    				generateNextPrev: true,
+//    				next: 'slides_next',
+//    				prev: 'slides_prev',
+//    				effect: 'fade',
+//    				crossfade: true,
+//    				autoHeight: true,
+//    				bigTarget: true,
+//    				animationComplete: function(current) {
+//                        var myImgs = $("#slider-<?php //echo $postid; ?>//").find('img'),
+//                            myTitle = myImgs[current-1].title;
 
-    				    $("#slider-<?php echo $postid; ?>").next('.entry-title').html(myTitle);
-    				}
+//    				    $("#slider-<?php //echo $postid; ?>//").next('.entry-title').html(myTitle);
+//    				}
     			});
     			
     			// set title of first image
@@ -313,7 +314,6 @@ if ( !function_exists( 'zilla_gallery' ) ) {
         $attachments = get_posts($args);
 
         if( !empty($attachments) ) {
-            echo '<div class="slides_container">';
             $i = 0;
             foreach( $attachments as $attachment ) {
                 if( $attachment->ID == $thumbid ) continue;
@@ -321,11 +321,12 @@ if ( !function_exists( 'zilla_gallery' ) ) {
                 $caption = $attachment->post_excerpt;
                 $caption = ($caption) ? $caption : $posttitle;
                 $alt = ( !empty($attachment->post_content) ) ? $attachment->post_content : $attachment->post_title;
-                echo "<div><img height='$src[2]' width='$src[1]' src='$src[0]' alt='$alt' title='$caption' /></div>";
+                echo "<img height='$src[2]' width='$src[1]' src='$src[0]' alt='$alt' title='$caption' />";
                 $i++;
-            }
-            echo '</div>';
-        }
+            } ?>
+			<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
+      		<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
+        <?php }
         echo "<!-- END #slider-$postid -->\n</div>";
     }
 }
@@ -606,4 +607,8 @@ function getImageDirectory() {
 	return get_bloginfo('stylesheet_directory') . '/build/images';
 }
 
+/**
+ * Increase upload max size
+ */
+@ini_set( 'upload_max_size' , '64M' );
 ?>
