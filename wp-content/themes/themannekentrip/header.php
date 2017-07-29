@@ -39,7 +39,7 @@
 			<?php endif; ?>
 
 			<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
-				<button id="menu-toggle" class="menu-toggle" title="<?php _e( 'Menu', 'twentysixteen' ); ?>" data-el="topbar-menu-toggle"><i class="icon-align-justify"></i></button>
+				<button id="menu-toggle" class="menu-toggle" title="<?php _e( 'Menu', 'twentysixteen' ); ?>" data-el="topbar-menu-toggle">Menu <i class="icon-align-justify"></i></button>
 			<?php endif; ?>
 
 		</header>

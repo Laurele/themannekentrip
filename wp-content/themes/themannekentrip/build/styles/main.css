@@ -579,6 +579,8 @@ html {
     text-align: right;
     color: #FFFFFF;
     box-shadow: none;
+    text-transform: uppercase;
+    font-weight: 300;
     transition: color 0.15s ease-in;
     -webkit-box-flex: 1 0 auto;
     /* OLD - iOS 6-, Safari 3.1-6 */
@@ -601,7 +603,10 @@ html {
     #topbar .menu-toggle:hover {
       color: #179ba9; }
     #topbar .menu-toggle i {
-      font-size: 1.5rem; }
+      display: inline-block;
+      vertical-align: top;
+      font-size: 1.5rem;
+      margin-left: 5px; }
 
 #main {
   width: 100%; }
@@ -835,6 +840,54 @@ html {
     border-width: 6px 0 6px 9px;
     border-color: transparent transparent transparent #FFFFFF;
     background: rgba(255, 255, 255, 0); }
+
+.slider .slidesjs-navigation {
+  margin-top: 3px;
+  text-decoration: none;
+  border-bottom: none; }
+
+.slider .slidesjs-previous {
+  margin-right: 5px;
+  float: left; }
+
+.slider .slidesjs-next {
+  margin-right: 5px;
+  float: left; }
+
+.slidesjs-pagination {
+  margin: 6px 0 0;
+  float: right;
+  list-style: none; }
+
+.slidesjs-pagination li {
+  float: left;
+  margin: 0 1px; }
+
+.slidesjs-pagination li a {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: #FFFFFF;
+  border: 2px solid #06091a;
+  text-indent: -9999px;
+  text-decoration: none;
+  transition: background 0.15s ease-in;
+  border-radius: 100%; }
+
+.slidesjs-pagination li a.active,
+.slidesjs-pagination li a:hover.active {
+  background: #06091a; }
+
+.slidesjs-pagination li a:hover {
+  background: #9e2020; }
+
+.slider a:link,
+.slider a:visited {
+  color: #333; }
+
+.slider a:hover,
+.slider a:active {
+  color: #9e2020; }
 
 /* Layout styling */
 body.page-template-tpl-under-construction {

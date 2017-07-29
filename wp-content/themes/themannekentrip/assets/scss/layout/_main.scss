@@ -75,6 +75,8 @@ html {
         text-align: right;
         color: $white;
         box-shadow: none;
+        text-transform: uppercase;
+        font-weight: 300;
 
         @include transition(color 0.15s ease-in);
         @include flex-content-size(1, 0, auto);
@@ -85,7 +87,10 @@ html {
         }
 
         i {
+            display: inline-block;
+            vertical-align: top;
             font-size: 1.5rem;
+            margin-left: 5px;
         }
     }
 }
