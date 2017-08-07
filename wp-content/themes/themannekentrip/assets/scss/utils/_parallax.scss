@@ -54,7 +54,7 @@ $parallax-height: 100vh;
     z-index: 2;
 
     &.has-gallery {
-        height: $parallax-height*3;
+        height: $parallax-height*2;
         overflow: hidden;
     }
 }
@@ -95,8 +95,9 @@ $parallax-height: 100vh;
 #group6 {
     z-index: 2;
 }
-#group6 .parallax__layer--back {
-    background: rgb(229, 220, 12);
+#group6 .parallax__layer--base {
+    background: url("../../images/mountains_blured.jpg") 0 0 no-repeat;
+    background-size: cover;
 }
 
 #group7 {

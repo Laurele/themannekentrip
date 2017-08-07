@@ -63,7 +63,7 @@ body.page-template-tpl-index #main {
 
     .background-paper-parallax {
         position: absolute;
-        background: url("../../images/aquarel.svg") transparent center top no-repeat fixed;
+        background: url("../../images/mountains_blured.jpg") #E0EAED center top no-repeat fixed;
         background-size: cover;
 
         &:before {
@@ -81,12 +81,14 @@ body.page-template-tpl-index #main {
     .background-map {
         width: 100%;
         height: 100%;
-        background: url("../../images/carte.svg") 50% 50% no-repeat;
+        background: url("../../images/map.png") 50% 50% no-repeat;
         background-size: auto 80%;
 
         @include mq(large) {
-            background: url("../../images/carte.svg") center 10px no-repeat;
+            background-repeat: no-repeat;
+            background-position: center 10px;
             background-size: contain;
+            background-origin: content-box;
         }
     }
 
@@ -176,6 +178,10 @@ body.page-template-tpl-index #main {
         bottom: 0;
         background: none;
         text-shadow: none;
+
+        .site-title {
+            color: $white;
+        }
     }
 }
 

@@ -144,33 +144,6 @@
         <div class="parallax__layer parallax__layer--base">
         </div>
     </section>
-    <section id="group6" class="parallax__group">
-        <div class="parallax__layer parallax__layer--base">
-            <div class="box">
-                <?php $myPosts = get_posts(
-                    [
-                        'post_type' => 'home_post',
-                        'tax_query' => [
-                            [
-                                'taxonomy' => 'post_tag',
-                                'field' => 'slug',
-                                'terms' => 'home-expedition'
-                            ]
-                        ]
-                    ]
-                ); ?>
-                <?php foreach ($myPosts as $post) : setup_postdata($post); ?>
-                    <!-- TODO : implement the stats page link -->
-                    <h3>
-                        <a href="#"><?php the_title(); ?></a>
-                    </h3>
-
-                    <?php the_content(); ?>
-                <?php endforeach; ?>
-            </div>
-        </div>
-        <div class="parallax__layer parallax__layer--back"></div>
-    </section>
     <section id="group7" class="parallax__group">
         <div class="parallax__layer parallax__layer--base">
             <div class="box facebook">
@@ -179,7 +152,7 @@
             </div>
             <div id="footer" role="contentinfo">
                 <div class="site-info">
-                    <span class="site-title"><a class="site-title-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">© <?php bloginfo( 'name' ); ?> <?php echo date("Y"); ?></a></span>
+                    <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">© <?php bloginfo( 'name' ); ?> <?php echo date("Y"); ?></a>
                 </div>
             </div>
         </div>
