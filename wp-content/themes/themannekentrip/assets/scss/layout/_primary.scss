@@ -1,0 +1,46 @@
+#primary {
+    max-width: 100%;
+    position: relative;
+    padding: 1rem;
+
+    background: none;
+    float: none;
+    width: auto;
+    margin: 0;
+
+    @include flex-content-size(1, 0, auto);
+
+    @include mq(medium) {
+        max-width: calc(100vw - #{$sidebar-width});
+        padding: 2rem;
+    }
+
+    @include mq(large) {
+        padding-right: $sidebar-gutter;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: $sidebar-gutter - 20px;
+            height: 100%;
+            background: url("../../images/bg-rtl.jpg") left top repeat-y;
+        }
+    }
+
+    .layout-2cr & {
+        margin: 0;
+
+        @include mq(large) {
+            padding-left: 2rem;
+            padding-right: $sidebar-gutter;
+        }
+
+        &:before {
+            left: inherit;
+            right: 0;
+            background-position: right top;
+        }
+    }
+}

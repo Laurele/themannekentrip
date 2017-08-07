@@ -1,4 +1,25 @@
 #sidebar {
+    display: none;
+    padding: 1rem;
+    margin: 0;
+
+    background: $extraDarkGreen;
+
+    @include mq(medium) {
+        padding: 2rem;
+    }
+
+    .layout-2cr & {
+        padding: 2rem;
+        margin: 0;
+    }
+
+    @include flex-content-size(0, 0, $sidebar-width);
+
+    @include mq(#{$sidebar-breakpoint}) {
+        display: block;
+    }
+
     $buttonWidth: 30px;
     .mc4wp-form-fields {
         position: relative;
