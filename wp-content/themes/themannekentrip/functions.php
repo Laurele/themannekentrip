@@ -631,4 +631,37 @@ function topbar_widgets_init()
 }
 
 add_action('widgets_init', 'topbar_widgets_init');
+
+/**
+ * Get post|page url in current language
+ * @param $nameOrId
+ * @return false|string|void
+ */
+function custom_get_page_link($nameOrId)
+{
+    if (!function_exists('pll_the_languages')) {
+        return site_url($nameOrId);
+    }
+
+    $post_id = false;
+    if (is_numeric($nameOrId)) {
+        $post_id = $nameOrId;
+    } else {
+        $post = get_page_by_path($nameOrId, OBJECT, ['page']);
+        if ($post) {
+            $post_id = $post->ID;
+        }
+    }
+    if ($post_id) {
+        $post_id_lang = pll_get_post($post_id);
+        if ($post_id_lang) {
+
+            return get_permalink($post_id_lang);
+        }
+
+        return get_permalink($post_id);
+    } else {
+        return site_url($nameOrId);
+    }
+}
 ?>

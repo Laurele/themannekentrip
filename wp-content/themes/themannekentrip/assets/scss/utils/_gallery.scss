@@ -14,7 +14,7 @@
     height: auto;
     max-width: calc(100% / 2);
 
-    @include mq(large) {
+    @include mq(xlarge) {
         max-width: calc(100% / 3);
     }
 

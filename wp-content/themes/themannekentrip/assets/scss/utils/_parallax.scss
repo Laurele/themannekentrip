@@ -89,7 +89,9 @@ $parallax-height: 100vh;
     z-index: 3;
 }
 #group5 .parallax__layer--base {
-    background: rgb(214,229,100);
+    //background: rgb(214,229,100);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #group6 {

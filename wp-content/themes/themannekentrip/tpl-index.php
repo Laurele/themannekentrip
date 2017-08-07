@@ -33,9 +33,8 @@
                     ]
                 ); ?>
                 <?php foreach ($myPosts as $post) : setup_postdata($post); ?>
-                    <!-- TODO : implement the project page link -->
                     <h3>
-                        <a href="#"><?php the_title(); ?></a>
+                        <a href="<?php echo custom_get_page_link('the-project'); ?>"><?php the_title(); ?></a>
                     </h3>
 
                     <?php the_content(); ?>
@@ -99,9 +98,8 @@
                     ]
                 ); ?>
                 <?php foreach ($myPosts as $post) : setup_postdata($post); ?>
-                    <!-- TODO : implement the stats page link -->
                     <h3>
-                        <a href="#"><?php the_title(); ?></a>
+                        <a href="<?php echo custom_get_page_link('stats'); ?>"><?php the_title(); ?></a>
                     </h3>
 
                     <?php the_content(); ?>
@@ -117,32 +115,31 @@
         </div>
     </section>
     <section id="group5" class="parallax__group">
+        <?php $myPosts = get_posts(
+            [
+                'post_type' => 'home_post',
+                'tax_query' => [
+                    [
+                        'taxonomy' => 'post_tag',
+                        'field' => 'slug',
+                        'terms' => 'home-environmental-project'
+                    ]
+                ]
+            ]
+        ); ?>
+        <?php foreach ($myPosts as $post) : setup_postdata($post); ?>
         <div class="parallax__layer parallax__layer--fore">
             <div class="box">
-                <?php $myPosts = get_posts(
-                    [
-                        'post_type' => 'home_post',
-                        'tax_query' => [
-                            [
-                                'taxonomy' => 'post_tag',
-                                'field' => 'slug',
-                                'terms' => 'home-environmental-project'
-                            ]
-                        ]
-                    ]
-                ); ?>
-                <?php foreach ($myPosts as $post) : setup_postdata($post); ?>
-                    <!-- TODO : implement the stats page link -->
+
                     <h3>
-                        <a href="#"><?php the_title(); ?></a>
+                        <a href="<?php echo custom_get_page_link('the-project'); ?>"><?php the_title(); ?></a>
                     </h3>
 
                     <?php the_content(); ?>
-                <?php endforeach; ?>
             </div>
         </div>
-        <div class="parallax__layer parallax__layer--base">
-        </div>
+        <div class="parallax__layer parallax__layer--back" style="background-image: url('<?php echo get_the_post_thumbnail_url($post, 'thumbnail-large'); ?>')"></div>
+        <?php endforeach; ?>
     </section>
     <section id="group7" class="parallax__group">
         <div class="parallax__layer parallax__layer--base">

@@ -208,7 +208,8 @@ html[data-env=dev] body:after {
   z-index: 3; }
 
 #group5 .parallax__layer--base {
-  background: #d6e564; }
+  background-size: cover;
+  background-repeat: no-repeat; }
 
 #group6 {
   z-index: 2; }
@@ -244,7 +245,7 @@ html[data-env=dev] body:after {
   width: 100%;
   height: auto;
   max-width: calc(100% / 2); }
-  @media all and (min-width: 64em) {
+  @media all and (min-width: 71.25em) {
     .box-gallery-item {
       max-width: calc(100% / 3); } }
   .box-gallery-item img {
