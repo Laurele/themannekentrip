@@ -34,14 +34,15 @@ $(function () {
     var $navigation = $('[data-view="navigation.main"]');
 
     var SELECTOR_SITE_NAVIGATION = '[data-el="site-aside-menu"]';
-    var SELECTOR_SITE_NAVIGATION_TOGGLE = '[data-el="topbar-menu-toggle"]';
+    var CLASS_NAV_VISIBLE = 'is-visible';
+    var CLASS_BODY_OVERFLOW_HIDDEN = 'is-overflow-hidden';
 
     app.Views.Navigation.Main = Backbone.View.extend({
         el: $navigation,
 
         initialize: function () {
             this.$navigation = $(SELECTOR_SITE_NAVIGATION, this.$el);
-            this.$navigationToggle = $(SELECTOR_SITE_NAVIGATION_TOGGLE, this.$el);
+            this.$body = $('body');
         },
 
         events: {
@@ -54,7 +55,8 @@ $(function () {
         toggleNavigation: function (event) {
             event.preventDefault();
 
-            this.$navigation.toggleClass('is-visible');
+            this.$navigation.toggleClass(CLASS_NAV_VISIBLE);
+            this.$body.toggleClass(CLASS_BODY_OVERFLOW_HIDDEN);
         },
 
         /**

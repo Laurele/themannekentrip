@@ -213,8 +213,9 @@ html[data-env=dev] body:after {
 #group6 {
   z-index: 2; }
 
-#group6 .parallax__layer--back {
-  background: #e5dc0c; }
+#group6 .parallax__layer--base {
+  background: url("../images/mountains_blured.jpg") 0 0 no-repeat;
+  background-size: cover; }
 
 #group7 {
   z-index: 3; }
@@ -255,7 +256,7 @@ html[data-env=dev] body:after {
 .layout-2cr {
   background: none; }
 
-#main {
+body:not(.page-template-tpl-index) #main {
   margin-top: 40px;
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -421,16 +422,16 @@ html[data-env=dev] body:after {
 #primary .hentry {
   margin-bottom: 2rem; }
 
-#primary [class^="post-"] .entry-content,
-#primary [class^="post-"] .post-media {
+#primary [class^="post-"]:not(.page) .entry-content,
+#primary [class^="post-"]:not(.page) .post-media {
   border: solid 1px #EFEFEF;
   padding: 1rem; }
   @media all and (min-width: 47.5em) {
-    #primary [class^="post-"] .entry-content,
-    #primary [class^="post-"] .post-media {
+    #primary [class^="post-"]:not(.page) .entry-content,
+    #primary [class^="post-"]:not(.page) .post-media {
       padding: 2rem; } }
-  #primary [class^="post-"] .entry-content p,
-  #primary [class^="post-"] .post-media p {
+  #primary [class^="post-"]:not(.page) .entry-content p,
+  #primary [class^="post-"]:not(.page) .post-media p {
     line-height: 1.8; }
 
 .entry-footer {
@@ -823,7 +824,7 @@ body.is-overflow-hidden {
     color: #179ba9; }
 
 /* Page or Post styling */
-body.page #wrapper {
+body.page:not(.page-template-tpl-index) #wrapper {
   min-height: calc(100vh - 40px);
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
@@ -841,7 +842,7 @@ body.page #wrapper {
       -ms-flex-pack: stretch;
           justify-content: stretch; }
 
-body.page #main {
+body.page:not(.page-template-tpl-index) #main {
   -webkit-box-flex: 1 0 auto;
   /* OLD - iOS 6-, Safari 3.1-6 */
   -moz-box-flex: 1 0 auto;
@@ -858,7 +859,7 @@ body.page #main {
           flex: 1 0 auto;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
 
-body.page #footer {
+body.page:not(.page-template-tpl-index) #footer {
   -webkit-box-flex: 0 0 auto;
   /* OLD - iOS 6-, Safari 3.1-6 */
   -moz-box-flex: 0 0 auto;
@@ -1555,23 +1556,5 @@ body.page-template-tpl-index #footer {
   margin: 0;
   padding: 10px 0; }
 
-body.home #wrapper,
-body.page #wrapper,
-body.single #wrapper,
-body.search #wrapper,
-body.category #wrapper {
-  min-height: 100vh; }
-
-body.home #topbar .custom-logo-link,
-body.page #topbar .custom-logo-link,
-body.single #topbar .custom-logo-link,
-body.search #topbar .custom-logo-link,
-body.category #topbar .custom-logo-link {
-  display: none; }
-
-body.home #topbar .site-title,
-body.page #topbar .site-title,
-body.single #topbar .site-title,
-body.search #topbar .site-title,
-body.category #topbar .site-title {
-  display: none; }
+.widget_breadcrumb_navxt [property="name"] {
+  white-space: nowrap; }

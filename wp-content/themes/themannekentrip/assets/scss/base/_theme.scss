@@ -2,7 +2,7 @@
     background: none;
 }
 
-#main {
+body:not(.page-template-tpl-index) #main {
     margin-top: $topbar-height;
 
     @include flex-container();
@@ -204,8 +204,8 @@
     margin-bottom: 2rem;
 }
 
-#primary [class^="post-"] .entry-content,
-#primary [class^="post-"] .post-media {
+#primary [class^="post-"]:not(.page) .entry-content,
+#primary [class^="post-"]:not(.page) .post-media {
     border: solid 1px $lightGrey;
     padding: 1rem;
 

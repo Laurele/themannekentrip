@@ -285,7 +285,7 @@ body.is-overflow-hidden {
 }
 
 /* Page or Post styling */
-body.page {
+body.page:not(.page-template-tpl-index) {
     #wrapper {
         min-height: calc(100vh - #{$topbar-height});
         @include flex-container();
