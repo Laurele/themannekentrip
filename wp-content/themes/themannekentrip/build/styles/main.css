@@ -256,6 +256,7 @@ html[data-env=dev] body:after {
   background: none; }
 
 #main {
+  margin-top: 40px;
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   /* OLD - Firefox 19- (buggy but mostly works) */
@@ -267,7 +268,7 @@ html[data-env=dev] body:after {
 
 #primary {
   position: relative;
-  padding: 2rem 140px 2rem 2rem;
+  padding: 1rem;
   background: none;
   float: none;
   width: auto;
@@ -288,25 +289,33 @@ html[data-env=dev] body:after {
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
-  #primary:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 140px;
-    height: 100%;
-    background: url("../images/bg-rtl.jpg") left top repeat-y; }
+  @media all and (min-width: 47.5em) {
+    #primary {
+      padding: 2rem; } }
+  @media all and (min-width: 64em) {
+    #primary {
+      padding-right: 80px; }
+      #primary:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 60px;
+        height: 100%;
+        background: url("../images/bg-rtl.jpg") left top repeat-y; } }
   .layout-2cr #primary {
-    margin: 0;
-    padding-left: 2rem;
-    padding-right: 140px; }
+    margin: 0; }
+    @media all and (min-width: 64em) {
+      .layout-2cr #primary {
+        padding-left: 2rem;
+        padding-right: 80px; } }
     .layout-2cr #primary:before {
       left: inherit;
       right: 0;
       background-position: right top; }
 
 #sidebar {
-  padding: 2rem;
+  padding: 1rem;
   margin: 0;
   background: #2b2f38;
   -webkit-box-flex: 0 0 25vw;
@@ -324,38 +333,55 @@ html[data-env=dev] body:after {
       -ms-flex: 0 0 25vw;
           flex: 0 0 25vw;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+  @media all and (min-width: 47.5em) {
+    #sidebar {
+      padding: 2rem; } }
   .layout-2cr #sidebar {
     padding: 2rem;
     margin: 0; }
 
 .entry-icon {
-  left: calc(-140px + 32px); }
+  display: none;
+  width: 40px;
+  left: calc(-80px + 32px - 20px); }
+  @media all and (min-width: 64em) {
+    .entry-icon {
+      display: block; } }
   .layout-2cr .entry-icon {
+    width: 40px;
     left: inherit;
-    right: calc(-140px + 32px); }
+    right: calc(-80px + 32px - 20px); }
+  .layout-2cr .format-aside .entry-icon,
   .layout-2cr .entry-icon.format-aside {
-    background-position: 0 -127px;
+    background-position: -30px -127px;
     top: 5px !important; }
+  .layout-2cr .format-audio .entry-icon,
   .layout-2cr .entry-icon.format-audio {
-    background-position: 0 -90px;
+    background-position: -30px -90px;
     height: 36px; }
+  .layout-2cr .format-gallery .entry-icon,
   .layout-2cr .entry-icon.format-gallery {
-    background-position: 0 -159px;
+    background-position: -30px -159px;
     height: 38px; }
+  .layout-2cr .format-image .entry-icon,
   .layout-2cr .entry-icon.format-image {
-    background-position: 0 0; }
+    background-position: -30px 0; }
+  .layout-2cr .format-link .entry-icon,
   .layout-2cr .entry-icon.format-link {
-    background-position: 0 -235px;
+    background-position: -30px -235px;
     height: 36px;
     top: 15px; }
+  .layout-2cr .format-quote .entry-icon,
   .layout-2cr .entry-icon.format-quote {
-    background-position: 0 -32px;
+    background-position: -30px -32px;
     height: 26px; }
+  .layout-2cr .format-standard .entry-icon,
   .layout-2cr .entry-icon.format-standard {
-    background-position: 0 -198px;
+    background-position: -30px -198px;
     height: 36px; }
+  .layout-2cr .format-video .entry-icon,
   .layout-2cr .entry-icon.format-video {
-    background-position: 0 -56px; }
+    background-position: -30px -54px; }
 
 #footer {
   margin: 0;
@@ -374,10 +400,11 @@ html[data-env=dev] body:after {
   margin-bottom: 2rem; }
   #logo a {
     display: block;
-    height: 150px; }
+    max-height: 150px; }
   #logo img {
     max-height: 100%;
-    width: auto; }
+    width: auto;
+    height: auto; }
 
 .widget-title {
   background: none;
@@ -434,6 +461,23 @@ html[data-env=dev] body:after {
   width: 100%;
   max-width: 650px;
   min-height: 320px; }
+
+#primary > h1 {
+  text-align: center;
+  color: #5d5d5d; }
+
+#primary > [class^="post-"] {
+  padding: 1rem; }
+  @media all and (min-width: 47.5em) {
+    #primary > [class^="post-"] {
+      padding: 2rem; } }
+  #primary > [class^="post-"] .entry-title {
+    margin-top: 0; }
+
+.post-media {
+  background: none;
+  box-shadow: none;
+  border: solid 1px #EFEFEF; }
 
 h1, h2, h3, h4, h5, h6,
 p, blockquote, figure,
@@ -542,7 +586,7 @@ html {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: 40px;
   background: #2E5360;
   z-index: 100; }
   body:not(.page-template-tpl-under-construction) #topbar {
@@ -576,7 +620,7 @@ html {
     #topbar .custom-logo-link img {
       display: inline-block;
       vertical-align: middle;
-      max-height: calc(60px - 5px * 2);
+      max-height: calc(40px - 5px * 2);
       max-width: 100%;
       width: auto;
       height: auto; }
@@ -585,7 +629,7 @@ html {
     vertical-align: middle;
     margin: 0;
     font-size: .9rem;
-    line-height: 60px;
+    line-height: 40px;
     font-weight: 500;
     color: #FFFFFF;
     text-shadow: none;
@@ -669,10 +713,10 @@ html {
   width: 100%;
   padding: 10px 0;
   text-align: center; }
-  #footer .site-title-link {
+  #footer .site-title {
+    display: inline-block;
     font-size: 0.8rem;
-    color: #FFFFFF;
-    text-decoration: none; }
+    color: #FFFFFF; }
 
 /* Main Navigation */
 .site-aside-menu {
@@ -681,7 +725,7 @@ html {
   right: 0;
   height: 100vh;
   z-index: 99;
-  padding-top: 60px;
+  padding-top: 40px;
   background: rgba(1, 22, 29, 0.9);
   opacity: 0;
   filter: alpha(opacity=0); }
@@ -1006,20 +1050,20 @@ body.page-template-tpl-under-construction {
           align-items: flex-start; }
 
 .page-template-tpl-under-construction #topbar {
-  -webkit-box-flex: 0 1 60px;
+  -webkit-box-flex: 0 1 40px;
   /* OLD - iOS 6-, Safari 3.1-6 */
-  -moz-box-flex: 0 1 60px;
+  -moz-box-flex: 0 1 40px;
   /* OLD - Firefox 19- */
-  -webkit-flex: 0 1 60px;
+  -webkit-flex: 0 1 40px;
   /* Chrome */
   -ms-flex: 0;
   /* IE 10-11 */
   -ms-flex-positive: 0;
   -ms-flex-negative: 1;
-  -ms-flex-preferred-size: 60px;
+  -ms-flex-preferred-size: 40px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 60px;
-          flex: 0 1 60px;
+      -ms-flex: 0 1 40px;
+          flex: 0 1 40px;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */
   background: rgba(2, 39, 51, 0.7); }
 
@@ -1377,9 +1421,9 @@ body.page-template-tpl-index #main {
   body.page-template-tpl-index #main .video iframe {
     border: none;
     width: 100%;
-    height: calc(100vh - 60px*3); }
+    height: calc(100vh - 40px*3); }
   body.page-template-tpl-index #main .facebook {
-    max-height: calc(100vh - 60px - 40px - 2rem);
+    max-height: calc(100vh - 40px - 40px - 2rem);
     overflow: auto; }
     body.page-template-tpl-index #main .facebook iframe {
       margin: 0; }
@@ -1402,35 +1446,22 @@ body.page-template-tpl-index #footer {
   padding: 10px 0; }
 
 body.home #wrapper,
+body.page #wrapper,
 body.single #wrapper,
 body.search #wrapper,
 body.category #wrapper {
   min-height: 100vh; }
 
-body.home #topbar,
-body.single #topbar,
-body.search #topbar,
-body.category #topbar {
-  height: 40px; }
-  body.home #topbar .custom-logo-link,
-  body.single #topbar .custom-logo-link,
-  body.search #topbar .custom-logo-link,
-  body.category #topbar .custom-logo-link {
-    display: none; }
-  body.home #topbar .site-title,
-  body.single #topbar .site-title,
-  body.search #topbar .site-title,
-  body.category #topbar .site-title {
-    display: none; }
+body.home #topbar .custom-logo-link,
+body.page #topbar .custom-logo-link,
+body.single #topbar .custom-logo-link,
+body.search #topbar .custom-logo-link,
+body.category #topbar .custom-logo-link {
+  display: none; }
 
-body.home .site-aside-menu,
-body.single .site-aside-menu,
-body.search .site-aside-menu,
-body.category .site-aside-menu {
-  padding-top: 40px; }
-
-body.home #main,
-body.single #main,
-body.search #main,
-body.category #main {
-  padding-top: 40px; }
+body.home #topbar .site-title,
+body.page #topbar .site-title,
+body.single #topbar .site-title,
+body.search #topbar .site-title,
+body.category #topbar .site-title {
+  display: none; }

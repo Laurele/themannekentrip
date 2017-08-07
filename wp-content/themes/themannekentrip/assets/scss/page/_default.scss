@@ -1,4 +1,5 @@
 body.home,
+body.page,
 body.single,
 body.search,
 body.category {
@@ -7,8 +8,6 @@ body.category {
     }
 
     #topbar {
-        height: 40px;
-
         .custom-logo-link {
             display: none;
         }
@@ -16,13 +15,5 @@ body.category {
         .site-title {
             display: none;
         }
-    }
-
-    .site-aside-menu {
-        padding-top: 40px;
-    }
-
-    #main {
-        padding-top: 40px;
     }
 }

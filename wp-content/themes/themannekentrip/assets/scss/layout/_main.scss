@@ -117,10 +117,10 @@ html {
 
     text-align: center;
 
-    .site-title-link {
+    .site-title {
+        display: inline-block;
         font-size: 0.8rem;
         color: $white;
-        text-decoration: none;
     }
 }
 

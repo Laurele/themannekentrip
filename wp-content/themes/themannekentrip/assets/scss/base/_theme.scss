@@ -10,7 +10,7 @@
 
 #primary {
     position: relative;
-    padding: 2rem $sidebar-gutter 2rem 2rem;
+    padding: 1rem;
 
     background: none;
     float: none;
@@ -20,20 +20,31 @@
 
     @include flex-content-size(1, 0, auto);
 
-    &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: $sidebar-gutter - 20px;
-        height: 100%;
-        background: url("../../images/bg-rtl.jpg") left top repeat-y;
+    @include mq(medium) {
+        padding: 2rem;
+    }
+
+    @include mq(large) {
+        padding-right: $sidebar-gutter;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: $sidebar-gutter - 20px;
+            height: 100%;
+            background: url("../../images/bg-rtl.jpg") left top repeat-y;
+        }
     }
 
     .layout-2cr & {
         margin: 0;
-        padding-left: 2rem;
-        padding-right: $sidebar-gutter;
+
+        @include mq(large) {
+            padding-left: 2rem;
+            padding-right: $sidebar-gutter;
+        }
 
         &:before {
             left: inherit;
@@ -44,9 +55,14 @@
 }
 
 #sidebar {
-    padding: 2rem;
+    padding: 1rem;
     margin: 0;
+
     background: $extraDarkGreen;
+
+    @include mq(medium) {
+        padding: 2rem;
+    }
 
     .layout-2cr & {
         padding: 2rem;
@@ -57,8 +73,13 @@
 }
 
 .entry-icon {
+    display: none;
     width: 40px;
     left: calc(-#{$sidebar-gutter} + 32px - 20px);
+
+    @include mq(large) {
+        display: block;
+    }
 
     .layout-2cr & {
         width: 40px;
@@ -68,17 +89,20 @@
 
     .layout-2cr .format-aside &,
     .layout-2cr &.format-aside {
-        background-position: -30px -127px; top: 5px!important;
+        background-position: -30px -127px;
+        top: 5px !important;
     }
 
     .layout-2cr .format-audio &,
     .layout-2cr &.format-audio {
-        background-position: -30px -90px; height: 36px;
+        background-position: -30px -90px;
+        height: 36px;
     }
 
     .layout-2cr .format-gallery &,
     .layout-2cr &.format-gallery {
-        background-position: -30px -159px; height: 38px;
+        background-position: -30px -159px;
+        height: 38px;
     }
 
     .layout-2cr .format-image &,
@@ -88,17 +112,21 @@
 
     .layout-2cr .format-link &,
     .layout-2cr &.format-link {
-        background-position: -30px -235px; height: 36px; top: 15px;
+        background-position: -30px -235px;
+        height: 36px;
+        top: 15px;
     }
 
     .layout-2cr .format-quote &,
     .layout-2cr &.format-quote {
-        background-position: -30px -32px; height: 26px;
+        background-position: -30px -32px;
+        height: 26px;
     }
 
     .layout-2cr .format-standard &,
     .layout-2cr &.format-standard {
-        background-position: -30px -198px; height: 36px;
+        background-position: -30px -198px;
+        height: 36px;
     }
 
     .layout-2cr .format-video &,
@@ -205,4 +233,27 @@
     width: 100%;
     max-width: 650px;
     min-height: 320px;
+}
+
+#primary > h1 {
+    text-align: center;
+    color: $darkGrey;
+}
+
+#primary > [class^="post-"] {
+    padding: 1rem;
+
+    @include mq(medium) {
+        padding: 2rem;
+    }
+
+    .entry-title {
+        margin-top: 0;
+    }
+}
+
+.post-media {
+    background: none;
+    box-shadow: none;
+    border: solid 1px $lightGrey;
 }

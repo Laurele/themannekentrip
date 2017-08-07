@@ -86,6 +86,8 @@
 								</ul>
 							</nav>
 						<?php endif; ?>
+
+						<ul><?php pll_the_languages(); ?></ul>
 					</div>
 				</div>
 			</div>

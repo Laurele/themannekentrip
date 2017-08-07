@@ -11,7 +11,7 @@
 		<?php zilla_footer_start(); ?>
 
 		<div class="site-info">
-			<span class="site-title"><a class="site-title-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">© <?php bloginfo( 'name' ); ?> <?php echo date("Y"); ?></a></span>
+			<span class="site-title">© <?php bloginfo( 'name' ); ?> <?php echo date("Y"); ?></span>
 		</div>
 
 		<?php zilla_footer_end(); ?>
