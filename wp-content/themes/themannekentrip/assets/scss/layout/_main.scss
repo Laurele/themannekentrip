@@ -17,6 +17,10 @@ html {
 }
 
 /* Layout styling */
+body.is-overflow-hidden {
+    overflow: hidden;
+}
+
 #wrapper {
     width: 100%;
 }
@@ -142,7 +146,7 @@ html {
     &.is-visible {
         min-width: 100vw;
         overflow: auto;
-        padding: 2rem;
+        padding: calc(#{$topbar-height} + 2rem) 2rem 2rem;
 
         @include opacity(100);
         @include transition(all 0.15s ease-in);
@@ -277,5 +281,23 @@ html {
 
     &:hover {
         color: $green;
+    }
+}
+
+/* Page or Post styling */
+body.page {
+    #wrapper {
+        min-height: calc(100vh - #{$topbar-height});
+        @include flex-container();
+        @include flex-direction(column);
+        @include flex-justify-content(stretch);
+    }
+
+    #main {
+        @include flex-content-size(1, 0, auto);
+    }
+
+    #footer {
+        @include flex-content-size(0, 0, auto);
     }
 }

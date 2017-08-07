@@ -552,6 +552,9 @@ html {
     box-sizing: border-box; }
 
 /* Layout styling */
+body.is-overflow-hidden {
+  overflow: hidden; }
+
 #wrapper {
   width: 100%; }
 
@@ -706,7 +709,7 @@ html {
   .site-aside-menu.is-visible {
     min-width: 100vw;
     overflow: auto;
-    padding: 2rem;
+    padding: calc(40px + 2rem) 2rem 2rem;
     opacity: 1;
     filter: alpha(opacity=100);
     transition: all 0.15s ease-in; }
@@ -818,6 +821,59 @@ html {
   border: none; }
   .site-language-item-link:hover {
     color: #179ba9; }
+
+/* Page or Post styling */
+body.page #wrapper {
+  min-height: calc(100vh - 40px);
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-justify-content: stretch;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch; }
+
+body.page #main {
+  -webkit-box-flex: 1 0 auto;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1 0 auto;
+  /* OLD - Firefox 19- */
+  -webkit-flex: 1 0 auto;
+  /* Chrome */
+  -ms-flex: 1;
+  /* IE 10-11 */
+  -ms-flex-positive: 1;
+  -ms-flex-negative: 0;
+  -ms-flex-preferred-size: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+
+body.page #footer {
+  -webkit-box-flex: 0 0 auto;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 0 0 auto;
+  /* OLD - Firefox 19- */
+  -webkit-flex: 0 0 auto;
+  /* Chrome */
+  -ms-flex: 0;
+  /* IE 10-11 */
+  -ms-flex-positive: 0;
+  -ms-flex-negative: 0;
+  -ms-flex-preferred-size: auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
 
 #sidebar {
   display: none;
