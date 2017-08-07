@@ -87,7 +87,15 @@
 							</nav>
 						<?php endif; ?>
 
-						<ul><?php pll_the_languages(); ?></ul>
+						<ul id="site-language">
+						<?php $translations = pll_the_languages(array('raw'=>1)); ?>
+
+						<?php foreach ($translations as $translation) : ?>
+							<li class="site-language-item">
+								<a class="site-language-item-link" href="<?php echo $translation['url']; ?>"><?php echo $translation['name']; ?></a>
+							</li>
+						<?php endforeach; ?>
+						</ul>
 					</div>
 				</div>
 			</div>

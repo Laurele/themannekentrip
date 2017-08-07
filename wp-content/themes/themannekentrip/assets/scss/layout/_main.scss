@@ -185,11 +185,7 @@ html {
 
     #site-language {
         width: 100%;
-
-        ul {
-            text-align: center;
-            width: 100%;
-        }
+        text-align: center;
     }
 }
 
@@ -264,5 +260,25 @@ html {
 
     i {
         font-size: 1.2rem;
+    }
+}
+
+/* Language switcher styling */
+.site-language-item {
+    display: inline-block;
+
+    &:not(:last-child) {
+        padding-right: 10px;
+        margin-right: 10px;
+        border-right: solid 1px $lightGreen;
+    }
+}
+
+.site-language-item {
+    color: $white;
+    border: none;
+
+    &:hover {
+        color: $green;
     }
 }

@@ -718,10 +718,8 @@ html {
       text-align: center;
       width: 100%; }
   .site-aside-menu #site-language {
-    width: 100%; }
-    .site-aside-menu #site-language ul {
-      text-align: center;
-      width: 100%; }
+    width: 100%;
+    text-align: center; }
 
 .primary-menu {
   margin: 0; }
@@ -794,6 +792,20 @@ html {
     color: #179ba9; }
   .content--socials--list-item-link i {
     font-size: 1.2rem; }
+
+/* Language switcher styling */
+.site-language-item {
+  display: inline-block; }
+  .site-language-item:not(:last-child) {
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: solid 1px #72bcb9; }
+
+.site-language-item {
+  color: #FFFFFF;
+  border: none; }
+  .site-language-item:hover {
+    color: #179ba9; }
 
 #sidebar {
   display: none;
