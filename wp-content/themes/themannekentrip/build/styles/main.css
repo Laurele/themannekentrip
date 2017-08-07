@@ -605,7 +605,7 @@ html {
             flex: 0 0 auto;
     /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
   #topbar .menu-toggle {
-    margin: 0 20px;
+    margin: 0 20px 0 0;
     background: none;
     border: none;
     outline: none;
@@ -614,7 +614,35 @@ html {
     box-shadow: none;
     text-transform: uppercase;
     font-weight: 300;
+    font-size: .9rem;
     transition: color 0.15s ease-in;
+    -webkit-box-flex: 0 0 auto;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 auto;
+    /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 auto;
+    /* Chrome */
+    -ms-flex: 0;
+    /* IE 10-11 */
+    -ms-flex-positive: 0;
+    -ms-flex-negative: 0;
+    -ms-flex-preferred-size: auto;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
+    #topbar .menu-toggle:hover {
+      color: #179ba9; }
+    #topbar .menu-toggle i {
+      display: inline-block;
+      vertical-align: top;
+      font-size: 1.2rem;
+      margin-left: 5px; }
+  #topbar #social-navigation {
+    margin: 0 20px 0;
     -webkit-box-flex: 1 0 auto;
     /* OLD - iOS 6-, Safari 3.1-6 */
     -moz-box-flex: 1 0 auto;
@@ -629,17 +657,10 @@ html {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 auto;
             flex: 1 0 auto;
-    /* NEW, Spec - Opera 12.1, Firefox 20+ */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none; }
-    #topbar .menu-toggle:hover {
-      color: #179ba9; }
-    #topbar .menu-toggle i {
-      display: inline-block;
-      vertical-align: top;
-      font-size: 1.5rem;
-      margin-left: 5px; }
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+    #topbar #social-navigation ul {
+      text-align: right;
+      width: 100%; }
 
 #main {
   width: 100%; }
@@ -693,9 +714,9 @@ html {
     .site-aside-menu #site-navigation ul {
       text-align: center;
       width: 100%; }
-  .site-aside-menu #social-navigation {
+  .site-aside-menu #site-language {
     width: 100%; }
-    .site-aside-menu #social-navigation ul {
+    .site-aside-menu #site-language ul {
       text-align: center;
       width: 100%; }
 
@@ -725,6 +746,7 @@ html {
 /* Socials styling */
 .content--socials {
   text-align: center;
+  margin-right: 1rem;
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   /* OLD - Firefox 19- (buggy but mostly works) */
@@ -768,10 +790,7 @@ html {
   .content--socials--list-item-link:hover {
     color: #179ba9; }
   .content--socials--list-item-link i {
-    font-size: 3rem; }
-    @media all and (min-width: 64em) {
-      .content--socials--list-item-link i {
-        font-size: 1.5rem; } }
+    font-size: 1.2rem; }
 
 #sidebar .mc4wp-form-fields {
   position: relative;
@@ -1382,35 +1401,35 @@ body.page-template-tpl-index #footer {
   margin: 0;
   padding: 10px 0; }
 
-body.page #wrapper,
+body.home #wrapper,
 body.single #wrapper,
 body.search #wrapper,
 body.category #wrapper {
   min-height: 100vh; }
 
-body.page #topbar,
+body.home #topbar,
 body.single #topbar,
 body.search #topbar,
 body.category #topbar {
   height: 40px; }
-  body.page #topbar .custom-logo-link,
+  body.home #topbar .custom-logo-link,
   body.single #topbar .custom-logo-link,
   body.search #topbar .custom-logo-link,
   body.category #topbar .custom-logo-link {
     display: none; }
-  body.page #topbar .site-title,
+  body.home #topbar .site-title,
   body.single #topbar .site-title,
   body.search #topbar .site-title,
   body.category #topbar .site-title {
     display: none; }
 
-body.page .site-aside-menu,
+body.home .site-aside-menu,
 body.single .site-aside-menu,
 body.search .site-aside-menu,
 body.category .site-aside-menu {
   padding-top: 40px; }
 
-body.page #main,
+body.home #main,
 body.single #main,
 body.search #main,
 body.category #main {

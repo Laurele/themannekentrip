@@ -38,13 +38,30 @@
 				<p class="site-title"><?php bloginfo( 'name' ); ?></p>
 			<?php endif; ?>
 
-			<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
+			<?php if ( has_nav_menu( 'social' ) ) : ?>
+				<nav id="social-navigation" class="content--socials" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'twentysixteen' ); ?>">
+					<ul class="content--socials--list">
+						<?php $nav = wp_get_nav_menu_items('Top Socials'); ?>
+						<?php if ( is_array($nav) ) : ?>
+							<?php foreach ( $nav as $nav_item ) : ?>
+								<li class="content--socials--list-item">
+									<a href="<?php echo $nav_item->url; ?>" class="content--socials--list-item-link" title="<?php echo $nav_item->title; ?>" target="_blank">
+										<i class="<?php echo implode(' ', $nav_item->classes); ?>"></i>
+									</a>
+								</li>
+							<?php endforeach; ?>
+						<?php endif; ?>
+					</ul>
+				</nav>
+			<?php endif; ?>
+
+			<?php if ( has_nav_menu( 'primary' ) ) : ?>
 				<button id="menu-toggle" class="menu-toggle" title="<?php _e( 'Menu', 'twentysixteen' ); ?>" data-el="topbar-menu-toggle">Menu <i class="icon-align-justify"></i></button>
 			<?php endif; ?>
 
 		</header>
 
-		<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
+		<?php if ( has_nav_menu( 'primary' ) ) : ?>
 
 			<div id="site-aside-menu" class="site-aside-menu" data-el="site-aside-menu">
 				<div class="site-aside-content">
@@ -57,23 +74,6 @@
 										<?php foreach ( $nav as $nav_item ) : ?>
 											<li class="primary-menu-item">
 												<a href="<?php echo $nav_item->url; ?>" class="primary-menu-item-link"><?php echo $nav_item->title; ?></a>
-											</li>
-										<?php endforeach; ?>
-									<?php endif; ?>
-								</ul>
-							</nav>
-						<?php endif; ?>
-
-						<?php if ( has_nav_menu( 'social' ) ) : ?>
-							<nav id="social-navigation" class="content--socials" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'twentysixteen' ); ?>">
-								<ul class="content--socials--list">
-									<?php $nav = wp_get_nav_menu_items('Top Socials'); ?>
-									<?php if ( is_array($nav) ) : ?>
-										<?php foreach ( $nav as $nav_item ) : ?>
-											<li class="content--socials--list-item">
-												<a href="<?php echo $nav_item->url; ?>" class="content--socials--list-item-link" title="<?php echo $nav_item->title; ?>" target="_blank">
-													<i class="<?php echo implode(' ', $nav_item->classes); ?>"></i>
-												</a>
 											</li>
 										<?php endforeach; ?>
 									<?php endif; ?>

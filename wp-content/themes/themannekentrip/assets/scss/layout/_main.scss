@@ -67,7 +67,7 @@ html {
     }
 
     .menu-toggle {
-        margin: 0 $gutter/2;
+        margin: 0 $gutter/2 0 0;
 
         background: none;
         border: none;
@@ -77,9 +77,10 @@ html {
         box-shadow: none;
         text-transform: uppercase;
         font-weight: 300;
+        font-size: .9rem;
 
         @include transition(color 0.15s ease-in);
-        @include flex-content-size(1, 0, auto);
+        @include flex-content-size(0, 0, auto);
         @include appearance(none);
 
         &:hover {
@@ -89,8 +90,19 @@ html {
         i {
             display: inline-block;
             vertical-align: top;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-left: 5px;
+        }
+    }
+
+    #social-navigation {
+        margin: 0 $gutter/2 0;
+
+        @include flex-content-size(1, 0, auto);
+
+        ul {
+            text-align: right;
+            width: 100%;
         }
     }
 }
@@ -171,7 +183,7 @@ html {
         }
     }
 
-    #social-navigation {
+    #site-language {
         width: 100%;
 
         ul {
@@ -215,6 +227,7 @@ html {
 /* Socials styling */
 .content--socials {
     text-align: center;
+    margin-right: 1rem;
 
     @include flex-container();
     @include flex-direction(row);
@@ -250,10 +263,6 @@ html {
     }
 
     i {
-        font-size: 3rem;
-
-        @include mq(large) {
-            font-size: 1.5rem;
-        }
+        font-size: 1.2rem;
     }
 }
