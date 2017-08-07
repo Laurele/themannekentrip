@@ -266,48 +266,63 @@ html[data-env=dev] body:after {
   display: flex;
   /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
 
-.entry-icon {
+.page .entry-icon,
+[class^="post-"] .entry-icon {
   display: none;
   width: 40px;
   left: calc(-80px + 32px - 20px); }
   @media all and (min-width: 64em) {
-    .entry-icon {
+    .page .entry-icon,
+    [class^="post-"] .entry-icon {
       display: block; } }
-  .layout-2cr .entry-icon {
+  .layout-2cr .page .entry-icon, .layout-2cr
+  [class^="post-"] .entry-icon {
     width: 40px;
     left: inherit;
     right: calc(-80px + 32px - 20px); }
-  .layout-2cr .format-aside .entry-icon,
-  .layout-2cr .entry-icon.format-aside {
-    background-position: -30px -125px;
-    top: 5px !important; }
-  .layout-2cr .format-audio .entry-icon,
-  .layout-2cr .entry-icon.format-audio {
-    background-position: -30px -90px;
-    height: 36px; }
-  .layout-2cr .format-gallery .entry-icon,
-  .layout-2cr .entry-icon.format-gallery {
-    background-position: -30px -159px;
-    height: 38px; }
-  .layout-2cr .format-image .entry-icon,
-  .layout-2cr .entry-icon.format-image {
-    background-position: -30px 3px; }
-  .layout-2cr .format-link .entry-icon,
-  .layout-2cr .entry-icon.format-link {
-    background-position: -30px -235px;
-    height: 36px;
-    top: 15px; }
-  .layout-2cr .format-quote .entry-icon,
-  .layout-2cr .entry-icon.format-quote {
-    background-position: -30px -32px;
-    height: 26px; }
-  .layout-2cr .format-standard .entry-icon,
-  .layout-2cr .entry-icon.format-standard {
-    background-position: -30px -198px;
-    height: 36px; }
-  .layout-2cr .format-video .entry-icon,
-  .layout-2cr .entry-icon.format-video {
-    background-position: -30px -54px; }
+
+.layout-2cr [class^="post-"].format-aside .entry-icon,
+.layout-2cr [class^="post-"] .entry-icon.format-aside {
+  background-position: -30px -125px;
+  top: 5px !important; }
+
+.layout-2cr [class^="post-"].format-audio .entry-icon,
+.layout-2cr [class^="post-"] .entry-icon.format-audio {
+  background-position: -30px -90px;
+  height: 36px; }
+
+.layout-2cr [class^="post-"].format-gallery .entry-icon,
+.layout-2cr [class^="post-"] .entry-icon.format-gallery {
+  background-position: -30px -159px;
+  height: 38px; }
+
+.layout-2cr [class^="post-"].format-image .entry-icon,
+.layout-2cr [class^="post-"] .entry-icon.format-image {
+  background-position: -30px 3px; }
+
+.layout-2cr [class^="post-"].format-link .entry-icon,
+.layout-2cr [class^="post-"] .entry-icon.format-link {
+  background-position: -30px -235px;
+  height: 36px;
+  top: 15px; }
+
+.layout-2cr [class^="post-"].format-quote .entry-icon,
+.layout-2cr [class^="post-"] .entry-icon.format-quote {
+  background-position: -30px -32px;
+  height: 26px; }
+
+.layout-2cr [class^="post-"].format-standard .entry-icon,
+.layout-2cr [class^="post-"] .entry-icon.format-standard {
+  background-position: -30px -198px;
+  height: 36px; }
+
+.layout-2cr [class^="post-"].format-video .entry-icon,
+.layout-2cr [class^="post-"] .entry-icon.format-video {
+  background-position: -30px -54px; }
+
+.layout-2cr .page .entry-icon,
+.layout-2cr.error404 .entry-icon {
+  background-position: -30px -198px; }
 
 #footer {
   margin: 0;
@@ -325,10 +340,9 @@ html[data-env=dev] body:after {
 #logo {
   margin-bottom: 2rem; }
   #logo a {
-    display: block;
-    max-height: 150px; }
+    display: block; }
   #logo img {
-    max-height: 100%;
+    max-height: 150px;
     width: auto;
     height: auto; }
 
@@ -407,16 +421,16 @@ html[data-env=dev] body:after {
 #primary .hentry {
   margin-bottom: 2rem; }
 
-#primary .entry-content,
-#primary .post-media {
+#primary [class^="post-"] .entry-content,
+#primary [class^="post-"] .post-media {
   border: solid 1px #EFEFEF;
   padding: 1rem; }
   @media all and (min-width: 47.5em) {
-    #primary .entry-content,
-    #primary .post-media {
+    #primary [class^="post-"] .entry-content,
+    #primary [class^="post-"] .post-media {
       padding: 2rem; } }
-  #primary .entry-content p,
-  #primary .post-media p {
+  #primary [class^="post-"] .entry-content p,
+  #primary [class^="post-"] .post-media p {
     line-height: 1.8; }
 
 .entry-footer {
@@ -619,33 +633,6 @@ html {
     font-weight: 300;
     font-size: .9rem;
     transition: color 0.15s ease-in;
-    -webkit-box-flex: 0 0 auto;
-    /* OLD - iOS 6-, Safari 3.1-6 */
-    -moz-box-flex: 0 0 auto;
-    /* OLD - Firefox 19- */
-    -webkit-flex: 0 0 auto;
-    /* Chrome */
-    -ms-flex: 0;
-    /* IE 10-11 */
-    -ms-flex-positive: 0;
-    -ms-flex-negative: 0;
-    -ms-flex-preferred-size: auto;
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 auto;
-            flex: 0 0 auto;
-    /* NEW, Spec - Opera 12.1, Firefox 20+ */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none; }
-    #topbar .menu-toggle:hover {
-      color: #179ba9; }
-    #topbar .menu-toggle i {
-      display: inline-block;
-      vertical-align: top;
-      font-size: 1.2rem;
-      margin-left: 5px; }
-  #topbar #social-navigation {
-    margin: 0 20px 0;
     -webkit-box-flex: 1 0 auto;
     /* OLD - iOS 6-, Safari 3.1-6 */
     -moz-box-flex: 1 0 auto;
@@ -660,10 +647,34 @@ html {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 auto;
             flex: 1 0 auto;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
+    #topbar .menu-toggle:hover {
+      color: #179ba9; }
+    #topbar .menu-toggle i {
+      display: inline-block;
+      vertical-align: top;
+      font-size: 1.2rem;
+      margin-left: 5px; }
+  #topbar #social-navigation {
+    margin: 0 20px 0;
+    -webkit-box-flex: 0 0 auto;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 auto;
+    /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 auto;
+    /* Chrome */
+    -ms-flex: 0;
+    /* IE 10-11 */
+    -ms-flex-positive: 0;
+    -ms-flex-negative: 0;
+    -ms-flex-preferred-size: auto;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
     /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
-    #topbar #social-navigation ul {
-      text-align: right;
-      width: 100%; }
 
 #main {
   width: 100%; }
@@ -713,7 +724,7 @@ html {
     vertical-align: middle; }
   .site-aside-menu #site-navigation {
     width: 100%;
-    margin-bottom: 2rem; }
+    margin-bottom: 4rem; }
     .site-aside-menu #site-navigation ul {
       text-align: center;
       width: 100%; }
@@ -741,7 +752,7 @@ html {
     .primary-menu-item-link {
       font-size: 1.2rem;
       line-height: 1.4rem; } }
-  .primary-menu-item-link:hover {
+  .primary-menu-item-link:hover, .primary-menu-item-link.is-active {
     color: #179ba9; }
 
 /* Socials styling */
@@ -774,7 +785,8 @@ html {
           align-items: center; }
 
 .content--socials--list {
-  margin: 0; }
+  margin: 0;
+  width: 100%; }
 
 .content--socials--list-item {
   display: inline-block;
@@ -801,10 +813,10 @@ html {
     margin-right: 10px;
     border-right: solid 1px #72bcb9; }
 
-.site-language-item {
+.site-language-item-link {
   color: #FFFFFF;
   border: none; }
-  .site-language-item:hover {
+  .site-language-item-link:hover {
     color: #179ba9; }
 
 #sidebar {

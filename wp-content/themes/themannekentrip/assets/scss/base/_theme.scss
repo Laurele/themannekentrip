@@ -8,7 +8,8 @@
     @include flex-container();
 }
 
-.entry-icon {
+.page .entry-icon,
+[class^="post-"] .entry-icon {
     display: none;
     width: 40px;
     left: calc(-#{$sidebar-gutter} + 32px - 20px);
@@ -22,53 +23,61 @@
         left: inherit;
         right: calc(-#{$sidebar-gutter} + 32px - 20px);
     }
+}
 
-    .layout-2cr .format-aside &,
-    .layout-2cr &.format-aside {
+.layout-2cr [class^="post-"] {
+
+    &.format-aside .entry-icon,
+    .entry-icon.format-aside {
         background-position: -30px -125px;
         top: 5px !important;
     }
 
-    .layout-2cr .format-audio &,
-    .layout-2cr &.format-audio {
+    &.format-audio .entry-icon,
+    .entry-icon.format-audio {
         background-position: -30px -90px;
         height: 36px;
     }
 
-    .layout-2cr .format-gallery &,
-    .layout-2cr &.format-gallery {
+    &.format-gallery .entry-icon,
+    .entry-icon.format-gallery {
         background-position: -30px -159px;
         height: 38px;
     }
 
-    .layout-2cr .format-image &,
-    .layout-2cr &.format-image {
+    &.format-image .entry-icon,
+    .entry-icon.format-image {
         background-position: -30px 3px;
     }
 
-    .layout-2cr .format-link &,
-    .layout-2cr &.format-link {
+    &.format-link .entry-icon,
+    .entry-icon.format-link {
         background-position: -30px -235px;
         height: 36px;
         top: 15px;
     }
 
-    .layout-2cr .format-quote &,
-    .layout-2cr &.format-quote {
+    &.format-quote .entry-icon,
+    .entry-icon.format-quote {
         background-position: -30px -32px;
         height: 26px;
     }
 
-    .layout-2cr .format-standard &,
-    .layout-2cr &.format-standard {
+    &.format-standard .entry-icon,
+    .entry-icon.format-standard {
         background-position: -30px -198px;
         height: 36px;
     }
 
-    .layout-2cr .format-video &,
-    .layout-2cr &.format-video {
+    &.format-video .entry-icon,
+    .entry-icon.format-video {
         background-position: -30px -54px;
     }
+}
+
+.layout-2cr .page .entry-icon,
+.layout-2cr.error404 .entry-icon {
+    background-position: -30px -198px;
 }
 
 #footer {
@@ -92,11 +101,10 @@
 
     a {
         display: block;
-        max-height: 150px;
     }
 
     img {
-        max-height: 100%;
+        max-height: 150px;
         width: auto;
         height: auto;
     }
@@ -196,8 +204,8 @@
     margin-bottom: 2rem;
 }
 
-#primary .entry-content,
-#primary .post-media {
+#primary [class^="post-"] .entry-content,
+#primary [class^="post-"] .post-media {
     border: solid 1px $lightGrey;
     padding: 1rem;
 

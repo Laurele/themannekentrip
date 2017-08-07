@@ -78,8 +78,9 @@
 									<?php $nav = wp_get_nav_menu_items('Main'); ?>
 									<?php if ( is_array($nav) ) : ?>
 										<?php foreach ( $nav as $nav_item ) : ?>
+											<?php $slug = basename(get_permalink()); ?>
 											<li class="primary-menu-item">
-												<a href="<?php echo $nav_item->url; ?>" class="primary-menu-item-link"><?php echo $nav_item->title; ?></a>
+												<a href="<?php echo $nav_item->url; ?>" class="primary-menu-item-link<?php if(strtolower(str_replace(' ', '-', $nav_item->title)) === $slug) { ?> is-active<?php } ?>"><?php echo $nav_item->title; ?></a>
 											</li>
 										<?php endforeach; ?>
 									<?php endif; ?>

@@ -80,7 +80,7 @@ html {
         font-size: .9rem;
 
         @include transition(color 0.15s ease-in);
-        @include flex-content-size(0, 0, auto);
+        @include flex-content-size(1, 0, auto);
         @include appearance(none);
 
         &:hover {
@@ -98,12 +98,7 @@ html {
     #social-navigation {
         margin: 0 $gutter/2 0;
 
-        @include flex-content-size(1, 0, auto);
-
-        ul {
-            text-align: right;
-            width: 100%;
-        }
+        @include flex-content-size(0, 0, auto);
     }
 }
 
@@ -175,7 +170,7 @@ html {
 
     #site-navigation {
         width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
 
         ul {
             text-align: center;
@@ -215,7 +210,8 @@ html {
         line-height: 1.4rem;
     }
 
-    &:hover {
+    &:hover,
+    &.is-active {
         color: $green;
     }
 }
@@ -235,6 +231,7 @@ html {
 
 .content--socials--list {
     margin: 0;
+    width: 100%;
 }
 
 .content--socials--list-item {
@@ -274,7 +271,7 @@ html {
     }
 }
 
-.site-language-item {
+.site-language-item-link {
     color: $white;
     border: none;
 
