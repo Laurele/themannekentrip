@@ -610,5 +610,25 @@ function getImageDirectory() {
 /**
  * Increase upload max size
  */
-@ini_set( 'upload_max_size' , '64M' );
+@ini_set('upload_max_size', '6M');
+
+/**
+ * Register our topbar and widgetized areas.
+ */
+function topbar_widgets_init()
+{
+    register_sidebar(
+        array(
+            'name' => 'Topbar',
+            'id' => 'topbar',
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<h2>',
+            'after_title' => '</h2>',
+        )
+    );
+
+}
+
+add_action('widgets_init', 'topbar_widgets_init');
 ?>

@@ -55,6 +55,12 @@
 				</nav>
 			<?php endif; ?>
 
+			<?php if ( is_active_sidebar( 'topbar' ) ) : ?>
+				<div id="topbar-widget" role="complementary">
+					<?php dynamic_sidebar( 'topbar' ); ?>
+				</div>
+			<?php endif; ?>
+
 			<?php if ( has_nav_menu( 'primary' ) ) : ?>
 				<button id="menu-toggle" class="menu-toggle" title="<?php _e( 'Menu', 'twentysixteen' ); ?>" data-el="topbar-menu-toggle">Menu <i class="icon-align-justify"></i></button>
 			<?php endif; ?>
