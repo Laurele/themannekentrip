@@ -1,18 +1,20 @@
-<?php if( function_exists('has_post_thumbnail') && has_post_thumbnail() ) { ?>
-    
+
     <!--BEGIN .post-media -->
     <div class="post-media">
-        <?php the_post_thumbnail('thumbnail-large'); ?>
-        
         <?php if( !is_single() ) { ?>
             <h2 class="entry-title"><?php the_title(); ?></h2>
         <?php } else { ?>
             <h1 class="entry-title"><?php the_title(); ?></h1>
         <?php } ?>
+
+        <?php if (function_exists('has_post_thumbnail') && has_post_thumbnail()) { ?>
+            <?php the_post_thumbnail('thumbnail-large'); ?>
+        <?php } else { ?>
+            <?php the_content(__('', 'zilla')); ?>
+        <?php } ?>
     <!--END .post-media -->
     </div>
     
-<?php } ?>
 
 <?php get_template_part( 'content-post', 'meta' ); ?>
 

@@ -89,7 +89,7 @@
 
     .layout-2cr .format-aside &,
     .layout-2cr &.format-aside {
-        background-position: -30px -127px;
+        background-position: -30px -125px;
         top: 5px !important;
     }
 
@@ -107,7 +107,7 @@
 
     .layout-2cr .format-image &,
     .layout-2cr &.format-image {
-        background-position: -30px 0;
+        background-position: -30px 3px;
     }
 
     .layout-2cr .format-link &,
@@ -229,7 +229,7 @@
 
 .post-media iframe {
     display: block;
-    margin: 20px auto;
+    margin: 20px auto 0;
     width: 100%;
     max-width: 650px;
     min-height: 320px;
@@ -241,19 +241,67 @@
 }
 
 #primary > [class^="post-"] {
-    padding: 1rem;
-
-    @include mq(medium) {
-        padding: 2rem;
-    }
+    padding: 0;
 
     .entry-title {
         margin-top: 0;
     }
 }
 
-.post-media {
+.post-media,
+.format-link .entry-title {
     background: none;
     box-shadow: none;
     border: solid 1px $lightGrey;
+    padding: 2rem;
+}
+
+#primary .hentry {
+    margin-bottom: 2rem;
+}
+
+#primary .entry-content,
+#primary .post-media {
+    border: solid 1px $lightGrey;
+    padding: 1rem;
+
+    @include mq(medium) {
+        padding: 2rem;
+    }
+
+    p {
+        line-height: 1.8;
+    }
+}
+
+.entry-footer {
+    text-align: right;
+
+    .published {
+        float: none;
+    }
+}
+
+.format-link .entry-title {
+    padding: 0;
+
+    @include transition(background 0.15s ease-in);
+
+    a {
+        padding: 0.8rem;
+
+        color: $green;
+        text-shadow: none;
+
+        @include transition(color 0.15s ease-in);
+    }
+
+    &:hover {
+        background: $lightGreen;
+
+        a {
+            color: $white;
+            text-shadow: none;
+        }
+    }
 }

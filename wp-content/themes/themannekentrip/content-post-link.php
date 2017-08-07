@@ -1,10 +1,10 @@
 <?php if ( !is_single() ) { ?>
     
-    <h2 class="entry-title"><a href="<?php echo get_post_meta($post->ID, '_zilla_link_url', true); ?>"><?php the_title(); ?></a></h2>
+    <h2 class="entry-title"><a href="<?php echo the_content(__('', 'zilla')); ?>"><?php the_title(); ?></a></h2>
     
 <?php } else { ?>
     
-    <h1 class="entry-title"><a href="<?php echo get_post_meta($post->ID, '_zilla_link_url', true); ?>"><?php the_title(); ?></a></h1>
+    <h1 class="entry-title"><a href="<?php echo the_content(__('', 'zilla')); ?>"><?php the_title(); ?></a></h1>
     
 <?php } ?>
 
