@@ -664,4 +664,18 @@ function custom_get_page_link($nameOrId)
         return site_url($nameOrId);
     }
 }
+
+/**
+ * Add Menu edition capability to editor role
+ */
+function add_theme_options_capabitility_to_editor()
+{
+	// get the the role object
+	$role_object = get_role('editor');
+
+	// add capability to this role object
+	$role_object->add_cap('edit_theme_options');
+}
+
+add_theme_options_capabitility_to_editor();
 ?>
