@@ -220,6 +220,7 @@ body.is-overflow-hidden {
     }
 
     &:hover,
+    &:active,
     &.is-active {
         color: $green;
     }

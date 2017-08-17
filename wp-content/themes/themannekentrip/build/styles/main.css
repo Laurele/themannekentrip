@@ -762,8 +762,9 @@ body.is-overflow-hidden {
     .primary-sub-menu-item-link {
       font-size: 1.2rem;
       line-height: 1.4rem; } }
-  .primary-menu-item-link:hover, .primary-menu-item-link.is-active,
+  .primary-menu-item-link:hover, .primary-menu-item-link:active, .primary-menu-item-link.is-active,
   .primary-sub-menu-item-link:hover,
+  .primary-sub-menu-item-link:active,
   .primary-sub-menu-item-link.is-active {
     color: #179ba9; }
 
