@@ -69,12 +69,42 @@
 							<nav id="site-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
 								<ul class="primary-menu">
 									<?php $nav = wp_get_nav_menu_items('Main'); ?>
+									<?php $parent_id = null; ?>
+									<?php $subMenu = false; ?>
+									<?php $count = 0; ?>
+
 									<?php if ( is_array($nav) ) : ?>
+
 										<?php foreach ( $nav as $nav_item ) : ?>
-											<?php $slug = basename(get_permalink()); ?>
-											<li class="primary-menu-item">
-												<a href="<?php echo $nav_item->url; ?>" class="primary-menu-item-link<?php if(strtolower(str_replace(' ', '-', $nav_item->title)) === $slug) { ?> is-active<?php } ?>"><?php echo $nav_item->title; ?></a>
-											</li>
+											<?php if ( !$nav_item->menu_item_parent ): // item does not have a parent so menu_item_parent equals 0 (false) ?>
+												<?php $parent_id = $nav_item->ID; // save this id for later comparison with sub-menu items ?>
+
+												<?php $slug = basename(get_permalink()); ?>
+												<li class="primary-menu-item">
+													<a href="<?php echo $nav_item->url; ?>" class="primary-menu-item-link<?php if(strtolower(str_replace(' ', '-', $nav_item->title)) === $slug) { ?> is-active<?php } ?>"><?php echo $nav_item->title; ?></a>
+											<?php endif; ?>
+
+											<?php if ( $parent_id == $nav_item->menu_item_parent ): ?>
+
+												<?php if ( !$subMenu ): $subMenu = true; ?>
+													<ul class="primary-sub-menu">
+												<?php endif; ?>
+														<li class="primary-sub-menu-item">
+															<a href="<?php echo $link; ?>" class="title"><?php echo $title; ?></a>
+														</li>
+
+												<?php if ( $nav[ $count + 1 ]->menu_item_parent != $parent_id && $subMenu ): ?>
+													</ul>
+													<?php $subMenu = false; ?>
+												<?php endif; ?>
+
+												<?php if ( $nav[ $count + 1 ]->menu_item_parent != $parent_id ): ?>
+													</li>
+													<?php $submenu = false; ?>
+												<?php endif; ?>
+												<?php $count++; ?>
+
+											<?php endif; ?>
 										<?php endforeach; ?>
 									<?php endif; ?>
 								</ul>
