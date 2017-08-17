@@ -19,6 +19,10 @@ html {
 /* Layout styling */
 body.is-overflow-hidden {
     overflow: hidden;
+
+    @include mq(large) {
+        overflow: auto;
+    }
 }
 
 #wrapper {
@@ -176,7 +180,7 @@ body.is-overflow-hidden {
         width: 100%;
         margin-bottom: 4rem;
 
-        ul {
+        .primary-menu {
             text-align: center;
             width: 100%;
         }
@@ -197,7 +201,8 @@ body.is-overflow-hidden {
     margin: 5px 0;
 }
 
-.primary-menu-item-link {
+.primary-menu-item-link,
+.primary-sub-menu-item-link {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 3rem;
@@ -217,6 +222,30 @@ body.is-overflow-hidden {
     &:hover,
     &.is-active {
         color: $green;
+    }
+}
+
+.primary-sub-menu {
+    margin: 0 0 .5rem;
+    text-align: center;
+}
+
+.primary-sub-menu-item {
+    display: block;
+    margin: 2px 0;
+}
+
+.primary-sub-menu-item-link {
+    text-transform: capitalize;
+    font-size: 2rem;
+    line-height: 2.6rem;
+    border-left: solid 1px $lightGreen;
+    padding-left: 1.5rem;
+
+    @include mq(large) {
+        font-size: 0.9rem;
+        line-height: 1rem;
+        padding-left: .5rem;
     }
 }
 
