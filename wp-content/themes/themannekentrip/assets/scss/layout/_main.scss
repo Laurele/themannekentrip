@@ -17,7 +17,8 @@ html {
 }
 
 /* Layout styling */
-html.is-overflow-hidden {
+html.is-overflow-hidden,
+html.is-overflow-hidden body{
     overflow: hidden;
     height: 100%;
 

@@ -564,11 +564,13 @@ html {
     box-sizing: border-box; }
 
 /* Layout styling */
-html.is-overflow-hidden {
+html.is-overflow-hidden,
+html.is-overflow-hidden body {
   overflow: hidden;
   height: 100%; }
   @media all and (min-width: 64em) {
-    html.is-overflow-hidden {
+    html.is-overflow-hidden,
+    html.is-overflow-hidden body {
       overflow: auto;
       height: auto; } }
 
