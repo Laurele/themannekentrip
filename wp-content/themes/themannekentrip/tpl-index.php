@@ -142,7 +142,7 @@
                     <?php the_content(); ?>
             </div>
         </div>
-        <div class="parallax__layer parallax__layer--back" style="background-image: url('<?php echo get_the_post_thumbnail_url($post, 'thumbnail-large'); ?>')"></div>
+        <div class="parallax__layer parallax__layer--back has-background-image" style="background-image: url('<?php echo get_the_post_thumbnail_url($post, 'thumbnail-large'); ?>')"></div>
         <?php endforeach; ?>
     </section>
     <section id="group7" class="parallax__group">

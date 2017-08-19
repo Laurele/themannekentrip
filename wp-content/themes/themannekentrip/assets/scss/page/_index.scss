@@ -31,6 +31,7 @@ body.page-template-tpl-index #main {
 
         &.stats {
             width: 50%;
+            min-width: 200px;
 
             @include mq(small) {
                 width: 30%;

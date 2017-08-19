@@ -178,6 +178,9 @@ html[data-env=dev] body:after {
   .parallax__layer--back.has-gallery {
     height: 300vh;
     overflow: hidden; }
+  .parallax__layer--back.has-background-image {
+    background-size: cover;
+    background-repeat: no-repeat; }
 
 .parallax__layer--deep {
   -webkit-transform: translateZ(-600px) scale(3);
@@ -189,15 +192,15 @@ html[data-env=dev] body:after {
 
 .box {
   position: absolute;
-  left: 20%;
-  top: 20%;
+  left: 50%;
+  top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 80vw;
   text-align: center; }
-  @media all and (min-width: 64em) {
+  @media all and (min-width: 47.5em) {
     .box {
-      left: 50%;
-      top: 50%; } }
+      width: auto; } }
 
 #group1 {
   z-index: 5; }
@@ -1496,7 +1499,8 @@ body.page-template-tpl-index #main {
       -webkit-transform: translate(0%, -50%);
       transform: translate(0%, -50%); }
     body.page-template-tpl-index #main .box.stats {
-      width: 50%; }
+      width: 50%;
+      min-width: 200px; }
       @media all and (min-width: 31.25em) {
         body.page-template-tpl-index #main .box.stats {
           width: 30%; } }
