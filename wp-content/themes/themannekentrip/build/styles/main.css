@@ -1589,5 +1589,9 @@ body.page-template-tpl-index #footer {
   margin: 0;
   padding: 10px 0; }
 
+.paypal-donation-button input[name="submit"] {
+  width: 92px;
+  height: 47px; }
+
 .widget_breadcrumb_navxt [property="name"] {
   white-space: nowrap; }
