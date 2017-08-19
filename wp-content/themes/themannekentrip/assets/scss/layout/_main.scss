@@ -309,7 +309,8 @@ body.is-overflow-hidden {
     color: $white;
     border: none;
 
-    &:hover {
+    &:hover,
+    &.is-active {
         color: $green;
     }
 }

@@ -68,7 +68,7 @@
 						<?php if ( has_nav_menu( 'primary' ) ) : ?>
 							<nav id="site-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Menu', 'twentysixteen' ); ?>">
 								<ul class="primary-menu">
-									<?php $nav = wp_get_nav_menu_items('Main'); ?>
+									<?php $nav = wp_get_nav_menu_items(sprintf('Main %s', strtoupper(pll_current_language()))); ?>
 									<?php $parent_id = null; ?>
 									<?php $subMenu = false; ?>
 
@@ -113,7 +113,7 @@
 
 						<?php foreach ($translations as $translation) : ?>
 							<li class="site-language-item">
-								<a class="site-language-item-link" href="<?php echo $translation['url']; ?>"><?php echo $translation['name']; ?></a>
+								<a class="site-language-item-link<?php if ($translation['current_lang']): ?> is-active<?php endif; ?>" href="<?php echo $translation['url']; ?>"><?php echo $translation['name']; ?></a>
 							</li>
 						<?php endforeach; ?>
 						</ul>

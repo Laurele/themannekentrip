@@ -849,7 +849,7 @@ body.is-overflow-hidden {
 .site-language-item-link {
   color: #FFFFFF;
   border: none; }
-  .site-language-item-link:hover {
+  .site-language-item-link:hover, .site-language-item-link.is-active {
     color: #179ba9; }
 
 /* Page or Post styling */
