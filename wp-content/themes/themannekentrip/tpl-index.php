@@ -27,7 +27,7 @@
                             [
                                 'taxonomy' => 'post_tag',
                                 'field' => 'slug',
-                                'terms' => 'home-project',
+                                'terms' => sprintf('home-project-%s', strtoupper(pll_current_language())),
                             ]
                         ]
                     ]
@@ -92,7 +92,7 @@
                             [
                                 'taxonomy' => 'post_tag',
                                 'field' => 'slug',
-                                'terms' => 'home-stats'
+                                'terms' => sprintf('home-stats-%s', strtoupper(pll_current_language()))
                             ]
                         ]
                     ]
@@ -122,7 +122,7 @@
                     [
                         'taxonomy' => 'post_tag',
                         'field' => 'slug',
-                        'terms' => 'home-environmental-project'
+                        'terms' => sprintf('home-environmental-project-%s', strtoupper(pll_current_language()))
                     ]
                 ]
             ]
