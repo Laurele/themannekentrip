@@ -17,7 +17,7 @@ html {
 }
 
 /* Layout styling */
-body.is-overflow-hidden {
+html.is-overflow-hidden {
     overflow: hidden;
 
     @include mq(large) {

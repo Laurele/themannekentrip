@@ -564,10 +564,10 @@ html {
     box-sizing: border-box; }
 
 /* Layout styling */
-body.is-overflow-hidden {
+html.is-overflow-hidden {
   overflow: hidden; }
   @media all and (min-width: 64em) {
-    body.is-overflow-hidden {
+    html.is-overflow-hidden {
       overflow: auto; } }
 
 #wrapper {

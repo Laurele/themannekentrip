@@ -42,7 +42,7 @@ $(function () {
 
         initialize: function () {
             this.$navigation = $(SELECTOR_SITE_NAVIGATION, this.$el);
-            this.$body = $('body');
+            this.$html = $('html');
         },
 
         events: {
@@ -56,7 +56,7 @@ $(function () {
             event.preventDefault();
 
             this.$navigation.toggleClass(CLASS_NAV_VISIBLE);
-            this.$body.toggleClass(CLASS_BODY_OVERFLOW_HIDDEN);
+            this.$html.toggleClass(CLASS_BODY_OVERFLOW_HIDDEN);
         },
 
         /**
