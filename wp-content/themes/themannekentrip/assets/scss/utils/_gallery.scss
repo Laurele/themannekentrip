@@ -11,12 +11,11 @@
 
 .box-gallery-item {
     display: inline-block;
-    width: 100%;
     height: auto;
-    max-width: calc(100% / 2);
+    width: calc(100% / 2);
 
     @include mq(large) {
-        max-width: calc(100% / 3);
+        width: calc(100% / 3);
     }
 
     img {

@@ -132,7 +132,7 @@ body.is-overflow-hidden {
     position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
+    height: 100%; // needs to be in % en not vh to force mobile to ignore browser's bottom bar
     z-index: $zindex-navigation;
     padding-top: $topbar-height;
 

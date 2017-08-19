@@ -44,7 +44,11 @@ body.page-template-tpl-index #main {
         }
 
         &.facebook {
-            width: auto;
+            width: 100%;
+
+            @include mq(medium){
+                width: auto;
+            }
         }
 
         h3 {
