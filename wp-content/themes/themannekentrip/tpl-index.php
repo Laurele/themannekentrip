@@ -41,44 +41,48 @@
                 <?php endforeach; ?>
             </div>
         </div>
-        <div class="parallax__layer parallax__layer--deep has-gallery">
+        <div class="parallax__layer parallax__layer--back has-gallery">
             <div class="box box-gallery">
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/kayak.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/beach_camp.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/bike_road.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/savane_bike.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/laponia_finland.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/laponia_sunset.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/meet_people.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/finland_angeli.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/mountain_top.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/boat.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/canyon_view.jpg">
-                </span>
-                <span class="box-gallery-item">
-                    <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/cascade.jpg">
-                </span>
+                <?php $i = 0; ?>
+                <?php while($i < 3) : ?>
+                    <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/kayak.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/beach_camp.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/bike_road.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/savane_bike.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/laponia_finland.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/laponia_sunset.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/meet_people.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/finland_angeli.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/mountain_top.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/boat.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/canyon_view.jpg">
+                    </span>
+                        <span class="box-gallery-item">
+                        <img src="/wp-content/themes/themannekentrip/build/images/home/gallery/cascade.jpg">
+                    </span>
+                    <?php $i++; ?>
+                <?php endwhile; ?>
             </div>
         </div>
     </section>

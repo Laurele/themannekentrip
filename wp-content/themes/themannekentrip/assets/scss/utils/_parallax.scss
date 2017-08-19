@@ -46,6 +46,11 @@ $parallax-height: 100vh;
     -webkit-transform: translateZ(-300px) scale(2);
     transform: translateZ(-300px) scale(2);
     z-index: 3;
+
+    &.has-gallery {
+        height: $parallax-height*3;
+        overflow: hidden;
+    }
 }
 
 .parallax__layer--deep {
@@ -61,12 +66,17 @@ $parallax-height: 100vh;
 
 .box {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 20%;
+    top: 20%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 
     text-align: center;
+
+    @include mq(large) {
+        left: 50%;
+        top: 50%;
+    }
 }
 
 #group1 {

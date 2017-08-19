@@ -115,6 +115,7 @@ body.page-template-tpl-index #main {
 
         h2 {
             margin: 1rem 0 0 0;
+            padding: 0 0.5rem;
             color: $darkGrey;
             font-weight: 300;
             font-size: 1.2rem;
@@ -146,7 +147,14 @@ body.page-template-tpl-index #main {
         iframe {
             border: none;
             width: 100%;
-            height: calc(100vh - #{$topbar-height}*3);
+
+            @include mq(medium) {
+                height: calc(60vh - #{$topbar-height});
+            }
+
+            @include mq(xlarge) {
+                height: calc(100vh - #{$topbar-height}*3);
+            }
         }
     }
 
