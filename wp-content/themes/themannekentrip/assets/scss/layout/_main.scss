@@ -19,9 +19,11 @@ html {
 /* Layout styling */
 html.is-overflow-hidden {
     overflow: hidden;
+    height: 100%;
 
     @include mq(large) {
         overflow: auto;
+        height: auto;
     }
 }
 

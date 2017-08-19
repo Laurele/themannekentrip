@@ -565,10 +565,12 @@ html {
 
 /* Layout styling */
 html.is-overflow-hidden {
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100%; }
   @media all and (min-width: 64em) {
     html.is-overflow-hidden {
-      overflow: auto; } }
+      overflow: auto;
+      height: auto; } }
 
 #wrapper {
   width: 100%; }
