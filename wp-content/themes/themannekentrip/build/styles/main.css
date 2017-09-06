@@ -1051,7 +1051,7 @@ body.page:not(.page-template-tpl-index) #footer {
   float: none;
   width: auto;
   margin: 0;
-  background-size: contain;
+  background-size: cover;
   background-clip: padding-box;
   background: none no-repeat;
   -webkit-box-flex: 1 0 auto;
