@@ -1634,7 +1634,7 @@ body.page-template-tpl-index #footer {
 
 .child-page {
   margin-top: 2rem;
-  padding-top: 2rem;
+  padding-top: 4rem;
   border-top: solid 1px #EFEFEF; }
 
 .widget_breadcrumb_navxt [property="name"] {

@@ -15,13 +15,21 @@
         ];
         $childList = get_pages($childArgs);
         foreach ($childList as $child) : ?>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#<?php echo $child->post_name; ?>"><?php echo $child->post_title; ?></a>
+                    </li>
+                </ul>
+            </nav>
+        <?php endforeach; ?>
 
-            <div class="child-page">
-                <a href="">
-                    <h2 class="child-title">
-                        <a href="<?php echo get_permalink($child->ID) ?>"><?php echo $child->post_title; ?></a>
-                    </h2>
-                    <?php echo apply_filters( 'the_content', $child->post_content); ?>
+            <?php foreach ($childList as $child) : ?>
+            <div id="<?php echo $child->post_name; ?>" class="child-page">
+                <h2 class="child-title">
+                    <a href="<?php echo get_permalink($child->ID) ?>"><?php echo $child->post_title; ?></a>
+                </h2>
+                <?php echo apply_filters( 'the_content', $child->post_content); ?>
             </div>
 
         <?php endforeach; ?>
