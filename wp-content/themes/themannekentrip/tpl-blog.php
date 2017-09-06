@@ -2,7 +2,6 @@
 
 <?php get_header(); ?>
 
-    <!--BEGIN #primary .hfeed-->
     <div id="primary" class="hfeed">
         <h1><?php echo pll__('Blog'); ?></h1>
 
@@ -13,7 +12,6 @@
 
         foreach ($my_posts as $post) : setup_postdata($post); ?>
             <?php zilla_post_before(); ?>
-            <!--BEGIN .hentry -->
             <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
                 <?php zilla_post_start(); ?>
                 <?php
@@ -23,13 +21,9 @@
                 }
                 ?>
 
-                <!--BEGIN .entry-meta .entry-icon-->
-                <div class="<?php echo $format === 'standard' ? 'format-quote' : $format; ?> entry-meta entry-icon">
-                    <!--END .entry-meta entry-icon -->
-                </div>
+                <div class="<?php echo $format === 'standard' ? 'format-quote' : $format; ?> entry-meta entry-icon"></div>
                 <?php get_template_part('content-post', $format); ?>
                 <?php zilla_post_end(); ?>
-                <!--END .hentry-->
             </div>
             <?php zilla_post_after(); ?>
         <?php endforeach; ?>

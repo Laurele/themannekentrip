@@ -321,7 +321,7 @@ html.is-overflow-hidden body{
 /* Page or Post styling */
 body.page:not(.page-template-tpl-index) {
     #wrapper {
-        min-height: calc(100vh - #{$topbar-height});
+        min-height: 100vh;
         @include flex-container();
         @include flex-direction(column);
         @include flex-justify-content(stretch);
