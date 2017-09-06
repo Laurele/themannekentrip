@@ -402,7 +402,8 @@ body:not(.page-template-tpl-index) #main {
   background: none; }
 
 #sidebar a {
-  text-shadow: none; }
+  text-shadow: none;
+  color: #179ba9; }
 
 #huge_it_portfolio_content_2 #huge_it_portfolio_container_2 {
   width: 100% !important; }
@@ -868,7 +869,7 @@ html.is-overflow-hidden body {
 
 /* Page or Post styling */
 body.page:not(.page-template-tpl-index) #wrapper {
-  min-height: calc(100vh - 40px);
+  min-height: 100vh;
   display: -webkit-box;
   /* OLD - iOS 6-, Safari 3.1-6 */
   /* OLD - Firefox 19- (buggy but mostly works) */
@@ -1046,10 +1047,12 @@ body.page:not(.page-template-tpl-index) #footer {
   max-width: 100%;
   position: relative;
   padding: 1rem;
-  background: none;
   float: none;
   width: auto;
   margin: 0;
+  background-size: contain;
+  background-clip: padding-box;
+  background: none no-repeat;
   -webkit-box-flex: 1 0 auto;
   /* OLD - iOS 6-, Safari 3.1-6 */
   -moz-box-flex: 1 0 auto;
@@ -1080,6 +1083,18 @@ body.page:not(.page-template-tpl-index) #footer {
         width: 60px;
         height: 100%;
         background: url("../images/bg-rtl.jpg") left top repeat-y; } }
+  #primary:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 60px;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 0; }
+  #primary > * {
+    position: relative;
+    z-index: 1; }
   .layout-2cr #primary {
     margin: 0; }
     @media all and (min-width: 64em) {
@@ -1616,6 +1631,11 @@ body.page-template-tpl-index #footer {
 .paypal-donation-button input[name="submit"] {
   width: 92px;
   height: 47px; }
+
+.child-page {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: solid 1px #EFEFEF; }
 
 .widget_breadcrumb_navxt [property="name"] {
   white-space: nowrap; }

@@ -3,10 +3,13 @@
     position: relative;
     padding: 1rem;
 
-    background: none;
     float: none;
     width: auto;
     margin: 0;
+
+    background-size: contain;
+    background-clip: padding-box;
+    background: none no-repeat;
 
     @include flex-content-size(1, 0, auto);
 
@@ -27,6 +30,22 @@
             height: 100%;
             background: url("../../images/bg-rtl.jpg") left top repeat-y;
         }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: $sidebar-gutter - 20px;
+        top: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.8);
+        z-index: 0;
+    }
+
+    > * {
+        position: relative;
+        z-index: 1;
     }
 
     .layout-2cr & {
