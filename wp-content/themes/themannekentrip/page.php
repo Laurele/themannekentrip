@@ -2,7 +2,6 @@
 
 
 <?php $backgroundImage = get_field('background_image'); ?>
-<?php var_dump($backgroundImage); ?>
 
 <div id="primary" class="hfeed"<?php if ($backgroundImage) : ?> style="background-image: url('<?php echo $backgroundImage['url']; ?>')"<?php endif; ?>>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
