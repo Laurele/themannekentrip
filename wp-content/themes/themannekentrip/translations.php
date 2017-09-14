@@ -6,3 +6,5 @@ pll_register_string('construction-page', 'Visualize us on Youtube');
 pll_register_string('news-page', 'News');
 pll_register_string('blog-page', 'Blog');
 pll_register_string('gallery-page', 'Gallery');
+pll_register_string('theme post', 'Posted');
+pll_register_string('theme post', 'ago');
