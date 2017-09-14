@@ -29,11 +29,11 @@
     }
 
     &.has-background-image {
-        background-size: 100%;
+        background-size: contain;
         background-clip: padding-box;
         background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-position-y: bottom;
+        background-attachment: fixed;
+        background-position: calc(50% - 80px - 20px) bottom;
 
         &:after {
             content: '';
