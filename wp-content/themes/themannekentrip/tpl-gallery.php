@@ -3,7 +3,7 @@
 <?php get_header(); ?>
 
     <div id="primary" class="hfeed">
-        <h1><?php echo pll__('Gallery'); ?></h1>
+        <h1><?php the_title(); ?></h1>
 
         <?php
         $my_slug = 'gallery_post';
