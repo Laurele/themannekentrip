@@ -1081,20 +1081,20 @@ body.page:not(.page-template-tpl-index) #footer {
         width: 60px;
         height: 100%;
         background: url("../images/bg-rtl.jpg") left top repeat-y; } }
-  #primary:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 60px;
-    top: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.8);
-    z-index: 0; }
   #primary.has-background-image {
-    background-size: cover;
+    background-size: 100%;
     background-clip: padding-box;
     background-repeat: no-repeat;
     background-attachment: scroll; }
+    #primary.has-background-image:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 60px;
+      top: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: 0; }
   #primary > * {
     position: relative;
     z-index: 1; }

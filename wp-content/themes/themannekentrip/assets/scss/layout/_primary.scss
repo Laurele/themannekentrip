@@ -28,22 +28,22 @@
         }
     }
 
-    &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: $sidebar-gutter - 20px;
-        top: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.8);
-        z-index: 0;
-    }
-
     &.has-background-image {
-        background-size: cover;
+        background-size: 100%;
         background-clip: padding-box;
         background-repeat: no-repeat;
         background-attachment: scroll;
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: $sidebar-gutter - 20px;
+            top: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 0;
+        }
     }
 
     > * {
