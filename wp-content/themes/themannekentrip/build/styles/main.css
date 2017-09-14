@@ -1085,16 +1085,8 @@ body.page:not(.page-template-tpl-index) #footer {
     background-size: 100%;
     background-clip: padding-box;
     background-repeat: no-repeat;
-    background-attachment: scroll; }
-    #primary.has-background-image:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 60px;
-      top: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.8);
-      z-index: 0; }
+    background-attachment: scroll;
+    background-position-y: bottom; }
   #primary > * {
     position: relative;
     z-index: 1; }
