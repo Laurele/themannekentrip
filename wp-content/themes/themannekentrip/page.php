@@ -3,7 +3,7 @@
 
 <?php $backgroundImage = get_field('background_image'); ?>
 
-<div id="primary" class="hfeed"<?php if ($backgroundImage) : ?> style="background-image: url('<?php echo $backgroundImage['url']; ?>')"<?php endif; ?>>
+<div id="primary" class="hfeed<?php if ($backgroundImage) : ?> has-background-image"<?php endif; ?><?php if ($backgroundImage) : ?> style="background-image: url('<?php echo $backgroundImage['url']; ?>')"<?php endif; ?>>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 	<?php zilla_page_before(); ?>

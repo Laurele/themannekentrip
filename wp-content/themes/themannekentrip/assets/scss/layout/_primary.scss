@@ -7,10 +7,6 @@
     width: auto;
     margin: 0;
 
-    background-size: cover;
-    background-clip: padding-box;
-    background: none no-repeat;
-
     @include flex-content-size(1, 0, auto);
 
     @include mq(medium) {
@@ -41,6 +37,13 @@
         bottom: 0;
         background: rgba(255, 255, 255, 0.8);
         z-index: 0;
+    }
+
+    &.has-background-image {
+        background-size: cover;
+        background-clip: padding-box;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
     }
 
     > * {
