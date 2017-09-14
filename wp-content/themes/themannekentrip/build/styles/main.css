@@ -1091,7 +1091,7 @@ body.page:not(.page-template-tpl-index) #footer {
       content: '';
       position: absolute;
       left: 0;
-      right: 0;
+      right: 60px;
       top: 0;
       bottom: 0;
       background: rgba(255, 255, 255, 0.8);

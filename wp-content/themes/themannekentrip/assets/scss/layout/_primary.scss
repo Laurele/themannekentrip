@@ -39,7 +39,7 @@
             content: '';
             position: absolute;
             left: 0;
-            right: 0;
+            right: $sidebar-gutter - 20px;
             top: 0;
             bottom: 0;
             background: rgba(255, 255, 255, 0.8);
