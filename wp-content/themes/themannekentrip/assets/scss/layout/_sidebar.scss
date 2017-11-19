@@ -3,7 +3,7 @@
     padding: 1rem;
     margin: 0;
 
-    background: $color-extra-dark-green;
+    background: $color-secondary-medium;
 
     @include mq(medium) {
         padding: 2rem;
@@ -51,7 +51,7 @@
         padding: 10px 15px;
         font-size: 0.9rem;
         color: $color-white;
-        background: $color-dark-blue;
+        background: $color-secondary-medium;
         @include box-shadow(0 1px 0 rgba(255,255,255,.08), 0 1px 4px rgba(0,0,0,.3) inset);
         @include border-radius(0);
 
@@ -87,7 +87,7 @@
         height: 100%;
         top: 0;
         right: 0;
-        background: $color-dark-blue;
+        background: $color-primary;
         @include box-shadow(0 1px 0 rgba(255,255,255,.08), 0 1px 4px rgba(0,0,0,.3) inset);
         @include border-radius(0);
         @include transition(all 0.15s ease-in);

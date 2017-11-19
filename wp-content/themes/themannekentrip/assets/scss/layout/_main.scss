@@ -167,7 +167,7 @@ html.is-overflow-hidden body{
         @include transition(all 0.15s ease-in);
 
         @include mq(large) {
-            min-width: 40vw;
+            min-width: 30vw;
         }
 
         // Show effect for aside content
@@ -333,6 +333,8 @@ html.is-overflow-hidden body{
 
 /* Page or Post styling */
 body.page:not(.page-template-tpl-index) {
+    background: url('/wp-content/themes/themannekentrip/build/images/background/_background_01.jpg') no-repeat top center / cover;
+
     #wrapper {
         min-height: 100vh;
         @include flex-container();

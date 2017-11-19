@@ -232,14 +232,14 @@ html[data-env=dev] body:after {
   z-index: 2; }
 
 #group6 .parallax__layer--base {
-  background: url("../images/mountains_blured.jpg") 0 0 no-repeat;
+  background: url("../../images/mountains_blured.jpg") 0 0 no-repeat;
   background-size: cover; }
 
 #group7 {
   z-index: 3; }
 
 #group7 .parallax__layer--base {
-  background: url("../images/mountains_blured.jpg") 0 0 no-repeat;
+  background: url("../../images/mountains_blured.jpg") 0 0 no-repeat;
   background-size: cover; }
 
 .box-gallery {
@@ -401,7 +401,7 @@ body:not(.page-template-tpl-index) {
 
 #sidebar #searchform {
   position: relative;
-  background: #202429;
+  background: #1a3944;
   height: 34px;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 4px rgba(0, 0, 0, 0.3) inset; }
   #sidebar #searchform .icon-search:before {
@@ -715,7 +715,7 @@ html.is-overflow-hidden body {
     transition: all 0.15s ease-in; }
     @media all and (min-width: 64em) {
       .site-aside-menu.is-visible {
-        min-width: 40vw; } }
+        min-width: 30vw; } }
     .site-aside-menu.is-visible, .site-aside-menu.is-visible * {
       width: auto; }
   .site-aside-menu .site-aside-content {
@@ -854,63 +854,63 @@ html.is-overflow-hidden body {
     color: #179ba9; }
 
 /* Page or Post styling */
-body.page:not(.page-template-tpl-index) #wrapper {
-  min-height: 100vh;
-  display: -webkit-box;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;
-  /* TWEENER - IE 10 */
-  /* NEW - Chrome */
-  display: flex;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  -webkit-box-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-justify-content: stretch;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch; }
-
-body.page:not(.page-template-tpl-index) #main {
-  -webkit-box-flex: 1 0 auto;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  -moz-box-flex: 1 0 auto;
-  /* OLD - Firefox 19- */
-  -webkit-flex: 1 0 auto;
-  /* Chrome */
-  -ms-flex: 1;
-  /* IE 10-11 */
-  -ms-flex-positive: 1;
-  -ms-flex-negative: 0;
-  -ms-flex-preferred-size: auto;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
-
-body.page:not(.page-template-tpl-index) #footer {
-  -webkit-box-flex: 0 0 auto;
-  /* OLD - iOS 6-, Safari 3.1-6 */
-  -moz-box-flex: 0 0 auto;
-  /* OLD - Firefox 19- */
-  -webkit-flex: 0 0 auto;
-  /* Chrome */
-  -ms-flex: 0;
-  /* IE 10-11 */
-  -ms-flex-positive: 0;
-  -ms-flex-negative: 0;
-  -ms-flex-preferred-size: auto;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+body.page:not(.page-template-tpl-index) {
+  background: url("/wp-content/themes/themannekentrip/build/images/background/_background_01.jpg") no-repeat top center/cover; }
+  body.page:not(.page-template-tpl-index) #wrapper {
+    min-height: 100vh;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    /* NEW - Chrome */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -webkit-box-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-justify-content: stretch;
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch; }
+  body.page:not(.page-template-tpl-index) #main {
+    -webkit-box-flex: 1 0 auto;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1 0 auto;
+    /* OLD - Firefox 19- */
+    -webkit-flex: 1 0 auto;
+    /* Chrome */
+    -ms-flex: 1;
+    /* IE 10-11 */
+    -ms-flex-positive: 1;
+    -ms-flex-negative: 0;
+    -ms-flex-preferred-size: auto;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+  body.page:not(.page-template-tpl-index) #footer {
+    -webkit-box-flex: 0 0 auto;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 auto;
+    /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 auto;
+    /* Chrome */
+    -ms-flex: 0;
+    /* IE 10-11 */
+    -ms-flex-positive: 0;
+    -ms-flex-negative: 0;
+    -ms-flex-preferred-size: auto;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
 
 #sidebar {
   display: none;
   padding: 1rem;
   margin: 0;
-  background: #2b2f38;
+  background: #1a3944;
   -webkit-box-flex: 0 0 25vw;
   /* OLD - iOS 6-, Safari 3.1-6 */
   -moz-box-flex: 0 0 25vw;
@@ -955,7 +955,7 @@ body.page:not(.page-template-tpl-index) #footer {
     padding: 10px 15px;
     font-size: 0.9rem;
     color: #FFFFFF;
-    background: #202429;
+    background: #1a3944;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 4px rgba(0, 0, 0, 0.3) inset;
     border-radius: 0; }
     #sidebar .mc4wp-form-fields input[type="email"]::-webkit-input-placeholder {
@@ -1011,7 +1011,7 @@ body.page:not(.page-template-tpl-index) #footer {
     height: 100%;
     top: 0;
     right: 0;
-    background: #202429;
+    background: #0e5e66;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 4px rgba(0, 0, 0, 0.3) inset;
     border-radius: 0;
     transition: all 0.15s ease-in; }
@@ -1084,7 +1084,7 @@ body.page:not(.page-template-tpl-index) #footer {
   [data-scrollbar] .ps__scrollbar-x-rail,
   [data-scrollbar] .ps__scrollbar-y-rail {
     position: absolute;
-    z-index: 99; }
+    z-index: 98; }
 
 .ps {
   /***************
@@ -1101,7 +1101,7 @@ body.page:not(.page-template-tpl-index) #footer {
       right: 0 !important; }
   .ps > .ps__scrollbar-x-rail .ps__scrollbar-x,
   .ps > .ps__scrollbar-y-rail .ps__scrollbar-y {
-    background-color: #3f3f3f;
+    background-color: #1a3944;
     border-radius: 0; }
   .ps > .ps__scrollbar-x-rail .ps__scrollbar-x {
     position: relative;
@@ -1188,7 +1188,7 @@ body.page:not(.page-template-tpl-index) #footer {
 /* Layout styling */
 body.page-template-tpl-under-construction {
   position: relative;
-  background: url("../images/mountains_blured.jpg") 0 0 no-repeat;
+  background: url("../../images/mountains_blured.jpg") 0 0 no-repeat;
   background-size: cover;
   color: #FFFFFF; }
 
@@ -1571,7 +1571,7 @@ body.page-template-tpl-index #main {
       line-height: 1.5rem; }
   body.page-template-tpl-index #main .background-paper-parallax {
     position: absolute;
-    background: url("../images/mountains_blured.jpg") #E0EAED center top no-repeat fixed;
+    background: url("../../images/mountains_blured.jpg") #E0EAED center top no-repeat fixed;
     background-size: cover; }
     body.page-template-tpl-index #main .background-paper-parallax:before {
       content: "";
@@ -1585,7 +1585,7 @@ body.page-template-tpl-index #main {
   body.page-template-tpl-index #main .background-map {
     width: 100%;
     height: 100%;
-    background: url("../images/map.png") 50% 50% no-repeat;
+    background: url("../../images/map.png") 50% 50% no-repeat;
     background-size: auto 80%; }
     @media all and (min-width: 64em) {
       body.page-template-tpl-index #main .background-map {
