@@ -15,7 +15,7 @@ $color-extra-dark-green: #2b2f38;
 
 $color-dark-blue: #202429;
 
-$color-primary: $color-dark-green;
+$color-primary: $color-green;
 $color-primary-lighter1: mix(#fff, $color-primary, 10%);
 $color-primary-lighter2: mix(#fff, $color-primary, 20%);
 $color-primary-lighter3: mix(#fff, $color-primary, 30%);
@@ -69,7 +69,7 @@ $linkColor: $color-black;
 $gutter: 40px;
 $topbar-height: 40px;
 $sidebar-gutter: 80px;
-$sidebar-width: 25vw;
+$sidebar-width: 25%;
 $sidebar-breakpoint: 'medium';
 $footer-height: 41px;
 

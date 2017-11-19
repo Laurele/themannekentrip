@@ -1,5 +1,5 @@
 /**
- * @type {{Models: {}, Collections: {}, Views: {Navigation: {}}, Dispatcher: {}}}
+ * @type {{Models: {}, Collections: {}, Views: {Navigation: {}, Background: {}}, Dispatcher: {}}}
  */
 var app = {
     /**
@@ -17,7 +17,11 @@ var app = {
         /**
          * @namespace
          */
-        Navigation: {}
+        Navigation: {},
+        /**
+         * @namespace
+         */
+        Background: {}
     },
     /**
      * @namespace

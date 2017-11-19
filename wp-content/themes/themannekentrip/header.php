@@ -59,6 +59,10 @@
 				</nav>
 			<?php endif; ?>
 
+				<div id="topbar-logo">
+					<?php the_custom_logo() ?>
+					<p class="site-title"><?php bloginfo( 'name' ); ?></p>
+				</div>
 		</header>
 
 		<?php if ( has_nav_menu( 'primary' ) ) : ?>

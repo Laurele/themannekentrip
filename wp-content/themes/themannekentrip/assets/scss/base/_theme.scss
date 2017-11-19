@@ -16,7 +16,8 @@ body:not(.page-template-tpl-index) {
         @include flex-container();
 
         @include mq(medium) {
-            max-width: 80vw;
+            width: 80%;
+            max-width: 1024px;
             margin-top: $topbar-height + $gutter/3;
         }
     }

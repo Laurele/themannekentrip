@@ -44,16 +44,23 @@ html.is-overflow-hidden body{
         @include flex-container();
     }
 
+    #topbar-logo {
+        padding: 0 $gutter / 3;
+        background: $color-secondary-medium;
+
+        @include flex-content-size(0, 0, auto);
+    }
+
     .custom-logo-link {
         $margin: 5px;
+        display: inline-block;
         text-decoration: none;
-        margin: $margin;
         border: none;
 
         img {
             display: inline-block;
             vertical-align: middle;
-            max-height: calc(#{$topbar-height} - #{$margin} * 2);
+            max-height: calc(#{$topbar-height} - 4px);
             max-width: 100%;
             width: auto;
             height: auto;
@@ -77,7 +84,7 @@ html.is-overflow-hidden body{
         padding: 0 $gutter/3 0;
         margin-right: $gutter/3;
 
-        background: $color-primary;
+        background: $color-secondary-medium;
         border: none;
         outline: none;
         text-align: right;
@@ -115,9 +122,10 @@ html.is-overflow-hidden body{
     }
 
     #social-navigation {
+        text-align: left;
         margin: 0 $gutter/2 0 0;
 
-        @include flex-content-size(0, 0, auto);
+        @include flex-content-size(1, 0, auto);
     }
 }
 
@@ -294,7 +302,7 @@ html.is-overflow-hidden body{
 
     border: none;
     text-shadow: none;
-    background: $color-primary;
+    background: $color-secondary-medium;
     color: $color-white;
 
     @include transition(all 0.15s ease-in);
@@ -333,8 +341,6 @@ html.is-overflow-hidden body{
 
 /* Page or Post styling */
 body.page:not(.page-template-tpl-index) {
-    background: url('/wp-content/themes/themannekentrip/build/images/background/_background_01.jpg') no-repeat top center / cover;
-
     #wrapper {
         min-height: 100vh;
         @include flex-container();
@@ -348,5 +354,73 @@ body.page:not(.page-template-tpl-index) {
 
     #footer {
         @include flex-content-size(0, 0, auto);
+    }
+}
+
+#background-primary {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    z-index: -1;
+
+    [data-el^="item-"] {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        @include opacity(0);
+        @include transition(opacity 0.5s ease-in);
+
+        &.is-visible {
+            @include opacity(100);
+        }
+    }
+
+    [data-el="item-1"] {
+        background: url('/wp-content/themes/themannekentrip/build/images/background/_background_01.jpg') $color-secondary-medium no-repeat top center / cover;
+    }
+
+    [data-el="item-2"] {
+        background: url('/wp-content/themes/themannekentrip/build/images/background/_background_02.jpg') $color-secondary-medium no-repeat top center / cover;
+    }
+
+    [data-el="item-3"] {
+        background: url('/wp-content/themes/themannekentrip/build/images/background/_background_03.jpg') $color-secondary-medium no-repeat top center / cover;
+    }
+
+    [data-el="item-4"] {
+        background: url('/wp-content/themes/themannekentrip/build/images/background/_background_04.jpg') $color-secondary-medium no-repeat top center / cover;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        z-index: 1;
+        // Colors
+        $bg-color: $color-black;
+        $dot-color: #0e5e66;
+
+        // Dimensions
+        $dot-size: 1px;
+        $dot-space: 4px;
+        background:
+                linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
+                linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
+        background-size: $dot-space $dot-space;
+
+        @include opacity(50);
     }
 }
