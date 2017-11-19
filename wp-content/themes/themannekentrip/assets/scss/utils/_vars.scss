@@ -60,9 +60,11 @@ $topbar-height: 40px;
 $sidebar-gutter: 80px;
 $sidebar-width: 25vw;
 $sidebar-breakpoint: 'medium';
+$footer-height: 41px;
 
 /* =============================================================================
    Z-index
    ========================================================================== */
 $zindex-topbar: 100;
 $zindex-navigation: $zindex-topbar - 1;
+$zindex-footer: $zindex-navigation - 1

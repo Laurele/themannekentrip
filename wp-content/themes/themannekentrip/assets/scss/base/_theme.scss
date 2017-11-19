@@ -3,13 +3,13 @@
 }
 
 body:not(.page-template-tpl-index) #main {
-    margin: $topbar-height + $gutter auto 0;
+    margin: $topbar-height + $gutter auto $footer-height + $gutter / 3;
 
     @include flex-container();
 
     @include mq(medium) {
         max-width: 80vw;
-        margin: $topbar-height + $gutter/3 auto 0;
+        margin-top: $topbar-height + $gutter/3;
     }
 }
 
@@ -86,9 +86,15 @@ body:not(.page-template-tpl-index) #main {
 }
 
 #footer {
+    position: fixed;
+    bottom: 0;
+
     margin: 0;
     background: $color-dark-green;
     padding: 10px 0;
+
+    height: $footer-height;
+    z-index: $zindex-footer;
 }
 
 .entry-header {
