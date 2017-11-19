@@ -1,0 +1,106 @@
+// ------------------------------------------------
+// =Perfect-scrollBar styling
+// ------------------------------------------------
+$gutter: 1px;
+
+[data-scrollbar] {
+    position: relative;
+    overflow: hidden;
+
+    .ps__scrollbar-x-rail,
+    .ps__scrollbar-y-rail {
+        position: absolute;
+        z-index: $zindex-scrollbar;
+    }
+}
+
+.ps {
+    // X track
+    > .ps__scrollbar-x-rail {
+        height: $size-scrollBar + $gutter*2;
+    }
+
+    // Y track
+    > .ps__scrollbar-y-rail {
+        width: $size-scrollBar + $gutter*2;
+
+        .hl-main-navigation & {
+            right: 0 !important;
+        }
+
+    }
+
+    // Thumbs
+    > .ps__scrollbar-x-rail .ps__scrollbar-x,
+    > .ps__scrollbar-y-rail .ps__scrollbar-y {
+        background-color: $color-secondary-medium;
+        @include border-radius(0);
+    }
+
+
+    // X Thumb
+    > .ps__scrollbar-x-rail .ps__scrollbar-x {
+        position: relative;
+        height: $size-scrollBar;
+        top: $gutter;
+    }
+
+    // Y Thumb
+    > .ps__scrollbar-y-rail .ps__scrollbar-y {
+        position: relative;
+        width: $size-scrollBar;
+        right: -$gutter;
+    }
+
+    // Active state
+    &.ps--active-x > .ps__scrollbar-x-rail,
+    &.ps--active-y > .ps__scrollbar-y-rail {
+        @include opacity(60);
+        background-color: $color-secondary-light-darker1;
+    }
+
+
+    /***************
+    * Theme : small
+    ***************/
+    &.scrollBar-small {
+        // X track
+        > .ps__scrollbar-x-rail {
+            height: $size-scrollBar--small + $gutter*2;
+
+            // X Thumb
+            .ps__scrollbar-x {
+                height: $size-scrollBar--small;
+            }
+        }
+
+        // Y track
+        > .ps__scrollbar-y-rail {
+            width: $size-scrollBar--small + $gutter*2;
+
+            // Y Thumb
+            .ps__scrollbar-y {
+                width: $size-scrollBar--small;
+            }
+        }
+    }
+
+    /***************
+    * Theme : dark
+    ***************/
+    &.scrollBar-primary {
+        // Tracks
+        > .ps__scrollbar-x-rail,
+        > .ps__scrollbar-y-rail {
+            @include opacity(100);
+            background-color: $color-secondary-light-darker1;
+
+            // Thumbs
+            .ps__scrollbar-x,
+            .ps__scrollbar-y {
+                @include opacity(100);
+                background-color: $color-primary;
+            }
+        }
+    }
+}

@@ -23,6 +23,14 @@ assets:
     watch:
       - "**/*.scss"
   -
+    type: "styles"
+    output: "vendors.css"
+    src: "bower_components"
+    files:
+      - "perfect-scrollbar/css/perfect-scrollbar.css"
+    watch:
+      - "perfect-scrollbar/css/perfect-scrollbar.css"
+  -
     type: "scripts"
     output: "main.js"
     src: "wp-content/themes/themannekentrip/assets/scripts"
@@ -32,11 +40,19 @@ assets:
     lint: true
   -
     type: "scripts"
-    src: "bower_components"
     output: "backbone.js"
+    src: "bower_components"
     files:
       - "underscore/underscore-min.js"
       - "backbone/backbone-min.js"
+    lint: false
+    watch: false
+  -
+    type: "scripts"
+    output: "vendors.js"
+    src: "bower_components"
+    files:
+      - "perfect-scrollbar/js/perfect-scrollbar.jquery.js"
     lint: false
     watch: false
 

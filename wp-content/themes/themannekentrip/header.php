@@ -123,6 +123,7 @@
 			</div>
 		<?php endif; ?>
 
-		<main id="main" class="site-main" role="main">
+		<main id="site-main-wrapper" class="scrollBar-primary scrollBar-small" data-scrollbar="y">
+			<div id="main" class="site-main" role="main">
 
-		<?php zilla_content_start(); ?>
+			<?php zilla_content_start(); ?>

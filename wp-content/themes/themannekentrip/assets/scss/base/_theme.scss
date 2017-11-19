@@ -2,14 +2,23 @@
     background: none;
 }
 
-body:not(.page-template-tpl-index) #main {
-    margin: $topbar-height + $gutter auto $footer-height + $gutter / 3;
+body:not(.page-template-tpl-index) {
+    height: 100vh;
+    overflow: hidden;
 
-    @include flex-container();
+    #site-main-wrapper {
+        max-height: 100vh;
+    }
 
-    @include mq(medium) {
-        max-width: 80vw;
-        margin-top: $topbar-height + $gutter/3;
+    #main {
+        margin: $topbar-height + $gutter auto $footer-height + $gutter / 3;
+
+        @include flex-container();
+
+        @include mq(medium) {
+            max-width: 80vw;
+            margin-top: $topbar-height + $gutter/3;
+        }
     }
 }
 

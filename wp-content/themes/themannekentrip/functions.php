@@ -563,7 +563,14 @@ function my_theme_scripts()
 
 	// Footer
 	wp_enqueue_script(
-		'bacbkbone-script',
+		'vendor-scripts',
+		get_template_directory_uri() . '/build/scripts/vendors' . $suffix . '.js',
+		array(),
+		$assetVersion,
+		true
+	);
+	wp_enqueue_script(
+		'backbone-script',
 		get_template_directory_uri() . '/build/scripts/backbone' . $suffix . '.js',
 		array(),
 		$assetVersion,
@@ -586,12 +593,10 @@ add_action('wp_enqueue_scripts', 'my_theme_scripts');
 function my_theme_styles()
 {
 	$assetVersion = get_asset_version();
-	// .min styles
-	if (!is_dev_environment()) {
-		wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.min.css', array(), $assetVersion);
-	} else {
-		wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main.css', array(), $assetVersion);
-	}
+	$suffix = !is_dev_environment() ? '.min' : '';
+
+	wp_enqueue_style('vendor-styles', get_template_directory_uri() . '/build/styles/vendors' . $suffix . '.css', array(), $assetVersion);
+	wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main' . $suffix . '.css', array(), $assetVersion);
 	wp_enqueue_style('fontastic', 'https://file.myfontastic.com/mg9JcKNLSXVKNmerfyxeEC/icons.css', array(), $assetVersion);
 }
 add_action('wp_enqueue_scripts', 'my_theme_styles');
