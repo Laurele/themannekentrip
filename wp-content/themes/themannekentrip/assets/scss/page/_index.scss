@@ -6,7 +6,7 @@ body.page-template-tpl-index {
 
 body.page-template-tpl-index #main {
     position: relative;
-    color: $black;
+    color: $color-black;
 
     .box {
         background: rgba(255, 255, 255, 0.90);
@@ -40,7 +40,7 @@ body.page-template-tpl-index #main {
 
         &.video {
             width: 80%;
-            background: $black;
+            background: $color-black;
         }
 
         &.facebook {
@@ -53,7 +53,7 @@ body.page-template-tpl-index #main {
 
         h3 {
             a {
-                color: $mediumGrey;
+                color: $color-medium-grey;
                 text-transform: uppercase;
                 font-weight: 500;
                 text-decoration: none;
@@ -106,8 +106,8 @@ body.page-template-tpl-index #main {
             padding-top: 2rem;
             padding-bottom: 2rem;
 
-            border-top: solid 1px $lightGrey;
-            border-bottom: solid 1px $lightGrey;
+            border-top: solid 1px $color-light-grey;
+            border-bottom: solid 1px $color-light-grey;
             background: rgba(255, 255, 255, 0.65);
         }
 
@@ -115,13 +115,13 @@ body.page-template-tpl-index #main {
             display: inline;
             margin: 0;
 
-            color: $darkGreen;
+            color: $color-dark-green;
         }
 
         h2 {
             margin: 1rem 0 0 0;
             padding: 0 0.5rem;
-            color: $darkGrey;
+            color: $color-dark-grey;
             font-weight: 300;
             font-size: 1.2rem;
             text-transform: uppercase;
@@ -193,13 +193,13 @@ body.page-template-tpl-index #main {
         text-shadow: none;
 
         .site-title {
-            color: $white;
+            color: $color-white;
         }
     }
 }
 
 body.page-template-tpl-index #footer {
-    color: $black;
+    color: $color-black;
     margin: 0;
     padding: 10px 0;
 }

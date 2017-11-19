@@ -30,8 +30,8 @@
     width: 13px;
     height: 13px;
 
-    background: $white;
-    border: 2px solid $black;
+    background: $color-white;
+    border: 2px solid $color-black;
     text-indent: -9999px;
     text-decoration: none;
 
@@ -41,7 +41,7 @@
 
 .slidesjs-pagination li a.active,
 .slidesjs-pagination li a:hover.active {
-    background: $black;
+    background: $color-black;
 }
 
 .slidesjs-pagination li a:hover {

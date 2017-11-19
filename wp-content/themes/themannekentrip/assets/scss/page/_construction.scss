@@ -66,7 +66,7 @@ body.page-template-tpl-under-construction {
 
     .site-title-link {
         font-size: 0.8rem;
-        color: $white;
+        color: $color-white;
         text-decoration: none;
     }
 }
@@ -147,13 +147,13 @@ body.page-template-tpl-under-construction {
     text-decoration: none;
     width: 1rem;
     cursor: pointer;
-    color: $white;
+    color: $color-white;
     padding: 3px;
     font-size: 1.1rem;
     @include transition(color 0.15s ease-in);
 
     &:hover {
-        color: $mediumGrey;
+        color: $color-medium-grey;
     }
 }
 
@@ -198,13 +198,13 @@ body.page-template-tpl-under-construction {
         width: calc(100% - #{$buttonWidth} - 10px);
         padding: 10px 15px;
         font-size: 0.9rem;
-        border: solid 2px $white;
-        color: $white;
+        border: solid 2px $color-white;
+        color: $color-white;
         background: none;
         @include border-radius(30px);
 
         @include placeholder {
-            color: $lightGrey;
+            color: $color-light-grey;
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             font-size: 0.9rem;
@@ -239,7 +239,7 @@ body.page-template-tpl-under-construction {
         height: 100%;
         top: 0;
         right: 0;
-        border: solid 2px $white;
+        border: solid 2px $color-white;
         @include border-radius(30px);
         @include transition(all 0.15s ease-in);
 
@@ -257,7 +257,7 @@ body.page-template-tpl-under-construction {
             height: 0;
             border-style: solid;
             border-width: $size 0 $size $size*1.5;
-            border-color: transparent transparent transparent $white;
+            border-color: transparent transparent transparent $color-white;
             background: rgba(255, 255, 255, 0);
         }
     }

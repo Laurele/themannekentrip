@@ -1,13 +1,25 @@
-$white: #FFFFFF;
-$black: #06091a;
-$lightGrey: #EFEFEF;
-$mediumGrey: #CDCDCD;
-$darkGrey: #5d5d5d;
-$green: #179ba9;
-$lightGreen: #72bcb9;
-$darkGreen: #0e5e66;
-$extraDarkGreen: #2b2f38;
-$darkBlue: #202429;
+/* =============================================================================
+   Colors
+   ========================================================================== */
+$color-white: #FFFFFF;
+$color-black: #06091a;
+
+$color-light-grey: #EFEFEF;
+$color-medium-grey: #CDCDCD;
+$color-dark-grey: #5d5d5d;
+
+$color-green: #179ba9;
+$color-light-green: #72bcb9;
+$color-dark-green: #0e5e66;
+$color-extra-dark-green: #2b2f38;
+
+$color-dark-blue: #202429;
+
+$color-primary: #2e5360;
+
+/* =============================================================================
+   Breakpoints
+   ========================================================================== */
 
 $tabletLandscapeBreakPoint: 1024px;
 $tabletPortraitBreakPoint: 768px;
@@ -31,14 +43,14 @@ $headingsColor: inherit;
 /* =============================================================================
    Scaffolding
    ========================================================================== */
-$backgroundColor: $white;
-$backgroundContentColor: $white;
-$textColor: $black;
+$backgroundColor: $color-white;
+$backgroundContentColor: $color-white;
+$textColor: $color-black;
 
 /* =============================================================================
    Links
    ========================================================================== */
-$linkColor: $black;
+$linkColor: $color-black;
 
 /* =============================================================================
    Sizes

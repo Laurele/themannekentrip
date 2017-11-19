@@ -38,7 +38,6 @@ html.is-overflow-hidden body{
     width: 100%;
     height: $topbar-height;
 
-    background: #2E5360;
     z-index: $zindex-topbar;
 
     body:not(.page-template-tpl-under-construction) & {
@@ -50,8 +49,6 @@ html.is-overflow-hidden body{
         text-decoration: none;
         margin: $margin;
         border: none;
-
-        @include flex-content-size(0, 0, auto);
 
         img {
             display: inline-block;
@@ -72,30 +69,30 @@ html.is-overflow-hidden body{
         line-height: $topbar-height;
         font-weight: 500;
 
-        color: $white;
+        color: $color-white;
         text-shadow: none;
-        @include flex-content-size(0, 0, auto);
     }
 
     .menu-toggle {
-        margin: 0 $gutter/2 0 0;
+        padding: 0 $gutter/3 0;
+        margin-right: $gutter/3;
 
-        background: none;
+        background: $color-primary;
         border: none;
         outline: none;
         text-align: right;
-        color: $white;
+        color: $color-white;
         box-shadow: none;
         text-transform: uppercase;
         font-weight: 300;
         font-size: .9rem;
 
         @include transition(color 0.15s ease-in);
-        @include flex-content-size(1, 0, auto);
         @include appearance(none);
+        @include border-radius(0);
 
         &:hover {
-            color: $green;
+            color: $color-green;
         }
 
         i {
@@ -104,10 +101,21 @@ html.is-overflow-hidden body{
             font-size: 1.2rem;
             margin-left: 5px;
         }
+
+
+        &.is-opened {
+            i {
+                vertical-align: middle;
+
+                &:before {
+                    content: "\70"; // times icon
+                }
+            }
+        }
     }
 
     #social-navigation {
-        margin: 0 $gutter/2 0;
+        margin: 0 $gutter/2 0 0;
 
         @include flex-content-size(0, 0, auto);
     }
@@ -126,7 +134,7 @@ html.is-overflow-hidden body{
     .site-title {
         display: inline-block;
         font-size: 0.8rem;
-        color: $white;
+        color: $color-white;
     }
 }
 
@@ -134,7 +142,7 @@ html.is-overflow-hidden body{
 .site-aside-menu {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     height: 100%; // needs to be in % en not vh to force mobile to ignore browser's bottom bar
     z-index: $zindex-navigation;
     padding-top: $topbar-height;
@@ -159,7 +167,7 @@ html.is-overflow-hidden body{
         @include transition(all 0.15s ease-in);
 
         @include mq(large) {
-            min-width: 30vw;
+            min-width: 40vw;
         }
 
         // Show effect for aside content
@@ -211,7 +219,7 @@ html.is-overflow-hidden body{
     font-size: 3rem;
     line-height: 3.6rem;
 
-    color: $white;
+    color: $color-white;
     border: none;
     text-shadow: none;
 
@@ -225,7 +233,7 @@ html.is-overflow-hidden body{
     &:hover,
     &:active,
     &.is-active {
-        color: $green;
+        color: $color-green;
     }
 }
 
@@ -243,7 +251,7 @@ html.is-overflow-hidden body{
     text-transform: capitalize;
     font-size: 2rem;
     line-height: 2.6rem;
-    border-left: solid 1px $lightGreen;
+    border-left: solid 1px $color-light-green;
     padding-left: 1.5rem;
 
     @include mq(large) {
@@ -279,17 +287,22 @@ html.is-overflow-hidden body{
 
 .content--socials--list-item-link {
     display: inline-block;
-    padding: 3px;
+    padding: 11px;
+
+    line-height: 14px;
     text-decoration: none;
 
     border: none;
     text-shadow: none;
-    color: $white;
+    background: $color-primary;
+    color: $color-white;
 
-    @include transition(color 0.15s ease-in);
+    @include transition(all 0.15s ease-in);
+    @include opacity(50);
 
     &:hover {
-        color: $green;
+        color: $color-white;
+        @include opacity(100);
     }
 
     i {
@@ -304,17 +317,17 @@ html.is-overflow-hidden body{
     &:not(:last-child) {
         padding-right: 10px;
         margin-right: 10px;
-        border-right: solid 1px $lightGreen;
+        border-right: solid 1px $color-light-green;
     }
 }
 
 .site-language-item-link {
-    color: $white;
+    color: $color-white;
     border: none;
 
     &:hover,
     &.is-active {
-        color: $green;
+        color: $color-green;
     }
 }
 

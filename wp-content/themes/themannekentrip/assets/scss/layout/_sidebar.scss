@@ -3,7 +3,7 @@
     padding: 1rem;
     margin: 0;
 
-    background: $extraDarkGreen;
+    background: $color-extra-dark-green;
 
     @include mq(medium) {
         padding: 2rem;
@@ -50,13 +50,13 @@
         width: calc(100% - #{$buttonWidth} - 10px);
         padding: 10px 15px;
         font-size: 0.9rem;
-        color: $white;
-        background: $darkBlue;
+        color: $color-white;
+        background: $color-dark-blue;
         @include box-shadow(0 1px 0 rgba(255,255,255,.08), 0 1px 4px rgba(0,0,0,.3) inset);
         @include border-radius(0);
 
         @include placeholder {
-            color: $darkGrey;
+            color: $color-dark-grey;
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             font-size: 0.9rem;
@@ -87,7 +87,7 @@
         height: 100%;
         top: 0;
         right: 0;
-        background: $darkBlue;
+        background: $color-dark-blue;
         @include box-shadow(0 1px 0 rgba(255,255,255,.08), 0 1px 4px rgba(0,0,0,.3) inset);
         @include border-radius(0);
         @include transition(all 0.15s ease-in);
@@ -106,7 +106,7 @@
             height: 0;
             border-style: solid;
             border-width: $size 0 $size $size*1.5;
-            border-color: transparent transparent transparent $white;
+            border-color: transparent transparent transparent $color-white;
             background: rgba(255, 255, 255, 0);
         }
     }

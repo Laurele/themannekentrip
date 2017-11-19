@@ -49,7 +49,7 @@ html[data-env=dev] body {
         padding: .2em 1em;
         z-index: 9999;
         background: red;
-        color: $white;
+        color: $color-white;
         text-align: center;
         @include mq(small) {
             background: orange;

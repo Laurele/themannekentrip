@@ -31,6 +31,17 @@
 
 	<section id="wrapper" class="content-area" data-view="navigation.main">
 		<header id="topbar">
+
+			<?php if ( has_nav_menu( 'primary' ) ) : ?>
+				<button id="menu-toggle" class="menu-toggle" title="<?php _e( 'Menu', 'twentysixteen' ); ?>" data-el="topbar-menu-toggle">Menu <i class="icon-align-justify"></i></button>
+			<?php endif; ?>
+
+			<?php if ( is_active_sidebar( 'topbar' ) ) : ?>
+				<div id="topbar-widget" role="complementary">
+					<?php dynamic_sidebar( 'topbar' ); ?>
+				</div>
+			<?php endif; ?>
+
 			<?php if ( has_nav_menu( 'social' ) ) : ?>
 				<nav id="social-navigation" class="content--socials" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'twentysixteen' ); ?>">
 					<ul class="content--socials--list">
@@ -46,16 +57,6 @@
 						<?php endif; ?>
 					</ul>
 				</nav>
-			<?php endif; ?>
-
-			<?php if ( is_active_sidebar( 'topbar' ) ) : ?>
-				<div id="topbar-widget" role="complementary">
-					<?php dynamic_sidebar( 'topbar' ); ?>
-				</div>
-			<?php endif; ?>
-
-			<?php if ( has_nav_menu( 'primary' ) ) : ?>
-				<button id="menu-toggle" class="menu-toggle" title="<?php _e( 'Menu', 'twentysixteen' ); ?>" data-el="topbar-menu-toggle">Menu <i class="icon-align-justify"></i></button>
 			<?php endif; ?>
 
 		</header>
