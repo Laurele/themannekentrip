@@ -150,38 +150,23 @@ html.is-overflow-hidden body{
 .site-aside-menu {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -100vw;
     height: 100%; // needs to be in % en not vh to force mobile to ignore browser's bottom bar
     z-index: $zindex-navigation;
     padding-top: $topbar-height;
 
-    background: rgba(1, 22, 29, 0.9);
+    background: $color-secondary-medium;
 
-    // Hide effect for aside content
-    &, * {
-        width: 0;
-        overflow: hidden;
-        @include transition(all 0.15s ease-in);
+    @include transition(left 0.8s ease-in);
+
+    @include mq(large) {
+        min-width: 30vw;
     }
 
-    @include opacity(0);
-
     &.is-visible {
-        min-width: 100vw;
-        overflow: auto;
-        padding: calc(#{$topbar-height} + 2rem) 2rem 2rem;
+        @include transition(left 0.5s ease-out);
 
-        @include opacity(100);
-        @include transition(all 0.15s ease-in);
-
-        @include mq(large) {
-            min-width: 30vw;
-        }
-
-        // Show effect for aside content
-        &, * {
-            width: auto;
-        }
+        left: 0;
     }
 
     .site-aside-content {
