@@ -3,9 +3,14 @@
 }
 
 body:not(.page-template-tpl-index) #main {
-    margin-top: $topbar-height;
+    margin: $topbar-height + $gutter auto 0;
 
     @include flex-container();
+
+    @include mq(medium) {
+        max-width: 80vw;
+        margin: $topbar-height + $gutter/3 auto 0;
+    }
 }
 
 .page .entry-icon,
