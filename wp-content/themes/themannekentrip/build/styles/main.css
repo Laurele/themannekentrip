@@ -232,14 +232,14 @@ html[data-env=dev] body:after {
   z-index: 2; }
 
 #group6 .parallax__layer--base {
-  background: url("../../images/mountains_blured.jpg") 0 0 no-repeat;
+  background: url("/wp-content/themes/themannekentrip/build/images/mountains_blured.jpg") 0 0 no-repeat;
   background-size: cover; }
 
 #group7 {
   z-index: 3; }
 
 #group7 .parallax__layer--base {
-  background: url("../../images/mountains_blured.jpg") 0 0 no-repeat;
+  background: url("/wp-content/themes/themannekentrip/build/images/mountains_blured.jpg") 0 0 no-repeat;
   background-size: cover; }
 
 .box-gallery {
@@ -1237,7 +1237,7 @@ body.page:not(.page-template-tpl-index) #footer {
 /* Layout styling */
 body.page-template-tpl-under-construction {
   position: relative;
-  background: url("../../images/mountains_blured.jpg") 0 0 no-repeat;
+  background: url("/wp-content/themes/themannekentrip/build/images/mountains_blured.jpg") 0 0 no-repeat;
   background-size: cover;
   color: #FFFFFF; }
 
@@ -1620,7 +1620,7 @@ body.page-template-tpl-index #main {
       line-height: 1.5rem; }
   body.page-template-tpl-index #main .background-paper-parallax {
     position: absolute;
-    background: url("../../images/mountains_blured.jpg") #E0EAED center top no-repeat fixed;
+    background: url("/wp-content/themes/themannekentrip/build/images/mountains_blured.jpg") #E0EAED center top no-repeat fixed;
     background-size: cover; }
     body.page-template-tpl-index #main .background-paper-parallax:before {
       content: "";
