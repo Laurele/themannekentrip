@@ -42,6 +42,10 @@ body:not(.page-template-tpl-index) {
 
 .layout-2cr [class^="post-"] {
 
+    .entry-icon {
+        display: none;
+    }
+
     &.format-aside .entry-icon,
     .entry-icon.format-aside {
         background-position: -30px -125px;

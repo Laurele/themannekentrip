@@ -310,6 +310,9 @@ body:not(.page-template-tpl-index) {
     left: inherit;
     right: calc(-80px + 32px - 20px); }
 
+.layout-2cr [class^="post-"] .entry-icon {
+  display: none; }
+
 .layout-2cr [class^="post-"].format-aside .entry-icon,
 .layout-2cr [class^="post-"] .entry-icon.format-aside {
   background-position: -30px -125px;
