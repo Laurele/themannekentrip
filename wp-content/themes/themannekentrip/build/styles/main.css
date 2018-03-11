@@ -1813,9 +1813,36 @@ body.page-template-tpl-index #main {
       color: #FFFFFF; }
 
 body.page-template-tpl-index #footer {
-  color: #06091a;
+  background: #162c3a;
   margin: 0;
-  padding: 10px 0; }
+  padding: 10px 0;
+  height: calc(40px + 2rem); }
+  body.page-template-tpl-index #footer .site-info,
+  body.page-template-tpl-index #footer .sponsors-list {
+    display: inline-block;
+    vertical-align: middle; }
+  body.page-template-tpl-index #footer .sponsors-list {
+    margin: 0; }
+  body.page-template-tpl-index #footer .sponsors-list-item {
+    display: inline-block; }
+  body.page-template-tpl-index #footer .sponsors-list-item-berghaus {
+    display: block;
+    width: 163px;
+    height: 34px;
+    background-size: 100%;
+    background: url("/wp-content/themes/themannekentrip/build/images/sponsors/logo-berghaus.svg") 0 0 no-repeat; }
+  body.page-template-tpl-index #footer .sponsors-list-item-flysurfer {
+    display: block;
+    width: 163px;
+    height: 39px;
+    background-size: 100%;
+    background: url("/wp-content/themes/themannekentrip/build/images/sponsors/logo-flysurfer-orange.svg") 0 0 no-repeat; }
+  body.page-template-tpl-index #footer .sponsors-list-item-studiofrancine {
+    display: block;
+    width: 132px;
+    height: 22px;
+    background-size: 100%;
+    background: url("/wp-content/themes/themannekentrip/build/images/sponsors/logo-studiofrancine-white.png") 0 0 no-repeat; }
 
 .paypal-donation-button input[name="submit"] {
   width: 92px;

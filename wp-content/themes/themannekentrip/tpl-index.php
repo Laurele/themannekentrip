@@ -159,6 +159,18 @@
                 <div class="site-info">
                     <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">© <?php bloginfo( 'name' ); ?> <?php echo date("Y"); ?></a>
                 </div>
+
+                <ul class="sponsors-list">
+                    <li class="sponsors-list-item">
+                        <a class="sponsors-list-item-berghaus" href="https://int.berghaus.com/" target="_blank"></a>
+                    </li>
+                    <li class="sponsors-list-item">
+                        <a class="sponsors-list-item-flysurfer" href="https://flysurfer.com/" target="_blank"></a>
+                    </li>
+                    <li class="sponsors-list-item">
+                        <a class="sponsors-list-item-studiofrancine" href="http://www.studiofrancine.be/" target="_blank"></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>

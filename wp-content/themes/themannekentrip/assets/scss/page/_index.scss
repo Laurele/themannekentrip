@@ -279,7 +279,47 @@ body.page-template-tpl-index #main {
 }
 
 body.page-template-tpl-index #footer {
-    color: $color-black;
+    background: $color-secondary-medium;
     margin: 0;
     padding: 10px 0;
+
+    height: calc(40px + 2rem);
+
+    .site-info,
+    .sponsors-list {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .sponsors-list {
+        margin: 0;
+    }
+
+    .sponsors-list-item {
+        display: inline-block;
+    }
+
+    .sponsors-list-item-berghaus {
+        display: block;
+        width: 163px;
+        height: 34px;
+        background-size: 100%;
+        background: url("/wp-content/themes/themannekentrip/build/images/sponsors/logo-berghaus.svg") 0 0 no-repeat;
+    }
+
+    .sponsors-list-item-flysurfer {
+        display: block;
+        width: 163px;
+        height: 39px;
+        background-size: 100%;
+        background: url("/wp-content/themes/themannekentrip/build/images/sponsors/logo-flysurfer-orange.svg") 0 0 no-repeat;
+    }
+
+    .sponsors-list-item-studiofrancine {
+        display: block;
+        width: 132px;
+        height: 22px;
+        background-size: 100%;
+        background: url("/wp-content/themes/themannekentrip/build/images/sponsors/logo-studiofrancine-white.png") 0 0 no-repeat;
+    }
 }
