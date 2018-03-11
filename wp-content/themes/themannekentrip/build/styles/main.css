@@ -1686,124 +1686,18 @@ body.page-template-tpl-index #main {
     @media all and (min-width: 71.25em) {
       body.page-template-tpl-index #main .video iframe {
         height: calc(100vh - 40px*3); } }
-  body.page-template-tpl-index #main .socials {
+  body.page-template-tpl-index #main .facebook {
     max-height: calc(100vh - 40px - 40px - 2rem);
-    overflow: auto;
-    padding: 0 2rem;
-    background: none;
-    width: 100%;
-    text-align: center; }
+    overflow: auto; }
+    body.page-template-tpl-index #main .facebook iframe {
+      margin: 0; }
+    body.page-template-tpl-index #main .facebook .iframe-desktop {
+      display: none; }
     @media all and (min-width: 47.5em) {
-      body.page-template-tpl-index #main .socials {
-        display: -webkit-box;
-        /* OLD - iOS 6-, Safari 3.1-6 */
-        /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;
-        /* TWEENER - IE 10 */
-        /* NEW - Chrome */
-        display: flex;
-        /* NEW, Spec - Opera 12.1, Firefox 20+ */
-        display: -webkit-box;
-        /* OLD - iOS 6-, Safari 3.1-6 */
-        /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;
-        /* TWEENER - IE 10 */
-        /* NEW - Chrome */
-        display: flex;
-        /* NEW, Spec - Opera 12.1, Firefox 20+ */
-        -webkit-box-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -ms-justify-content: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center; } }
-    body.page-template-tpl-index #main .socials iframe {
-      display: block; }
-      body.page-template-tpl-index #main .socials iframe.iFrame-facebook-mobile, body.page-template-tpl-index #main .socials iframe.iFrame-facebook-desktop {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 1rem;
-        margin: 2rem auto; }
-        @media all and (min-width: 47.5em) {
-          body.page-template-tpl-index #main .socials iframe.iFrame-facebook-mobile, body.page-template-tpl-index #main .socials iframe.iFrame-facebook-desktop {
-            margin: 2rem 1rem;
-            -webkit-box-flex: 0 0 auto;
-            /* OLD - iOS 6-, Safari 3.1-6 */
-            -moz-box-flex: 0 0 auto;
-            /* OLD - Firefox 19- */
-            -webkit-flex: 0 0 auto;
-            /* Chrome */
-            -ms-flex: 0;
-            /* IE 10-11 */
-            -ms-flex-positive: 0;
-            -ms-flex-negative: 0;
-            -ms-flex-preferred-size: auto;
-            -webkit-box-flex: 0;
-                -ms-flex: 0 0 auto;
-                    flex: 0 0 auto;
-            /* NEW, Spec - Opera 12.1, Firefox 20+ */ } }
-      body.page-template-tpl-index #main .socials iframe.iFrame-facebook-mobile {
-        width: 300px;
-        height: 80px; }
-      body.page-template-tpl-index #main .socials iframe.iFrame-facebook-desktop {
-        display: none;
-        width: 367px;
-        height: 500px; }
-      body.page-template-tpl-index #main .socials iframe.iFrame-liveExplorer {
-        position: absolute;
-        right: 0;
-        top: -8px;
-        width: 768px;
-        max-width: none;
-        height: 600px;
-        overflow: hidden;
-        background: none; }
-      @media all and (min-width: 47.5em) {
-        body.page-template-tpl-index #main .socials iframe.iFrame-facebook-desktop {
-          display: block; }
-        body.page-template-tpl-index #main .socials iframe.iFrame-facebook-mobile {
-          display: none; } }
-    body.page-template-tpl-index #main .socials .box-liveExplorer {
-      position: relative;
-      width: calc(327px + 1rem * 2);
-      height: 500px;
-      overflow: hidden;
-      margin: 2rem auto;
-      border: solid 1rem rgba(255, 255, 255, 0.9); }
-      @media all and (min-width: 47.5em) {
-        body.page-template-tpl-index #main .socials .box-liveExplorer {
-          margin: 2rem 1rem;
-          -webkit-box-flex: 0 0 auto;
-          /* OLD - iOS 6-, Safari 3.1-6 */
-          -moz-box-flex: 0 0 auto;
-          /* OLD - Firefox 19- */
-          -webkit-flex: 0 0 auto;
-          /* Chrome */
-          -ms-flex: 0;
-          /* IE 10-11 */
-          -ms-flex-positive: 0;
-          -ms-flex-negative: 0;
-          -ms-flex-preferred-size: auto;
-          -webkit-box-flex: 0;
-              -ms-flex: 0 0 auto;
-                  flex: 0 0 auto;
-          /* NEW, Spec - Opera 12.1, Firefox 20+ */ } }
-      body.page-template-tpl-index #main .socials .box-liveExplorer h3 {
-        position: relative;
-        display: block;
-        margin: 0;
-        font-size: 20px;
-        line-height: 20px;
-        background: red;
-        border: solid 1px red;
-        z-index: 2; }
-        body.page-template-tpl-index #main .socials .box-liveExplorer h3 a {
-          display: block;
-          padding: .5rem;
-          color: #FFFFFF !important;
-          outline: none;
-          text-transform: none !important;
-          text-decoration: none; }
+      body.page-template-tpl-index #main .facebook .iframe-desktop {
+        display: block; }
+      body.page-template-tpl-index #main .facebook .iframe-mobile {
+        display: none; } }
   body.page-template-tpl-index #main #group7 #footer {
     position: absolute;
     bottom: 0;

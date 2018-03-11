@@ -147,13 +147,9 @@
     </section>
     <section id="group7" class="parallax__group">
         <div class="parallax__layer parallax__layer--base">
-            <div class="box socials">
-                <iframe class="iFrame-facebook-mobile" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fthemannekentrip.be&width=300&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=471768236515584" style="border:none; overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-                <iframe class="iFrame-facebook-desktop" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthemannekentrip.be%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=471768236515584" style="border:none; overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-                <div class="box-liveExplorer">
-                    <h3><a href="http://livexplorer.com/themannekentrip/" target="_blank">LiveExplorer</a></h3>
-                    <iframe data-view="iframe.liveExplorer" class="iFrame-liveExplorer" src="http://livexplorer.com/themannekentrip/" style="border:none; overflow:hidden;" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-                </div>
+            <div class="box facebook">
+                <iframe class="iframe-mobile" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fthemannekentrip.be&width=300&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=471768236515584" width="300" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+                <iframe class="iframe-desktop" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthemannekentrip.be%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=471768236515584" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
             </div>
             <div id="footer" role="contentinfo">
                 <div class="site-info">

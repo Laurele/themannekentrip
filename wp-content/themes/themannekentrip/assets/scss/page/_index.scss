@@ -163,105 +163,25 @@ body.page-template-tpl-index #main {
         }
     }
 
-    .socials {
+    .facebook {
         max-height: calc(100vh - #{$topbar-height} - 40px - 2rem);
         overflow: auto;
-        padding: 0 2rem;
-        background: none;
-        width: 100%;
-
-        text-align: center;
-
-        @include mq(medium) {
-            @include flex-container();
-            @include flex-align-horizontally(center);
-        }
 
         iframe {
-            display: block;
-
-            &.iFrame-facebook-mobile,
-            &.iFrame-facebook-desktop {
-                background: rgba(255, 255, 255, 0.90);
-                padding: 1rem;
-                margin: 2rem auto;
-
-                @include mq(medium) {
-                    margin: 2rem 1rem;
-
-                    @include flex-content-size(0, 0, auto);
-                }
-            }
-
-            &.iFrame-facebook-mobile {
-                width: 300px;
-                height: 80px;
-            }
-
-            &.iFrame-facebook-desktop {
-                display: none;
-                width: 367px;
-                height: 500px;
-            }
-
-            &.iFrame-liveExplorer {
-                position: absolute;
-                right: 0;
-                top: -8px;
-                width: 768px;
-                max-width: none;
-                height: 600px;
-
-                overflow: hidden;
-                background: none;
-            }
-
-            @include mq(medium) {
-                &.iFrame-facebook-desktop {
-                    display: block;
-                }
-
-                &.iFrame-facebook-mobile {
-                    display: none;
-                }
-            }
+            margin: 0;
         }
 
-        .box-liveExplorer {
-            position: relative;
-            width: calc(327px + 1rem * 2);
-            height: 500px;
-            overflow: hidden;
-            margin: 2rem auto;
+        .iframe-desktop {
+            display: none;
+        }
 
-            border: solid 1rem rgba(255, 255, 255, 0.90);
-
-            @include mq(medium) {
-                margin: 2rem 1rem;
-                @include flex-content-size(0, 0, auto);
+        @include mq(medium) {
+            .iframe-desktop {
+                display: block;
             }
 
-            h3 {
-                position: relative;
-                display: block;
-                margin: 0;
-
-                font-size: 20px;
-                line-height: 20px;
-                background: red;
-                border: solid 1px red;
-
-                z-index: 2;
-
-                a {
-                    display: block;
-                    padding: .5rem;
-
-                    color: $color-white !important;
-                    outline: none;
-                    text-transform: none !important;
-                    text-decoration: none;
-                }
+            .iframe-mobile {
+                display: none;
             }
         }
     }
