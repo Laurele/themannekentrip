@@ -255,9 +255,6 @@ h6 {
     margin-right: 40px;
 }
 
-#footer { clear: both; }
-
-
 /*-----------------------------------------------------------------------------------*/
 /*	2.	Header Styles
 /*-----------------------------------------------------------------------------------*/
@@ -1374,18 +1371,6 @@ button:active,
 /*-----------------------------------------------------------------------------------*/
 /*	7.	Footer Styles
 /*-----------------------------------------------------------------------------------*/
-
-#footer {
-	background: transparent url(images/sep-light.gif) 0 0 repeat-x;
-	color: #858c96;
-	font-size: 11px;
-	margin-left: 400px;
-	margin-top: 40px;
-	padding: 25px 0;
-	width: 540px;
-}
-
-.layout-2cr #footer { margin-left: 0; }
 
 #footer a {
     border-bottom: none;

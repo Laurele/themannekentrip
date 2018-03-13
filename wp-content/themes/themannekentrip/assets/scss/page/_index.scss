@@ -199,47 +199,69 @@ body.page-template-tpl-index #main {
 }
 
 body.page-template-tpl-index #footer {
-    background: $color-secondary-medium;
     margin: 0;
-    padding: 10px 0;
 
-    height: calc(40px + 2rem);
+    padding: 10px;
 
-    .site-info,
-    .sponsors-list {
-        display: inline-block;
-        vertical-align: middle;
+    height: auto;
+
+    @include flex-container();
+    @include flex-align-horizontally(center);
+    @include align-items(center);
+
+    .site-info {
+        padding: 0 5px;
+        text-align: left;
+
+        @include flex-content-size(2, 0, auto);
+
+        @include mq(medium) {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .site-title {
+            font-size: .7rem;
+        }
     }
 
     .sponsors-list {
         margin: 0;
+        text-align: right;
+
+        @include flex-container();
+        @include flex-align-horizontally(flex-end);
+        @include align-items(center);
+
+        @include flex-content-size(0, 1, auto);
     }
 
     .sponsors-list-item {
-        display: inline-block;
+        padding: 0 5px;
+
+        color: rgba(255, 255, 255, .7);
+        font-size: .7rem;
+
+        max-width: 210px;
+
+        @include mq(medium) {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        &:first-child {
+            padding-right: 0;
+        }
+
+        @include flex-content-size(0, 1, 20%);
+
+        a img {
+            width: 100%;
+            vertical-align: middle;
+        }
     }
 
-    .sponsors-list-item-berghaus {
+    .sponsors-list-item-link {
         display: block;
-        width: 163px;
-        height: 34px;
-        background-size: 100%;
-        background: url("/wp-content/themes/themannekentrip/build/images/sponsors/logo-berghaus.svg") 0 0 no-repeat;
-    }
-
-    .sponsors-list-item-flysurfer {
-        display: block;
-        width: 163px;
-        height: 39px;
-        background-size: 100%;
-        background: url("/wp-content/themes/themannekentrip/build/images/sponsors/logo-flysurfer-orange.svg") 0 0 no-repeat;
-    }
-
-    .sponsors-list-item-studiofrancine {
-        display: block;
-        width: 132px;
-        height: 22px;
-        background-size: 100%;
-        background: url("/wp-content/themes/themannekentrip/build/images/sponsors/logo-studiofrancine-white.png") 0 0 no-repeat;
     }
 }

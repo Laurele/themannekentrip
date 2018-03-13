@@ -40,6 +40,7 @@ body:not(.page-template-tpl-index) {
     }
 }
 
+.layout-2cr [id^="post-"],
 .layout-2cr [class^="post-"] {
 
     .entry-icon {
@@ -104,7 +105,7 @@ body:not(.page-template-tpl-index) {
     bottom: 0;
 
     margin: 0;
-    background: $color-dark-green;
+    background: $color-secondary-medium;
     padding: 10px 0;
 
     height: $footer-height;

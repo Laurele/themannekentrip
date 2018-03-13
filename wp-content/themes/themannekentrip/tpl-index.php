@@ -151,25 +151,36 @@
                 <iframe class="iframe-mobile" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fthemannekentrip.be&width=300&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=471768236515584" width="300" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
                 <iframe class="iframe-desktop" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthemannekentrip.be%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=471768236515584" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
             </div>
-            <div id="footer" role="contentinfo">
-                <div class="site-info">
-                    <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">© <?php bloginfo( 'name' ); ?> <?php echo date("Y"); ?></a>
-                </div>
-
-                <ul class="sponsors-list">
-                    <li class="sponsors-list-item">
-                        <a class="sponsors-list-item-berghaus" href="https://int.berghaus.com/" target="_blank"></a>
-                    </li>
-                    <li class="sponsors-list-item">
-                        <a class="sponsors-list-item-flysurfer" href="https://flysurfer.com/" target="_blank"></a>
-                    </li>
-                    <li class="sponsors-list-item">
-                        <a class="sponsors-list-item-studiofrancine" href="http://www.studiofrancine.be/" target="_blank"></a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </section>
+</div>
+
+
+<div id="footer" role="contentinfo">
+    <div class="site-info">
+        <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">© <?php bloginfo( 'name' ); ?> <?php echo date("Y"); ?></a>
+    </div>
+
+    <ul class="sponsors-list">
+        <li class="sponsors-list-item">
+            supported by
+        </li>
+        <li class="sponsors-list-item">
+            <a class="sponsors-list-item-link" href="https://int.berghaus.com/" target="_blank">
+                <img src="/wp-content/themes/themannekentrip/build/images/footer/logo-berghaus.svg" alt="Berghaus"/>
+            </a>
+        </li>
+        <li class="sponsors-list-item">
+            <a class="sponsors-list-item-link" href="https://flysurfer.com/" target="_blank">
+                <img src="/wp-content/themes/themannekentrip/build/images/footer/logo-flysurfer-orange.svg" alt="FlySurfer"/>
+            </a>
+        </li>
+        <li class="sponsors-list-item">
+            <a class="sponsors-list-item-link" href="http://www.studiofrancine.be/" target="_blank">
+                <img src="/wp-content/themes/themannekentrip/build/images/footer/logo-studiofrancine-white.png" alt="Studio Francine"/>
+            </a>
+        </li>
+    </ul>
 </div>
 
 </main>
