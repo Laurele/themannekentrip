@@ -753,7 +753,12 @@ html.is-overflow-hidden body {
     height: 100%; }
   .site-aside-menu .site-aside-content-centered {
     display: table-cell;
-    vertical-align: middle; }
+    vertical-align: middle;
+    padding: 0 1rem; }
+    @media all and (min-width: 47.5em) {
+      .site-aside-menu .site-aside-content-centered {
+        padding-right: 2rem;
+        padding-left: 2rem; } }
   .site-aside-menu #site-navigation {
     width: 100%;
     margin-bottom: 4rem; }

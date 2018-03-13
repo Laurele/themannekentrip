@@ -178,6 +178,12 @@ html.is-overflow-hidden body{
     .site-aside-content-centered {
         display: table-cell;
         vertical-align: middle;
+        padding: 0 1rem;
+
+        @include mq(medium) {
+            padding-right: 2rem;
+            padding-left: 2rem;
+        }
     }
 
     #site-navigation {
