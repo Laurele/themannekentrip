@@ -664,7 +664,7 @@ html.is-overflow-hidden body {
       width: auto;
       height: auto; }
   #topbar .site-title {
-    display: none;
+    display: block;
     vertical-align: middle;
     margin: 0;
     font-size: .9rem;
