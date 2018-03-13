@@ -68,7 +68,7 @@ html.is-overflow-hidden body{
     }
 
     .site-title {
-        display: inline-block;
+        display: none;
         vertical-align: middle;
         margin: 0;
 
@@ -78,6 +78,10 @@ html.is-overflow-hidden body{
 
         color: $color-white;
         text-shadow: none;
+
+        @include mq(medium) {
+            display: inline-block;
+        }
     }
 
     .menu-toggle {

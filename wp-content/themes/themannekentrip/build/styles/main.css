@@ -664,7 +664,7 @@ html.is-overflow-hidden body {
       width: auto;
       height: auto; }
   #topbar .site-title {
-    display: inline-block;
+    display: none;
     vertical-align: middle;
     margin: 0;
     font-size: .9rem;
@@ -672,6 +672,9 @@ html.is-overflow-hidden body {
     font-weight: 500;
     color: #FFFFFF;
     text-shadow: none; }
+    @media all and (min-width: 47.5em) {
+      #topbar .site-title {
+        display: inline-block; } }
   #topbar .menu-toggle {
     padding: 0 13.33333px 0;
     margin-right: 13.33333px;
