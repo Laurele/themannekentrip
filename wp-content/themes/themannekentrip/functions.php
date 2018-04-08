@@ -683,4 +683,21 @@ function add_theme_options_capabitility_to_editor()
 }
 
 add_theme_options_capabitility_to_editor();
+
+/**
+ * Add custom field as body class
+ *
+ * @param array $classes
+ * @return array
+ */
+function acf_body_class($classes)
+{
+	if ($class = get_post_meta(get_the_ID(), 'body_class', true)) {
+		$classes[] = $class;
+	}
+
+	return $classes;
+}
+
+add_filter('body_class', 'acf_body_class');
 ?>
