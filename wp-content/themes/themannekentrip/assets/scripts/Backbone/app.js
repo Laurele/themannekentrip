@@ -21,7 +21,11 @@ var app = {
         /**
          * @namespace
          */
-        Background: {}
+        Background: {},
+        /**
+         * @namespace
+         */
+        Gallery: {}
     },
     /**
      * @namespace

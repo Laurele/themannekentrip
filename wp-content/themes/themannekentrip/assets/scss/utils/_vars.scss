@@ -83,3 +83,4 @@ $zindex-topbar: 100;
 $zindex-navigation: $zindex-topbar - 1;
 $zindex-footer: $zindex-navigation - 1;
 $zindex-scrollbar: $zindex-navigation - 1;
+$zindex-slideshow: $zindex-topbar + 1;

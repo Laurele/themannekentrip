@@ -44,20 +44,20 @@
                 <?php endforeach; ?>
             </div>
         <?php else : ?>
-            <div class="my-slideshow">
+            <div class="my-slideshow" data-view="gallery">
                 <?php foreach ($images as $key => $image): ?>
                     <?php
-                    $id = $image['id']; // The attachment id of the media
-                    $title = $image['title']; //The title
-                    $caption = $image['caption']; //The caption
-                    $full_image_url = $image['full_image_url']; //Full size image url
-                    $full_image_url = acf_photo_gallery_resize_image($full_image_url, 262, 160); //Resized size to 262px width by 160px height image url
-                    $thumbnail_image_url = $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
-                    $alt = get_field('photo_gallery_alt', $id ); //Get the alt which is a extra field (See below how to add extra fields)
-                    $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
+                        $id = $image['id']; // The attachment id of the media
+                        $title = $image['title']; //The title
+                        $caption = $image['caption']; //The caption
+                        $full_image_url = $image['full_image_url']; //Full size image url
+                        $full_image_url = acf_photo_gallery_resize_image($full_image_url, 1920, 1080); //Resized size to 1920px width by 1080px height image url
+                        $thumbnail_image_url = $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
+                        $alt = get_field('photo_gallery_alt', $id ); //Get the alt which is a extra field (See below how to add extra fields)
+                        $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
                     ?>
-                    <div class="thumbnail" data-title="<?php echo $title; ?>" data-caption="<?php echo $caption; ?>" data-url="<?php echo $thumbnail_image_url; ?>">
-                        <img src="<?php echo $full_image_url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" class="<?php echo $class; ?>">
+                    <div data-thumbnail class="thumbnail" data-title="<?php echo $title; ?>" data-caption="<?php echo $caption; ?>" data-url="<?php echo $full_image_url; ?>" data-item="<?php echo $key; ?>">
+                        <img src="<?php echo $thumbnail_image_url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" class="<?php echo $class; ?>">
                     </div>
                 <?php endforeach; ?>
             </div>

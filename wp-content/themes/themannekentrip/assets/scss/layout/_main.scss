@@ -419,3 +419,7 @@ body.page:not(.page-template-tpl-index) {
         @include opacity(50);
     }
 }
+
+.is-not-displayed {
+    display: none;
+}
