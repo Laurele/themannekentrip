@@ -56,7 +56,7 @@
                         $alt = get_field('photo_gallery_alt', $id ); //Get the alt which is a extra field (See below how to add extra fields)
                         $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
                     ?>
-                    <div data-thumbnail class="thumbnail" data-title="<?php echo $title; ?>" data-caption="<?php echo $caption; ?>" data-url="<?php echo $full_image_url; ?>" data-item="<?php echo $key; ?>">
+                    <div data-thumbnail class="thumbnail" data-title="<?php echo $title; ?>" data-caption="<?php echo $caption; ?>" data-url="<?php echo $full_image_url; ?>" data-item="<?php echo $key; ?>" data-miniature-url="<?php echo $thumbnail_image_url; ?>">
                         <img src="<?php echo $thumbnail_image_url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" class="<?php echo $class; ?>">
                     </div>
                 <?php endforeach; ?>

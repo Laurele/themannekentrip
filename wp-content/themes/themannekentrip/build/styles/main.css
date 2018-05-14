@@ -1320,13 +1320,15 @@ body.page:not(.page-template-tpl-index) #footer {
     position: absolute;
     top: 50%;
     left: 50%;
+    height: 100vh;
+    padding-bottom: 40px;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%); }
     [data-slideshow] .my-slideshow-image.is-active {
       display: block; }
   [data-slideshow] .my-slideshow-picture {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     padding: 30px;
     background-position: center;
     background-repeat: no-repeat;
@@ -1372,6 +1374,29 @@ body.page:not(.page-template-tpl-index) #footer {
       top: 50%;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%); }
+  [data-slideshow] .my-slideshow-navigation--miniatures {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    /* NEW - Chrome */
+    display: flex;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  [data-slideshow] .my-slideshow-miniature {
+    cursor: pointer;
+    margin: 2px;
+    padding: 20px;
+    background-size: cover; }
 
 /* Layout styling */
 body.page-template-tpl-under-construction {

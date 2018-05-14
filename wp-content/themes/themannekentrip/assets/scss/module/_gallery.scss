@@ -80,6 +80,9 @@
 }
 
 [data-slideshow] {
+    $gutter: 30px;
+    $miniatureSize: 40px;
+
     position: fixed;
     top: 0;
     left: 0;
@@ -95,6 +98,10 @@
         top: 50%;
         left: 50%;
 
+        height: 100vh;
+
+        padding-bottom: $miniatureSize;
+
         @include transform(translateX(-50%) translateY(-50%));
 
         &.is-active {
@@ -102,10 +109,9 @@
         }
     }
 
-    $gutter: 30px;
     .my-slideshow-picture {
         width: 100vw;
-        height: 100vh;
+        height: 100%;
 
         padding: $gutter;
 
@@ -174,5 +180,22 @@
 
             @include transform(translateY(-50%));
         }
+    }
+
+    .my-slideshow-navigation--miniatures {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
+        @include flex-container();
+        @include flex-wrap(wrap);
+        @include flex-justify-content(center);
+    }
+
+    .my-slideshow-miniature {
+        cursor: pointer;
+        margin: 2px;
+        padding: $miniatureSize/2;
+        background-size: cover;
     }
 }

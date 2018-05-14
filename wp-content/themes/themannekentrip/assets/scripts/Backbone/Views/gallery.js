@@ -17,6 +17,10 @@ $(function () {
         images: {},
         $slideshow: null,
 
+        arrowLeftKeyCode: 37,
+        arrowRightKeyCode: 39,
+        escapeKeyCode: 27,
+
         initialize: function () {
         },
 
@@ -28,6 +32,7 @@ $(function () {
             event.preventDefault();
             var $target = $(event.currentTarget);
             this.currentIndex = parseInt($target.attr('data-item'));
+
             if (this.$slideshow !== null) {
                 this._slide();
                 this.$slideshow.show();
@@ -36,25 +41,26 @@ $(function () {
             }
         },
 
-        clickNext: function (event) {
-            event.preventDefault();
-
+        clickNext: function () {
             var len = Object.keys(this.images).length;
             this.currentIndex = (this.currentIndex + 1) % len;
             this._slide();
         },
 
-        clickPrevious: function (event) {
-            event.preventDefault();
-
+        clickPrevious: function () {
             var len = Object.keys(this.images).length;
             this.currentIndex = (this.currentIndex + len - 1) % len;
             this._slide();
         },
 
-        close: function (event) {
+        clickMiniature: function (event) {
             event.preventDefault();
 
+            this.currentIndex = parseInt($(event.currentTarget).attr('data-miniature'));
+            this._slide();
+        },
+
+        close: function () {
             this.$slideshow.hide();
         },
 
@@ -62,8 +68,21 @@ $(function () {
             this.$slideshow.show();
         },
 
+        changeSlideWithKeyboard: function (event) {
+            var keyCode = event.keyCode || event.which;
+
+            if (keyCode === this.arrowLeftKeyCode) {
+                this.clickPrevious();
+            } else if (keyCode === this.arrowRightKeyCode) {
+                this.clickNext();
+            } else if (keyCode === this.escapeKeyCode) {
+                this.close();
+            }
+        },
+
         _slide: function () {
             $('[data-image]').removeClass(CLASS_IS_ACTIVE);
+
             var $image = $('[data-image="' + this.currentIndex + '"]');
             $image.addClass(CLASS_IS_ACTIVE);
         },
@@ -74,7 +93,7 @@ $(function () {
          * @private
          */
         _appendTitle: function ($image, image) {
-            $image.append('<div class="my-slideshow-title">' + image.title + '</div>')
+            $image.append('<div class="my-slideshow-title">' + image.title + '</div>');
         },
 
         /**
@@ -83,7 +102,7 @@ $(function () {
          * @private
          */
         _appendCaption: function ($image, image) {
-            $image.append('<div class="my-slideshow-caption">' + image.caption + '</div>')
+            $image.append('<div class="my-slideshow-caption">' + image.caption + '</div>');
         },
 
         /**
@@ -92,7 +111,16 @@ $(function () {
          * @private
          */
         _appendPicture: function ($image, image) {
-            $image.append('<div class="my-slideshow-picture" style="background-image: url(' + image.url + ')"></div>')
+            $image.append('<div class="my-slideshow-picture" style="background-image: url(' + image.url + ')"></div>');
+        },
+
+        /**
+         * @param $image
+         * @param image
+         * @private
+         */
+        _appendMiniature: function ($image, image) {
+            this.$miniatures.append('<div data-miniature="' + $image.attr('data-image') + '" class="my-slideshow-miniature" style="background-image: url(' + image.miniature + ')"></div>');
         },
 
         _appendSlideshow: function () {
@@ -108,6 +136,8 @@ $(function () {
             this.$navigation.append('<button class="my-slideshow-navigation--button icon-times" data-el="navigation-button-close"></button>');
             this.$navigation.append('<button class="my-slideshow-navigation--button icon-chevron-left" data-el="navigation-button-previous"></button>');
             this.$navigation.append('<button class="my-slideshow-navigation--button icon-chevron-right" data-el="navigation-button-next"></button>');
+            this.$navigation.append('<div class="my-slideshow-navigation--miniatures" data-el="navigation-miniatures"></div>');
+            this.$miniatures = $('[data-el="navigation-miniatures"]');
         },
 
         /**
@@ -127,7 +157,8 @@ $(function () {
                     this.images[index] = {
                         title: $element.attr('data-title'),
                         caption: $element.attr('data-caption'),
-                        url: $element.attr('data-url')
+                        url: $element.attr('data-url'),
+                        miniature: $element.attr('data-miniature-url')
                     };
 
                     var image = this.images[index];
@@ -142,11 +173,26 @@ $(function () {
                     this._appendTitle($image, image);
                     this._appendCaption($image, image);
                     this._appendPicture($image, image);
+                    this._appendMiniature($image, image);
                 }, this));
 
-                $(document).on('click', '[data-el="navigation-button-next"]', _.bind(this.clickNext, this));
-                $(document).on('click', '[data-el="navigation-button-previous"]', _.bind(this.clickPrevious, this));
-                $(document).on('click', '[data-el="navigation-button-close"]', _.bind(this.close, this));
+                $(document).on('click', '[data-el="navigation-button-next"]', _.bind(function (event) {
+                    event.preventDefault();
+                    this.clickNext();
+                }, this));
+
+                $(document).on('click', '[data-el="navigation-button-previous"]', _.bind(function (event) {
+                    event.preventDefault();
+                    this.clickPrevious();
+                }, this));
+
+                $(document).on('click', '[data-el="navigation-button-close"]', _.bind(function (event) {
+                    event.preventDefault();
+                    this.close();
+                }, this));
+
+                $(document).on('click', '[data-miniature]', _.bind(this.clickMiniature, this));
+                $(document).bind('keyup', _.bind(this.changeSlideWithKeyboard, this));
 
                 this.$slideshow.show();
             }
