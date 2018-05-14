@@ -69,7 +69,13 @@
 
     .thumbnail {
         @include flex-content-size(0, 0, 33%);
+
+        cursor: pointer;
         padding: 2px;
+
+        img {
+            width: 100%;
+        }
     }
 }
 
