@@ -12,19 +12,15 @@
 
         foreach ($my_posts as $post) : setup_postdata($post); ?>
             <?php zilla_post_before(); ?>
-            <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+            <a <?php post_class(); ?> id="post-<?php the_ID(); ?>" href="<?php echo get_permalink($post->ID); ?>">
                 <?php zilla_post_start(); ?>
-                <?php
-                $format = get_post_format();
-                if (false === $format) {
-                    $format = 'standard';
-                }
-                ?>
 
-                <div class="<?php echo $format === 'standard' ? 'format-gallery' : $format; ?> entry-meta entry-icon"></div>
-                <?php get_template_part('content-post', $format); ?>
+                <div class="format-gallery entry-meta entry-icon"></div>
+
+                <?php get_template_part('content-post', 'gallery_post'); ?>
+
                 <?php zilla_post_end(); ?>
-            </div>
+            </a>
             <?php zilla_post_after(); ?>
         <?php endforeach; ?>
     </div>

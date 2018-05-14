@@ -57,3 +57,18 @@
 .slider a:active {
     color: #9e2020
 }
+
+/**********************
+// NEW SLIDE SHOW
+**********************/
+.my-slideshow {
+    @include flex-container();
+    @include flex-wrap(wrap);
+    @include align-content(flex-start);
+    @include flex-justify-content(space-between);
+
+    .thumbnail {
+        @include flex-content-size(0, 0, 33%);
+        padding: 2px;
+    }
+}

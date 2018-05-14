@@ -700,4 +700,34 @@ function acf_body_class($classes)
 }
 
 add_filter('body_class', 'acf_body_class');
+
+
+/**
+ * Create extra fields called Alternative Text and Custom Classes
+ *
+ * @param $args
+ * @param $attachment_id
+ * @param $field
+ * @return mixed
+ */
+function my_extra_gallery_fields($args, $attachment_id, $field)
+{
+	$args['alt'] = [
+		'type' => 'text',
+		'label' => 'Alternative Text',
+		'name' => 'alt',
+		'value' => get_field($field . '_alt', $attachment_id)
+	]; // Creates Alternative Text field
+
+	$args['class'] = [
+		'type' => 'text',
+		'label' => 'Custom Classes',
+		'name' => 'class',
+		'value' => get_field($field . '_class', $attachment_id)
+	]; // Creates Custom Classes field
+
+	return $args;
+}
+
+add_filter('acf_photo_gallery_image_fields', 'my_extra_gallery_fields', 10, 3);
 ?>

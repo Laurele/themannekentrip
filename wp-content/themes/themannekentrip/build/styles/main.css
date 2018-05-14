@@ -1262,6 +1262,45 @@ body.page:not(.page-template-tpl-index) #footer {
 .slider a:active {
   color: #9e2020; }
 
+/**********************
+// NEW SLIDE SHOW
+**********************/
+.my-slideshow {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-align-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -ms-justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .my-slideshow .thumbnail {
+    -webkit-box-flex: 0 0 33%;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 33%;
+    /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 33%;
+    /* Chrome */
+    -ms-flex: 0;
+    /* IE 10-11 */
+    -ms-flex-positive: 0;
+    -ms-flex-negative: 0;
+    -ms-flex-preferred-size: 33%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 33%;
+            flex: 0 0 33%;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    padding: 2px; }
+
 /* Layout styling */
 body.page-template-tpl-under-construction {
   position: relative;
