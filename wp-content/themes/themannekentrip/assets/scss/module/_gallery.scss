@@ -100,24 +100,40 @@
         @include flex-content-size(1, 1, auto);
     }
 
-    .my-slideshow-image {
+    [data-slideshow-image] {
         display: none;
+        position: absolute;
+        padding: $gutter;
+
+        width: 100%;
+        height: 100%;
+
+
+        &.is-active {
+            display: block;
+            @include flex-container();
+            @include flex-direction(column);
+        }
+    }
+
+    .my-slideshow-image {
+        position: relative;
+        width: 100%;
+        @include flex-content-size(1, 0, auto);
+    }
+
+    .my-slideshow-picture {
         position: absolute;
         top: 50%;
         left: 50%;
 
         height: 100%;
         width: 100%;
-        padding: $gutter;
 
         @include transform(translateX(-50%) translateY(-50%));
-
-        &.is-active {
-            @include flex-container();
-        }
     }
 
-    .my-slideshow-picture {
+    .my-slideshow-picture-asset {
         width: 100%;
         height: 100%;
 
@@ -128,15 +144,14 @@
         background-repeat: no-repeat;
         background-size: contain;
 
-        @include flex-content-size(0, 0, 100%);
-
-        @include mq(medium) {
-            @include flex-content-size(0, 0, 66%);
-        }
+        @include flex-content-size(1, 0, auto);
     }
 
     [data-slideshow-aside] {
         display: none;
+        margin-top: $gutter;
+        text-align: center;
+
         @include flex-content-size(0, 0, auto);
 
         @include mq(medium) {
@@ -149,11 +164,11 @@
         color: $color-white;
     }
 
-    .my-slideshow-title {
-        margin-bottom: 1.2rem;
-    }
-
     .my-slideshow-caption {
+        display: inline-block;
+        margin-top: 1.2rem;
+        padding-top: 10px;
+        border-top: solid 1px $color-white;
         font-weight: 300;
     }
 
