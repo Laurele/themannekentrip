@@ -1,7 +1,9 @@
 <div class="entry-content">
     <?php if (!is_single()) { ?>
 
-        <h2 class="entry-title"><?php the_title(); ?></h2>
+        <h2 class="entry-title">
+            <a href="<?php echo get_permalink($post->ID); ?>"><?php the_title(); ?></a>
+        </h2>
 
     <?php } else { ?>
 
@@ -24,25 +26,27 @@
     // Check if return array has anything in it
     if (count($images)) : ?>
         <?php if (!is_single()) : ?>
-            <div class="my-slideshow">
-                <?php foreach ($images as $key => $image): ?>
-                    <?php $limit = 3; ?>
-                    <?php if ($key >= $limit) : ?>
-                        <?php break; ?>
-                    <?php endif; ?>
+            <a href="<?php echo get_permalink($post->ID); ?>">
+                <div class="my-slideshow">
+                    <?php foreach ($images as $key => $image): ?>
+                        <?php $limit = 3; ?>
+                        <?php if ($key >= $limit) : ?>
+                            <?php break; ?>
+                        <?php endif; ?>
 
-                    <?php
-                    $id = $image['id']; // The attachment id of the media
-                    $title = $image['title']; //The title
-                    $thumbnail_image_url = $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
-                    $alt = get_field('photo_gallery_alt', $id ); //Get the alt which is a extra field (See below how to add extra fields)
-                    $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
-                    ?>
-                    <div class="thumbnail">
-                        <img src="<?php echo $thumbnail_image_url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" class="<?php echo $class; ?>">
-                    </div>
-                <?php endforeach; ?>
-            </div>
+                        <?php
+                        $id = $image['id']; // The attachment id of the media
+                        $title = $image['title']; //The title
+                        $thumbnail_image_url = $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
+                        $alt = get_field('photo_gallery_alt', $id ); //Get the alt which is a extra field (See below how to add extra fields)
+                        $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
+                        ?>
+                        <div class="thumbnail">
+                            <img src="<?php echo $thumbnail_image_url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" class="<?php echo $class; ?>">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </a>
         <?php else : ?>
             <div class="my-slideshow" data-view="gallery">
                 <?php foreach ($images as $key => $image): ?>

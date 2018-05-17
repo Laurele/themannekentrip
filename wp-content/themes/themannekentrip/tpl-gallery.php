@@ -12,7 +12,7 @@
 
         foreach ($my_posts as $post) : setup_postdata($post); ?>
             <?php zilla_post_before(); ?>
-            <a <?php post_class(); ?> id="post-<?php the_ID(); ?>" href="<?php echo get_permalink($post->ID); ?>">
+            <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
                 <?php zilla_post_start(); ?>
 
                 <div class="format-gallery entry-meta entry-icon"></div>
@@ -20,7 +20,7 @@
                 <?php get_template_part('content-post', 'gallery_post'); ?>
 
                 <?php zilla_post_end(); ?>
-            </a>
+            </div>
             <?php zilla_post_after(); ?>
         <?php endforeach; ?>
     </div>
