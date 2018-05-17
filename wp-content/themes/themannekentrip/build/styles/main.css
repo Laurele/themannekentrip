@@ -1359,7 +1359,7 @@ body.page:not(.page-template-tpl-index) #footer {
     padding: 30px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-clip: content-box; }
   [data-slideshow] .my-slideshow-title,
   [data-slideshow] .my-slideshow-caption {
