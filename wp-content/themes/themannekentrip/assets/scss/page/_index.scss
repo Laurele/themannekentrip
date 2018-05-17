@@ -256,12 +256,13 @@ body.page-template-tpl-index #footer {
         @include flex-content-size(0, 1, 20%);
 
         a img {
-            width: 100%;
+            max-width: 100%;
             vertical-align: middle;
         }
     }
 
     .sponsors-list-item-link {
         display: block;
+        text-align: left;
     }
 }

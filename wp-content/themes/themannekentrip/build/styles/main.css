@@ -2079,10 +2079,11 @@ body.page-template-tpl-index #footer {
     body.page-template-tpl-index #footer .sponsors-list-item:first-child {
       padding-right: 0; }
     body.page-template-tpl-index #footer .sponsors-list-item a img {
-      width: 100%;
+      max-width: 100%;
       vertical-align: middle; }
   body.page-template-tpl-index #footer .sponsors-list-item-link {
-    display: block; }
+    display: block;
+    text-align: left; }
 
 .paypal-donation-button input[name="submit"] {
   width: 92px;

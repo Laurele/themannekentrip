@@ -180,6 +180,11 @@
                 <img src="/wp-content/themes/themannekentrip/build/images/footer/logo-studiofrancine-white.png" alt="Studio Francine"/>
             </a>
         </li>
+        <li class="sponsors-list-item">
+            <a class="sponsors-list-item-link" href="https://bikesandbeyond.ca/" target="_blank">
+                <img src="/wp-content/themes/themannekentrip/build/images/footer/logo-bikes-and-beyond.png" alt="Bike & Beyond"/>
+            </a>
+        </li>
     </ul>
 </div>
 
