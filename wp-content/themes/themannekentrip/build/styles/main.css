@@ -1412,7 +1412,6 @@ body.page:not(.page-template-tpl-index) #footer {
     /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
   [data-slideshow] [data-slideshow-aside] {
     display: none;
-    margin-top: 30px;
     text-align: center;
     -webkit-box-flex: 0 0 auto;
     /* OLD - iOS 6-, Safari 3.1-6 */
@@ -1435,6 +1434,8 @@ body.page:not(.page-template-tpl-index) #footer {
   [data-slideshow] .my-slideshow-title,
   [data-slideshow] .my-slideshow-caption {
     color: #FFFFFF; }
+  [data-slideshow] .my-slideshow-title {
+    margin-top: 30px; }
   [data-slideshow] .my-slideshow-caption {
     display: inline-block;
     margin-top: 1.2rem;

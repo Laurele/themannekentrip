@@ -147,7 +147,6 @@
 
     [data-slideshow-aside] {
         display: none;
-        margin-top: $gutter;
         text-align: center;
 
         @include flex-content-size(0, 0, auto);
@@ -160,6 +159,10 @@
     .my-slideshow-title,
     .my-slideshow-caption {
         color: $color-white;
+    }
+
+    .my-slideshow-title {
+        margin-top: $gutter;
     }
 
     .my-slideshow-caption {
