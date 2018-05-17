@@ -93,6 +93,8 @@ $(function () {
 
     var SELECTOR_THUMBNAIL = '[data-thumbnail]';
     var SELECTOR_SLIDESHOW = '[data-slideshow]';
+    var SELECTOR_SLIDESHOW_CONTENT = '[data-slideshow-content]';
+    var SELECTOR_SLIDESHOW_FOOTER = '[data-slideshow-footer]';
     var SELECTOR_NAVIGATION = '[data-navigation]';
 
     var CLASS_IS_ACTIVE = 'is-active';
@@ -180,7 +182,9 @@ $(function () {
          * @private
          */
         _appendTitle: function ($image, image) {
-            $image.append('<div class="my-slideshow-title">' + image.title + '</div>');
+            if (image.title !== "") {
+                $image.append('<div class="my-slideshow-title">' + image.title + '</div>');
+            }
         },
 
         /**
@@ -189,7 +193,9 @@ $(function () {
          * @private
          */
         _appendCaption: function ($image, image) {
-            $image.append('<div class="my-slideshow-caption">' + image.caption + '</div>');
+            if (image.caption !== "") {
+                $image.append('<div class="my-slideshow-caption">' + image.caption + '</div>');
+            }
         },
 
         /**
@@ -213,18 +219,22 @@ $(function () {
         _appendSlideshow: function () {
             $('body').append('<div data-slideshow></div>');
             this.$slideshow = $(SELECTOR_SLIDESHOW);
+            this.$slideshow.append('<div data-slideshow-content></div>');
+            this.$slideshowContent = $(SELECTOR_SLIDESHOW_CONTENT);
 
+            this.$slideshow.append('<div data-slideshow-footer></div>');
+            this.$slideshowFooter = $(SELECTOR_SLIDESHOW_FOOTER);
+            this.$slideshowFooter.append('<div class="my-slideshow-navigation--miniatures" data-el="navigation-miniatures"></div>');
+
+            this.$miniatures = $('[data-el="navigation-miniatures"]');
         },
 
         _appendNavigation: function () {
-            this.$slideshow.append('<div data-navigation class="my-slideshow-navigation">');
+            this.$slideshow.append('<div data-navigation>');
             this.$navigation = $(SELECTOR_NAVIGATION);
-
             this.$navigation.append('<button class="my-slideshow-navigation--button icon-times" data-el="navigation-button-close"></button>');
             this.$navigation.append('<button class="my-slideshow-navigation--button icon-chevron-left" data-el="navigation-button-previous"></button>');
             this.$navigation.append('<button class="my-slideshow-navigation--button icon-chevron-right" data-el="navigation-button-next"></button>');
-            this.$navigation.append('<div class="my-slideshow-navigation--miniatures" data-el="navigation-miniatures"></div>');
-            this.$miniatures = $('[data-el="navigation-miniatures"]');
         },
 
         /**
@@ -250,7 +260,7 @@ $(function () {
 
                     var image = this.images[index];
 
-                    this.$slideshow.append('<div class="my-slideshow-image" data-image="' + index + '"></div>');
+                    this.$slideshowContent.append('<div class="my-slideshow-image" data-image="' + index + '"></div>');
                     var $image = $('[data-image="' + index + '"]');
 
                     if (index === this.currentIndex) {

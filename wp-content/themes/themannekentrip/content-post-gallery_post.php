@@ -46,10 +46,11 @@
         <?php else : ?>
             <div class="my-slideshow" data-view="gallery">
                 <?php foreach ($images as $key => $image): ?>
+                    <?php $attachment = get_post( $image['id'] ); ?>
                     <?php
                         $id = $image['id']; // The attachment id of the media
                         $title = $image['title']; //The title
-                        $caption = $image['caption']; //The caption
+                        $caption = $attachment->post_excerpt; //The caption
                         $full_image_url = $image['full_image_url']; //Full size image url
                         $full_image_url = acf_photo_gallery_resize_image($full_image_url, 1920, 1080); //Resized size to 1920px width by 1080px height image url
                         $thumbnail_image_url = $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px

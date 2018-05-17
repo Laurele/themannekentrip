@@ -92,15 +92,24 @@
 
     background-color: rgba(0, 0, 0, 0.7);
 
+    @include flex-container();
+    @include flex-direction(column);
+
+    [data-slideshow-content] {
+        position: relative;
+        @include flex-content-size(1, 1, auto);
+    }
+
+    [data-slideshow-footer] {
+    }
+
     .my-slideshow-image {
         display: none;
         position: absolute;
         top: 50%;
         left: 50%;
 
-        height: 100vh;
-
-        padding-bottom: $miniatureSize;
+        height: 100%;
 
         @include transform(translateX(-50%) translateY(-50%));
 
@@ -128,7 +137,7 @@
         width: calc(100% - 2 * #{$gutter});
 
         padding: 5px;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.5);
         color: $color-white;
 
         left: $gutter;
@@ -140,16 +149,6 @@
 
     .my-slideshow-caption {
         bottom: $gutter;
-    }
-
-    .my-slideshow-navigation {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-
-        z-index: 2;
     }
 
     .my-slideshow-navigation--button {
@@ -183,10 +182,6 @@
     }
 
     .my-slideshow-navigation--miniatures {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-
         @include flex-container();
         @include flex-wrap(wrap);
         @include flex-justify-content(center);
