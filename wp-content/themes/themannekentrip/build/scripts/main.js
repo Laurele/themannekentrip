@@ -95,6 +95,7 @@ $(function () {
     var SELECTOR_SLIDESHOW = '[data-slideshow]';
     var SELECTOR_SLIDESHOW_CONTENT = '[data-slideshow-content]';
     var SELECTOR_SLIDESHOW_FOOTER = '[data-slideshow-footer]';
+    var SELECTOR_SLIDESHOW_ASIDE = '[data-slideshow-aside]';
     var SELECTOR_NAVIGATION = '[data-navigation]';
 
     var CLASS_IS_ACTIVE = 'is-active';
@@ -177,24 +178,24 @@ $(function () {
         },
 
         /**
-         * @param $image
+         * @param $parent
          * @param image
          * @private
          */
-        _appendTitle: function ($image, image) {
+        _appendTitle: function ($parent, image) {
             if (image.title !== "") {
-                $image.append('<div class="my-slideshow-title">' + image.title + '</div>');
+                $parent.append('<div class="my-slideshow-title">' + image.title + '</div>');
             }
         },
 
         /**
-         * @param $image
+         * @param $parent
          * @param image
          * @private
          */
-        _appendCaption: function ($image, image) {
+        _appendCaption: function ($parent, image) {
             if (image.caption !== "") {
-                $image.append('<div class="my-slideshow-caption">' + image.caption + '</div>');
+                $parent.append('<div class="my-slideshow-caption">' + image.caption + '</div>');
             }
         },
 
@@ -205,6 +206,10 @@ $(function () {
          */
         _appendPicture: function ($image, image) {
             $image.append('<div class="my-slideshow-picture" style="background-image: url(' + image.url + ')"></div>');
+            $image.append('<div data-slideshow-aside></div>');
+            var $aside = $(SELECTOR_SLIDESHOW_ASIDE, $image);
+            this._appendTitle($aside, image);
+            this._appendCaption($aside, image);
         },
 
         /**
@@ -258,17 +263,15 @@ $(function () {
                         miniature: $element.attr('data-miniature-url')
                     };
 
-                    var image = this.images[index];
-
                     this.$slideshowContent.append('<div class="my-slideshow-image" data-image="' + index + '"></div>');
+
+                    var image = this.images[index];
                     var $image = $('[data-image="' + index + '"]');
 
                     if (index === this.currentIndex) {
                         $image.addClass(CLASS_IS_ACTIVE);
                     }
 
-                    this._appendTitle($image, image);
-                    this._appendCaption($image, image);
                     this._appendPicture($image, image);
                     this._appendMiniature($image, image);
                 }, this));

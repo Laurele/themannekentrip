@@ -1354,26 +1354,81 @@ body.page:not(.page-template-tpl-index) #footer {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%); }
     [data-slideshow] .my-slideshow-image.is-active {
-      display: block; }
+      display: -webkit-box;
+      /* OLD - iOS 6-, Safari 3.1-6 */
+      /* OLD - Firefox 19- (buggy but mostly works) */
+      display: -ms-flexbox;
+      /* TWEENER - IE 10 */
+      /* NEW - Chrome */
+      display: flex;
+      /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
   [data-slideshow] .my-slideshow-picture {
     width: 100%;
     height: 100%;
+    max-width: 1920px;
+    max-height: 1080px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain; }
+    background-size: contain;
+    -webkit-box-flex: 0 0 100%;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 100%;
+    /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 100%;
+    /* Chrome */
+    -ms-flex: 0;
+    /* IE 10-11 */
+    -ms-flex-positive: 0;
+    -ms-flex-negative: 0;
+    -ms-flex-preferred-size: 100%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+    @media all and (min-width: 47.5em) {
+      [data-slideshow] .my-slideshow-picture {
+        -webkit-box-flex: 0 0 66%;
+        /* OLD - iOS 6-, Safari 3.1-6 */
+        -moz-box-flex: 0 0 66%;
+        /* OLD - Firefox 19- */
+        -webkit-flex: 0 0 66%;
+        /* Chrome */
+        -ms-flex: 0;
+        /* IE 10-11 */
+        -ms-flex-positive: 0;
+        -ms-flex-negative: 0;
+        -ms-flex-preferred-size: 66%;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 66%;
+                flex: 0 0 66%;
+        /* NEW, Spec - Opera 12.1, Firefox 20+ */ } }
+  [data-slideshow] [data-slideshow-aside] {
+    display: none;
+    -webkit-box-flex: 0 0 auto;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 0 0 auto;
+    /* OLD - Firefox 19- */
+    -webkit-flex: 0 0 auto;
+    /* Chrome */
+    -ms-flex: 0;
+    /* IE 10-11 */
+    -ms-flex-positive: 0;
+    -ms-flex-negative: 0;
+    -ms-flex-preferred-size: auto;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
+    @media all and (min-width: 47.5em) {
+      [data-slideshow] [data-slideshow-aside] {
+        display: block; } }
   [data-slideshow] .my-slideshow-title,
   [data-slideshow] .my-slideshow-caption {
-    position: absolute;
-    z-index: 2;
-    width: calc(100% - 2 * 30px);
-    padding: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #FFFFFF;
-    left: 30px; }
+    color: #FFFFFF; }
   [data-slideshow] .my-slideshow-title {
-    top: 30px; }
+    margin-bottom: 1.2rem; }
   [data-slideshow] .my-slideshow-caption {
-    bottom: 30px; }
+    font-weight: 300; }
   [data-slideshow] .my-slideshow-navigation--button {
     position: absolute;
     background: #FFFFFF;
