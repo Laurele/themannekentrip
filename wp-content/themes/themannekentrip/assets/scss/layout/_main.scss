@@ -18,7 +18,7 @@ html {
 
 /* Layout styling */
 html.is-overflow-hidden,
-html.is-overflow-hidden body{
+html.is-overflow-hidden body {
     overflow: hidden;
     height: 100%;
 
@@ -112,7 +112,6 @@ html.is-overflow-hidden body{
             font-size: 1.2rem;
             margin-left: 5px;
         }
-
 
         &.is-opened {
             i {
@@ -214,10 +213,12 @@ html.is-overflow-hidden body{
     display: block;
     margin: 5px 0;
 
-    &:hover {
-        .primary-sub-menu {
-            max-height: 5000px;
-            @include transition(all 1s ease-in);
+    @include mq(large) {
+        &:hover {
+            .primary-sub-menu {
+                max-height: 5000px;
+                @include transition(all 1s ease-in);
+            }
         }
     }
 }
@@ -248,12 +249,16 @@ html.is-overflow-hidden body{
 }
 
 .primary-sub-menu {
-    max-height: 0;
-    overflow: hidden;
     margin: 0 0 .5rem;
     text-align: center;
 
-    @include transition(all .3s ease-out);
+    @include mq(large) {
+        max-height: 0;
+        overflow: hidden;
+
+        @include transition(all .3s ease-out);
+    }
+
 }
 
 .primary-sub-menu-item {
@@ -422,9 +427,8 @@ body.page:not(.page-template-tpl-index) {
         // Dimensions
         $dot-size: 1px;
         $dot-space: 4px;
-        background:
-                linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
-                linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
+        background: linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
+        linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center, $dot-color;
         background-size: $dot-space $dot-space;
 
         @include opacity(50);
