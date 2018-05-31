@@ -213,6 +213,13 @@ html.is-overflow-hidden body{
 .primary-menu-item {
     display: block;
     margin: 5px 0;
+
+    &:hover {
+        .primary-sub-menu {
+            max-height: 5000px;
+            @include transition(all 1s ease-in);
+        }
+    }
 }
 
 .primary-menu-item-link,
@@ -241,8 +248,12 @@ html.is-overflow-hidden body{
 }
 
 .primary-sub-menu {
+    max-height: 0;
+    overflow: hidden;
     margin: 0 0 .5rem;
     text-align: center;
+
+    @include transition(all .3s ease-out);
 }
 
 .primary-sub-menu-item {

@@ -778,6 +778,9 @@ html.is-overflow-hidden body {
 .primary-menu-item {
   display: block;
   margin: 5px 0; }
+  .primary-menu-item:hover .primary-sub-menu {
+    max-height: 5000px;
+    transition: all 1s ease-in; }
 
 .primary-menu-item-link,
 .primary-sub-menu-item-link {
@@ -801,8 +804,11 @@ html.is-overflow-hidden body {
     color: #179ba9; }
 
 .primary-sub-menu {
+  max-height: 0;
+  overflow: hidden;
   margin: 0 0 .5rem;
-  text-align: center; }
+  text-align: center;
+  transition: all 0.3s ease-out; }
 
 .primary-sub-menu-item {
   display: block;
