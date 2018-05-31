@@ -518,36 +518,36 @@ form {
 /* ROBOTO */
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/fonts/");
-  src: url("../fonts/fonts/") format("embedded-opentype"), url("../fonts/fonts/") format("woff"), url("../fonts/fonts/") format("truetype"), url("../fonts/fonts/#robotoregular") format("svg");
+  src: url("../fonts/roboto-regular-webfont.eot");
+  src: url("../fonts/roboto-regular-webfont.eot") format("embedded-opentype"), url("../fonts/roboto-regular-webfont.woff") format("woff"), url("../fonts/roboto-regular-webfont.ttf") format("truetype"), url("../fonts/roboto-regular-webfont.svg#robotoregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/fonts/");
-  src: url("../fonts/fonts/") format("embedded-opentype"), url("../fonts/fonts/") format("woff"), url("../fonts/fonts/") format("truetype"), url("../fonts/fonts/#robotoregular") format("svg");
+  src: url("../fonts/roboto-thin-regular-webfont.eot");
+  src: url("../fonts/roboto-thin-regular-webfont.eot") format("embedded-opentype"), url("../fonts/roboto-thin-regular-webfont.woff") format("woff"), url("../fonts/roboto-thin-regular-webfont.ttf") format("truetype"), url("../fonts/roboto-thin-regular-webfont.svg#robotoregular") format("svg");
   font-weight: 100;
   font-style: normal; }
 
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/fonts/");
-  src: url("../fonts/fonts/") format("embedded-opentype"), url("../fonts/fonts/") format("woff"), url("../fonts/fonts/") format("truetype"), url("../fonts/fonts/#robotoregular") format("svg");
+  src: url("../fonts/roboto-light-regular-webfont.eot");
+  src: url("../fonts/roboto-light-regular-webfont.eot") format("embedded-opentype"), url("../fonts/roboto-light-regular-webfont.woff") format("woff"), url("../fonts/roboto-light-regular-webfont.ttf") format("truetype"), url("../fonts/roboto-light-regular-webfont.svg#robotoregular") format("svg");
   font-weight: 300;
   font-style: normal; }
 
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/fonts/");
-  src: url("../fonts/fonts/") format("embedded-opentype"), url("../fonts/fonts/") format("woff"), url("../fonts/fonts/") format("truetype"), url("../fonts/fonts/#robotomedium") format("svg");
+  src: url("../fonts/roboto-medium-webfont.eot");
+  src: url("../fonts/roboto-medium-webfont.eot") format("embedded-opentype"), url("../fonts/roboto-medium-webfont.woff") format("woff"), url("../fonts/roboto-medium-webfont.ttf") format("truetype"), url("../fonts/roboto-medium-webfont.svg#robotomedium") format("svg");
   font-weight: 500;
   font-style: normal; }
 
 @font-face {
   font-family: 'Roboto';
-  src: url("../fonts/fonts/");
-  src: url("../fonts/fonts/") format("embedded-opentype"), url("../fonts/fonts/") format("woff"), url("../fonts/fonts/") format("truetype"), url("../fonts/fonts/#robotobold") format("svg");
+  src: url("../fonts/roboto-bold-webfont.eot");
+  src: url("../fonts/roboto-bold-webfont.eot") format("embedded-opentype"), url("../fonts/roboto-bold-webfont.woff") format("woff"), url("../fonts/roboto-bold-webfont.ttf") format("truetype"), url("../fonts/roboto-bold-webfont.svg#robotobold") format("svg");
   font-weight: 600;
   font-style: normal; }
 
@@ -588,8 +588,94 @@ body {
 /* MONTARA */
 @font-face {
   font-family: 'Montara';
-  src: url("../fonts/fonts/");
-  src: url("../fonts/fonts/") format("embedded-opentype"), url("../fonts/fonts/2") format("woff2"), url("../fonts/fonts/") format("woff"), url("../fonts/fonts/") format("truetype"), url("../fonts/fonts/#MontaraGothic") format("svg"); }
+  src: url("../fonts/MontaraGothic.eot");
+  src: url("../fonts/MontaraGothic.eot") format("embedded-opentype"), url("../fonts/MontaraGothic.woff2") format("woff2"), url("../fonts/MontaraGothic.woff") format("woff"), url("../fonts/MontaraGothic.ttf") format("truetype"), url("../fonts/MontaraGothic.svg#MontaraGothic") format("svg"); }
+
+@font-face {
+  font-family: "themannekentrip";
+  src: url("../fonts/themannekentrip.eot");
+  src: url("../fonts/themannekentrip.eot?#iefix") format("embedded-opentype"), url("../fonts/themannekentrip.woff") format("woff"), url("../fonts/themannekentrip.ttf") format("truetype"), url("../fonts/themannekentrip.svg#themannekentrip") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[data-icon]:before {
+  font-family: "themannekentrip" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "themannekentrip" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-facebook:before {
+  content: "\61"; }
+
+.icon-twitter:before {
+  content: "\63"; }
+
+.icon-pinterest-p:before {
+  content: "\62"; }
+
+.icon-youtube:before {
+  content: "\64"; }
+
+.icon-align-justify:before {
+  content: "\65"; }
+
+.icon-distance:before {
+  content: "\66"; }
+
+.icon-environmental:before {
+  content: "\67"; }
+
+.icon-globe:before {
+  content: "\68"; }
+
+.icon-practices:before {
+  content: "\69"; }
+
+.icon-clock:before {
+  content: "\6a"; }
+
+.icon-search:before {
+  content: "\6b"; }
+
+.icon-chevron-right:before {
+  content: "\6d"; }
+
+.icon-liveplorer:before {
+  content: "\6e"; }
+
+.icon-instagram:before {
+  content: "\6f"; }
+
+.icon-times:before, #topbar .menu-toggle.is-opened i:before {
+  content: "\70"; }
+
+.icon-angle-down:before {
+  content: "\71"; }
+
+.icon-angle-up:before, .primary-menu-item:hover i:before,
+.primary-menu-item > i:hover i:before {
+  content: "\72"; }
+
+.icon-chevron-left:before {
+  content: "\6c"; }
 
 html {
   font-size: 60%; }
@@ -701,8 +787,6 @@ html.is-overflow-hidden body {
       margin-left: 5px; }
     #topbar .menu-toggle.is-opened i {
       vertical-align: middle; }
-      #topbar .menu-toggle.is-opened i:before {
-        content: "\70"; }
   #topbar #social-navigation {
     text-align: left;
     margin: 0 20px 0 0;
@@ -778,10 +862,19 @@ html.is-overflow-hidden body {
 .primary-menu-item {
   display: block;
   margin: 5px 0; }
-  @media all and (min-width: 64em) {
-    .primary-menu-item:hover .primary-sub-menu {
-      max-height: 5000px;
-      transition: all 1s ease-in; } }
+  .primary-menu-item i {
+    display: inline-block;
+    vertical-align: sub;
+    font-size: 2rem;
+    margin-left: 5px;
+    cursor: pointer;
+    color: #179ba9; }
+  .primary-menu-item:hover .primary-sub-menu,
+  .primary-menu-item:hover + .primary-sub-menu,
+  .primary-menu-item > i:hover .primary-sub-menu,
+  .primary-menu-item > i:hover + .primary-sub-menu {
+    max-height: 5000px;
+    transition: all 1s ease-in; }
 
 .primary-menu-item-link,
 .primary-sub-menu-item-link {
@@ -806,12 +899,10 @@ html.is-overflow-hidden body {
 
 .primary-sub-menu {
   margin: 0 0 .5rem;
-  text-align: center; }
-  @media all and (min-width: 64em) {
-    .primary-sub-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease-out; } }
+  text-align: center;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out; }
 
 .primary-sub-menu-item {
   display: block;

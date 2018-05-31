@@ -222,8 +222,8 @@ gulp.task('styles', function () {
                 // Add browser prefixes to all styles that matches the list of supported browsers
                 .pipe($.postcss([$.autoprefixer(!_.isUndefined(config.autoprefixer) ? config.autoprefixer.options || {} : {})]))
                 // Rewrite the url of all fonts in the css file to point to the new fonts directory
-                .pipe($.replace(/([\/\w\._-]+\/)*(fonts\/)([\w\._-]+\.(ttf|eot|woff|svg))/g, '../fonts/$2'))
-                // TODO : uncomment the line below if you want the images directory structure to be flatten
+                .pipe($.replace(/([\/\w\._-]+\/)*([\w\._-]+\.(ttf|eot|woff|svg))/g, '../fonts/$2'))
+                 //TODO : uncomment the line below if you want the images directory structure to be flatten
                 //.pipe($.replace(/([\/\w\._-]+\/)*([\w\._-]+\.(png|jpg|gif|svg))/g, '../images/$2'))
                 // Save the concatenated styles in %config.dest%/styles
                 .pipe(gulp.dest(path.join(config.dest, 'styles')))

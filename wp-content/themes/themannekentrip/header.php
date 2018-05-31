@@ -91,6 +91,7 @@
 											<?php if ( $parent_id == $nav_item->menu_item_parent ): ?>
 
 												<?php if ( !$subMenu ): $subMenu = true; ?>
+													<i class="icon-angle-down"></i>
 													<ul class="primary-sub-menu">
 												<?php endif; ?>
 														<li class="primary-sub-menu-item">

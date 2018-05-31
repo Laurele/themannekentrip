@@ -118,7 +118,7 @@ html.is-overflow-hidden body {
                 vertical-align: middle;
 
                 &:before {
-                    content: "\70"; // times icon
+                    @extend .icon-times:before;
                 }
             }
         }
@@ -213,12 +213,25 @@ html.is-overflow-hidden body {
     display: block;
     margin: 5px 0;
 
-    @include mq(large) {
-        &:hover {
-            .primary-sub-menu {
-                max-height: 5000px;
-                @include transition(all 1s ease-in);
-            }
+    i {
+        display: inline-block;
+        vertical-align: sub;
+        font-size: 2rem;
+        margin-left: 5px;
+        cursor: pointer;
+        color: $color-primary;
+    }
+
+    &:hover,
+    & > i:hover {
+        .primary-sub-menu,
+        + .primary-sub-menu {
+            max-height: 5000px;
+            @include transition(all 1s ease-in);
+        }
+
+        i:before {
+            @extend .icon-angle-up:before;
         }
     }
 }
@@ -252,13 +265,10 @@ html.is-overflow-hidden body {
     margin: 0 0 .5rem;
     text-align: center;
 
-    @include mq(large) {
-        max-height: 0;
-        overflow: hidden;
+    max-height: 0;
+    overflow: hidden;
 
-        @include transition(all .3s ease-out);
-    }
-
+    @include transition(all .3s ease-out);
 }
 
 .primary-sub-menu-item {

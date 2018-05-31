@@ -597,7 +597,6 @@ function my_theme_styles()
 
 	wp_enqueue_style('vendor-styles', get_template_directory_uri() . '/build/styles/vendors' . $suffix . '.css', array(), $assetVersion);
 	wp_enqueue_style('main', get_template_directory_uri() . '/build/styles/main' . $suffix . '.css', array(), $assetVersion);
-	wp_enqueue_style('fontastic', 'https://file.myfontastic.com/mg9JcKNLSXVKNmerfyxeEC/icons.css', array(), $assetVersion);
 }
 add_action('wp_enqueue_scripts', 'my_theme_styles');
 
