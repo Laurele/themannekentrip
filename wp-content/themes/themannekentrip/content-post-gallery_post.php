@@ -35,11 +35,11 @@
                         <?php endif; ?>
 
                         <?php
-                        $id = $image['id']; // The attachment id of the media
-                        $title = $image['title']; //The title
-                        $thumbnail_image_url = $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
-                        $alt = get_field('photo_gallery_alt', $id ); //Get the alt which is a extra field (See below how to add extra fields)
-                        $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
+                            $id = $image['id']; // The attachment id of the media
+                            $title = $image['title']; //The title
+                            $thumbnail_image_url = $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
+                            $alt = get_field('photo_gallery_alt', $id ); //Get the alt which is a extra field (See below how to add extra fields)
+                            $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)
                         ?>
                         <div class="thumbnail">
                             <img src="<?php echo $thumbnail_image_url; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>" class="<?php echo $class; ?>">
@@ -57,6 +57,7 @@
                         $caption = htmlspecialchars($attachment->post_excerpt); //The caption
                         $full_image_url = $image['full_image_url']; //Full size image url
 //                        $full_image_url = acf_photo_gallery_resize_image($full_image_url, 1920, 1080); //Resized size to 1920px width by 1080px height image url
+                        $full_image_url = wp_get_attachment_image_src($image['id'], 'slideshow-large')[0];
                         $thumbnail_image_url = $image['thumbnail_image_url']; //Get the thumbnail size image url 150px by 150px
                         $alt = get_field('photo_gallery_alt', $id ); //Get the alt which is a extra field (See below how to add extra fields)
                         $class = get_field('photo_gallery_class', $id); //Get the class which is a extra field (See below how to add extra fields)

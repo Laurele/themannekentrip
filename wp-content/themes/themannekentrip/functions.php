@@ -729,4 +729,26 @@ function my_extra_gallery_fields($args, $attachment_id, $field)
 }
 
 add_filter('acf_photo_gallery_image_fields', 'my_extra_gallery_fields', 10, 3);
+
+/**
+ * Make sure featured images are enabled
+ * This will enable the support of post thumbnails, so you can use the built-in function add_image_size()
+ * to add your own custom image sizes.
+ */
+add_theme_support( 'post-thumbnails' );
+
+/**
+ * Register additional image size
+ */
+add_image_size( 'slideshow-large', 1920, 1080 ); // Soft Crop Mode
+
+/**
+ * Register the useful image sizes for use in Add Media modal
+ */
+add_filter( 'image_size_names_choose', 'slideshow_custom_sizes' );
+function slideshow_custom_sizes( $sizes ) {
+	return array_merge( $sizes, array(
+		'slideshow-large' => __( 'Slideshow Large' ),
+	) );
+}
 ?>
