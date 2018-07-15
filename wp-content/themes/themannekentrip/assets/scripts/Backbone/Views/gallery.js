@@ -132,7 +132,7 @@ $(function () {
          * @private
          */
         _appendMiniature: function ($container, image) {
-            this.$miniatures.append('<div data-miniature="' + $container.attr('data-image') + '" class="my-slideshow-miniature" style="background-image: url(' + image.miniature + ')"></div>');
+            this.$miniatures.append('<div data-miniature="' + $container.attr('data-slideshow-image') + '" class="my-slideshow-miniature" style="background-image: url(' + image.miniature + ')"></div>');
         },
 
         _appendSlideshow: function () {
