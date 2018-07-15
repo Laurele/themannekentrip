@@ -1,0 +1,25 @@
+/* Layout styling */
+body.page-template-tpl-news #primary [class^="post-"]:not(.page) {
+    border: solid 1px $color-light-grey;
+    padding: 1rem;
+
+    @include mq(medium) {
+        padding: 2rem;
+    }
+
+    .entry-content {
+        border: none;
+        padding: 0;
+    }
+
+    .template-news-gallery {
+        .entry-content > * {
+            display: none;
+        }
+
+        .entry-content > a {
+            display: block;
+            margin-top: 2rem;
+        }
+    }
+}

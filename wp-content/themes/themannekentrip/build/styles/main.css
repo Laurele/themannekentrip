@@ -2194,5 +2194,21 @@ body.page-template-tpl-index #footer {
   padding-top: 4rem;
   border-top: solid 1px #EFEFEF; }
 
+/* Layout styling */
+body.page-template-tpl-news #primary [class^="post-"]:not(.page) {
+  border: solid 1px #EFEFEF;
+  padding: 1rem; }
+  @media all and (min-width: 47.5em) {
+    body.page-template-tpl-news #primary [class^="post-"]:not(.page) {
+      padding: 2rem; } }
+  body.page-template-tpl-news #primary [class^="post-"]:not(.page) .entry-content {
+    border: none;
+    padding: 0; }
+  body.page-template-tpl-news #primary [class^="post-"]:not(.page) .template-news-gallery .entry-content > * {
+    display: none; }
+  body.page-template-tpl-news #primary [class^="post-"]:not(.page) .template-news-gallery .entry-content > a {
+    display: block;
+    margin-top: 2rem; }
+
 .widget_breadcrumb_navxt [property="name"] {
   white-space: nowrap; }

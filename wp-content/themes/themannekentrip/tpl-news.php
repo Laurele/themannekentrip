@@ -15,14 +15,27 @@
             <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
                 <?php zilla_post_start(); ?>
                 <?php
-                $format = get_post_format();
-                if (false === $format) {
-                    $format = 'standard';
-                }
+                    $format = get_post_format();
+                    if (false === $format) {
+                        $format = 'standard';
+                    }
                 ?>
 
                 <div class="<?php echo $format === 'standard' ? 'format-aside' : $format; ?> entry-meta entry-icon"></div>
                 <?php get_template_part('content-post', $format); ?>
+
+                <div class="template-news-gallery">
+                    <?php $gallerie_relation = get_field('gallerie_relation'); ?>
+                    <?php
+                        global $post;
+                        $post = get_post( $gallerie_relation->ID, OBJECT );
+                        setup_postdata( $post );
+
+                        get_template_part('content-post', 'gallery_post');
+                        wp_reset_postdata();
+                    ?>
+                </div>
+
                 <?php zilla_post_end(); ?>
             </div>
             <?php zilla_post_after(); ?>
