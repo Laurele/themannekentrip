@@ -26,6 +26,7 @@
 
                 <div class="template-news-gallery">
                     <?php $gallerie_relation = get_field('gallerie_relation'); ?>
+                    <?php if ($gallerie_relation) : ?>
                     <?php
                         global $post;
                         $post = get_post( $gallerie_relation->ID, OBJECT );
@@ -34,7 +35,8 @@
                         get_template_part('content-post', 'gallery_post');
                         wp_reset_postdata();
                     ?>
-                </div>
+                    <?php endif; ?>
+                    </div>
 
                 <?php zilla_post_end(); ?>
             </div>
